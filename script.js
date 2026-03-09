@@ -5,6 +5,7 @@ function checkPassword(){
   } else { alert("Wrong password 😏"); }
 }
 
+
 // FALLING LOVE TEXT
 let lines=[
 "I love you Rita ❤️","I miss you Rita","I wanna hug you","You are my favorite","Thinking about you","You make me happy",
