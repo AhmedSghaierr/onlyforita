@@ -1,0 +1,142 @@
+/* GENERAL */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+  transition:1s;
+}
+
+/* PASSWORD PAGE */
+.box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  text-align:center;
+}
+input{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+button{
+  padding:10px 20px;
+  margin-top:10px;
+  border:none;
+  background:#ff4d88;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* GLASS CARD */
+.card{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  max-width:400px;
+  position:relative;
+  z-index:2;
+}
+img{
+  width:160px;
+  border-radius:20px;
+  margin:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* OPEN WHEN CARDS */
+.open-container{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.open-card{
+  background:rgba(255,255,255,0.3);
+  padding:15px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.open-card:hover{transform:scale(1.05);}
+
+/* FLOATING HEARTS */
+.heart{
+  position:absolute;
+  color:#ff4d88;
+  font-size:20px;
+  animation:float 8s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* STARS */
+#stars{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url("https://i.imgur.com/7b1R8.png");
+  animation:stars 60s linear infinite;
+  opacity:0.4;
+  display:none;
+}
+@keyframes stars{
+  from{background-position:0 0;}
+  to{background-position:10000px 5000px;}
+}
+
+/* CLICKABLE HEART */
+#loveHeart{
+  font-size:50px;
+  cursor:pointer;
+  margin-top:20px;
+  transition:0.3s;
+}
+#loveHeart:hover{transform:scale(1.2);}
+#loveCount{
+  margin-top:5px;
+  font-size:18px;
+}
+
+/* SUNRISE ANIMATION */
+.sunrise{
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:radial-gradient(circle at center,#FFD1DC 0%,#FF9AA2 50%,transparent 100%);
+  opacity:0.3;
+  animation:sunriseAnim 10s linear infinite alternate;
+}
+@keyframes sunriseAnim{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1.1);}
+}
+
+/* RAIN ANIMATION */
+.rain{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background:url("https://i.imgur.com/W0GpxyM.png") repeat;
+  animation:rainAnim 1s linear infinite;
+  display:none;
+}
+@keyframes rainAnim{
+  0%{background-position:0 0;}
+  100%{background-position:0 100%;}
+  }
