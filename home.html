@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little World 💗</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="hearts"></div>
+<div class="container">
+  <!-- Music Button -->
+  <button id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+  <!-- Good Morning / Good Night -->
+  <h2 id="gmgn"></h2>
+
+  <!-- Relationship counter -->
+  <h2 id="counter"></h2>
+
+  <!-- Main photo -->
+  <img id="mainPhoto">
+
+  <!-- Animated Love Counter -->
+  <div id="loveContainer">
+    <div id="loveHeart">
+      <span id="loveNumber">0</span>
+    </div>
+  </div>
+
+  <!-- Open When Messages -->
+  <h2 class="sectionTitle">Open When...</h2>
+  <div class="openContainer">
+      <div class="openCard" onclick="openMsg(0)">Sad</div>
+      <div class="openCard" onclick="openMsg(1)">Miss Me</div>
+      <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+      <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+      <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+  </div>
+  <div id="openTextBox">
+    <p id="openText"></p>
+  </div>
+
+  <!-- Photo Wall -->
+  <h2 class="sectionTitle">My Favorite Pictures of You</h2>
+  <div class="photoWall">
+    <img src="images/her1.jpg">
+    <img src="images/her2.jpg">
+    <img src="images/her3.jpg">
+    <img src="images/her4.jpg">
+    <img src="images/her5.jpg">
+    <img src="images/her6.jpg">
+    <img src="images/her7.jpg">
+    <img src="images/her8.jpg">
+    <img src="images/her9.jpg">
+    <img src="images/her10.jpg">
+    <img src="images/her11.jpg">
+    <img src="images/her12.jpg">
+    <img src="images/her13.jpg">
+    <img src="images/her14.jpg">
+    <img src="images/her15.jpg">
+  </div>
+
+  <!-- Random Quote -->
+  <p id="quote" class="quote"></p>
+
+  <audio id="music" src="songrita.mp3" loop></audio>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
