@@ -1,299 +1,65 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-min-height:100vh;
-overflow-x:hidden;
-text-align:center;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{min-height:100vh;overflow-x:hidden;text-align:center;}
 
 /* LOGIN PAGE */
-
 .loginPage{
-
-background:linear-gradient(135deg,#ff9a9e,#fecfef);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-height:100vh;
-
+  background:linear-gradient(135deg,#ff9a9e,#fecfef);
+  display:flex;justify-content:center;align-items:center;height:100vh;
 }
-
 .loginBox{
-
-background:white;
-
-padding:50px 30px;
-
-border-radius:25px;
-
-width:90%;
-max-width:400px;
-
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-
+  position:relative; z-index:1;
+  background:white;
+  padding:50px 30px;
+  border-radius:25px;
+  width:90%; max-width:400px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+  border:3px solid #ff4d88; /* pink neon border */
+  box-shadow:0 0 20px #ff4d88, 0 0 40px #ff4d88 inset;
 }
-
-.loginBox h1{
-
-font-size:32px;
-
-margin-bottom:10px;
-
-}
-
+.loginBox h1{font-size:32px;margin-bottom:10px;}
 .loginBox input{
-
-width:100%;
-
-padding:15px;
-
-border-radius:12px;
-
-border:none;
-
-background:#f2f2f2;
-
-margin-top:15px;
-
-font-size:18px;
-
+  width:100%;padding:15px;border-radius:12px;border:2px solid #ff4d88;
+  background:#f2f2f2;margin-top:15px;font-size:18px;
+  box-shadow:0 0 10px #ff4d88 inset;
 }
-
 .loginBox button{
-
-margin-top:20px;
-
-padding:15px;
-
-width:100%;
-
-border:none;
-
-border-radius:15px;
-
-background:#ff4d88;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
+  margin-top:20px;padding:15px;width:100%;
+  border:none;border-radius:15px;background:#ff4d88;
+  color:white;font-size:20px;cursor:pointer;
 }
+/* Falling love text */
+.loveBackground{position:fixed;width:100%;height:100%;overflow:hidden;z-index:0;}
+.loveText{position:absolute;color:#ff4d88;font-size:14px;opacity:0.5;animation:fallText 12s linear infinite;}
+@keyframes fallText{0%{transform:translateY(-10vh)}100%{transform:translateY(110vh)}}
 
-/* LOVE TEXT BACKGROUND */
-
-.loveText{
-
-position:absolute;
-
-color:white;
-
-font-size:14px;
-
-opacity:0.4;
-
-animation:fallText 12s linear infinite;
-
-}
-
-@keyframes fallText{
-
-0%{transform:translateY(-10vh)}
-100%{transform:translateY(110vh)}
-
-}
-
-/* MAIN PAGE */
-
-body{
-
-background:linear-gradient(180deg,#0f2027,#203a43,#2c5364);
-
-color:white;
-
-}
-
-.container{
-
-width:90%;
-max-width:500px;
-margin:auto;
-padding:20px;
-
-}
-
-/* MAIN PHOTO */
-
-#mainPhoto{
-
-width:220px;
-
-border-radius:20px;
-
-margin:20px auto;
-
-display:block;
-
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-
-animation:floatPic 6s ease-in-out infinite;
-
-}
-
-@keyframes floatPic{
-
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
-
-}
+/* HOME PAGE */
+body{background:#0f2027;color:white;}
+.container{width:90%;max-width:500px;margin:auto;padding:20px;position:relative;}
+#mainPhoto{width:220px;border-radius:20px;margin:20px auto;display:block;box-shadow:0 10px 30px rgba(0,0,0,0.6);animation:floatPic 6s ease-in-out infinite;}
+@keyframes floatPic{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
 
 /* COUNTER */
+#counter{margin-top:20px;font-size:18px;}
 
-#counter{
+/* LOVE HEART */
+#loveHeart{font-size:60px;cursor:pointer;margin-top:10px;}
 
-margin-top:20px;
-font-size:18px;
-
-}
-
-/* HEART BUTTON */
-
-#loveHeart{
-
-font-size:60px;
-
-cursor:pointer;
-
-margin-top:10px;
-
-}
-
-/* OPEN CARDS */
-
-.openContainer{
-
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-
-margin-top:10px;
-
-}
-
-.openCard{
-
-background:white;
-
-color:black;
-
-padding:10px 14px;
-
-border-radius:15px;
-
-cursor:pointer;
-
-}
+/* OPEN WHEN CARDS */
+.openContainer{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+.openCard{background:white;color:black;padding:10px 14px;border-radius:15px;cursor:pointer;}
 
 /* PHOTO WALL */
-
-.photoWall{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:10px;
-
-margin-top:20px;
-
-}
-
-.photoWall img{
-
-width:100%;
-
-border-radius:10px;
-
-box-shadow:0 5px 15px rgba(0,0,0,0.5);
-
-transition:0.3s;
-
-}
-
-.photoWall img:hover{
-
-transform:scale(1.05);
-
-}
-
-/* STARS */
-
-#stars{
-
-position:fixed;
-
-width:100%;
-
-height:100%;
-
-background:url("https://i.imgur.com/7b1R8.png");
-
-opacity:0.4;
-
-animation:starsMove 200s linear infinite;
-
-z-index:-2;
-
-}
-
-@keyframes starsMove{
-
-from{background-position:0 0}
-to{background-position:10000px 5000px}
-
-}
+.photoWall{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
+.photoWall img{width:100%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.5);transition:0.3s;}
+.photoWall img:hover{transform:scale(1.05);}
 
 /* FALLING HEARTS */
+.hearts{position:fixed;width:100%;height:100%;overflow:hidden;z-index:-1;}
+.heart{position:absolute;color:#ff4d88;font-size:18px;animation:fall 6s linear infinite;user-select:none;}
+@keyframes fall{0%{transform:translateY(-10vh);}100%{transform:translateY(110vh);}}
 
-.hearts{
+/* MUSIC BUTTON */
+#musicBtn{position:fixed;top:20px;right:20px;font-size:24px;background:transparent;border:none;color:#ff4d88;cursor:pointer;z-index:10;}
 
-position:fixed;
-
-width:100%;
-
-height:100%;
-
-overflow:hidden;
-
-z-index:-1;
-
-}
-
-.heart{
-
-position:absolute;
-
-color:#ff4d88;
-
-font-size:20px;
-
-animation:fall 8s linear infinite;
-
-}
-
-@keyframes fall{
-
-0%{transform:translateY(-10vh)}
-100%{transform:translateY(110vh)}
-
-}
+/* RANDOM QUOTES */
+.quote{margin-top:30px;font-style:italic;font-size:16px;color:#ffb6c1;}
