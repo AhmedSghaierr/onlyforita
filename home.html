@@ -10,8 +10,6 @@
 <body>
 <div class="hearts"></div>
 <div class="container">
-  <!-- Music Button -->
-  <button id="musicBtn" onclick="toggleMusic()">🎵</button>
 
   <!-- Good Morning / Good Night -->
   <h2 id="gmgn"></h2>
@@ -23,11 +21,10 @@
   <img id="mainPhoto">
   <p id="photoGreeting"></p>
 
-  <!-- Animated Love Counter -->
+  <!-- Animated Love Heart -->
   <div id="loveContainer">
-    <div id="loveHeart">
-      <span id="loveNumber">0</span>
-    </div>
+    <img id="loveHeart" src="images/love_heart.png">
+    <span id="loveNumber">0</span>
   </div>
 
   <!-- Heart Menu -->
@@ -41,7 +38,9 @@
 
   <!-- Sections -->
   <div id="loveLetter" class="section"><p id="loveLetterText"></p></div>
-  <div id="music" class="section"></div>
+  <div id="music" class="section">
+    <div id="musicList"></div>
+  </div>
   <div id="notes" class="section"></div>
   <div id="gallery" class="section">
       <h3>Her Photos</h3>
@@ -65,7 +64,8 @@
   <!-- Random Quote -->
   <p id="quote" class="quote"></p>
 
-  <audio id="musicPlayer" src="songrita.mp3" loop></audio>
+  <!-- Background music auto (songrita) -->
+  <audio id="songrita" src="songrita.mp3" loop></audio>
 </div>
 <script src="script.js"></script>
 </body>
