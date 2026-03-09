@@ -296,7 +296,7 @@ body {
 
 #musicBtn {
   position: fixed;
-  top: 30px;
+  top: 10px;
   left: 20px; /* move to top-left */
   font-size: 18px; /* smaller text */
   padding: 8px 12px; /* a bit of padding */
