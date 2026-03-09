@@ -1,20 +1,28 @@
 // PASSWORD
+let passwordMessages=["I love you","Forever yours","My heart","You’re my sunshine"];
 function checkPassword(){
-  if(document.getElementById("pass").value === "04/03/26"){
-    window.location = "home.html";
+  let pass=document.getElementById("pass").value;
+  if(pass==="04/03/26"){
+    let songrita=new Audio("songrita.mp3");
+    songrita.play();
+    window.location="home.html";
   } else { alert("Wrong password 😏"); }
 }
+let pmDiv=document.getElementById("passwordMessages");
+passwordMessages.forEach(msg=>{
+  let p=document.createElement("p");p.innerText=msg;pmDiv?.appendChild(p);
+});
 
-// DAY / NIGHT MODE
+// DAY / NIGHT
 function updateMode(){
-  let h = new Date().getHours();
+  let h=new Date().getHours();
   if(h>=6 && h<18) document.body.classList.add("day");
   else document.body.classList.add("night");
 }
 updateMode();
 
 // FALLING HEARTS
-for(let i=0;i<100;i++){
+for(let i=0;i<50;i++){
   let heart=document.createElement("div");
   heart.className="heart";
   heart.style.left=Math.random()*100+"%";
@@ -22,7 +30,7 @@ for(let i=0;i<100;i++){
   document.querySelector(".hearts")?.appendChild(heart);
 }
 
-// MAIN PHOTO + RANDOM GREETING
+// MAIN PHOTO + GREETING
 let photos=[...Array(15)].map((_,i)=>`images/her${i+1}.jpg`);
 let mainPhoto=document.getElementById("mainPhoto");
 if(mainPhoto) mainPhoto.src=photos[Math.floor(Math.random()*photos.length)];
@@ -54,7 +62,10 @@ function showSection(id){
 }
 
 // LOVE LETTERS
-let letters=["You are my sunshine ❤️","Thinking of you all the time","Forever yours","You make me happy","I can’t stop dreaming of you"];
+let letters=[
+  "You are my sunshine ❤️\nI think about you every second.\nForever yours.\nYou make me happy.\nI can’t stop dreaming of you.\nLove you endlessly.",
+  "Every moment with you is perfect.\nYou light up my world.\nI miss you when you are away.\nYou are my favorite.\nForever mine.\nYou complete me."
+];
 document.getElementById("loveLetterText").innerText=letters[Math.floor(Math.random()*letters.length)];
 
 // NOTES
@@ -66,7 +77,7 @@ notes.forEach(n=>{
   div.style.background="#ffb6c1"; notesContainer.appendChild(div);
 });
 
-// GALLERY HER PHOTOS
+// GALLERY
 let photoWall=document.querySelector(".photoWall");
 photoWall.innerHTML="";
 photos.forEach(p=>{
@@ -97,11 +108,21 @@ function openMsg(i){
   document.getElementById("openText").innerText=randomMessage;
 }
 
-// MUSIC
-let music=document.getElementById("musicPlayer");
-function toggleMusic(){music.paused?music.play():music.pause();}
+// MUSIC SECTION
+let songs = [
+  {name:"Just The Two Of Us", file:"songrita.mp3"},
+  {name:"Apocalypse", file:"apocalypse.mp3"},
+  {name:"I Wanna Be Yours", file:"i_wanna_be_yours.mp3"}
+];
+let musicList=document.getElementById("musicList");
+songs.forEach(s=>{
+  let btn=document.createElement("button");
+  btn.textContent=s.name;
+  btn.onclick=()=>{let a=new Audio(s.file);a.play();}
+  musicList.appendChild(btn);
+});
 
-// GM / GN
+// GM/GN
 let gmLines=["Good morning beautiful ☀️ I hope today brings you happiness","Rise and shine my love ❤️","Morning hug for you 😘","Hello sunshine","Have a great day","You are my joy","Love you today and always","Good morning my angel","Smile my love","A new day for us"];
 let gnLines=["Good night my love 🌙 Sleep tight ❤️","Sweet dreams my angel 😴","Night kiss for you 💋","Sleep well my darling","Rest my love","I’m with you in spirit","Dream of us tonight","Good night beautiful","I love you","Sleep tight"];
 function updateGMGN(){
