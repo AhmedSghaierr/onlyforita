@@ -281,13 +281,38 @@ body {
 #musicBtn {
   position: fixed;
   top: 20px;
-  right: 20px;
-  font-size: 24px;
-  background: transparent;
+  left: 20px; /* move to top-left */
+  font-size: 18px; /* smaller text */
+  padding: 8px 12px; /* a bit of padding */
+  background: rgba(255, 255, 255, 0.7); /* slightly transparent so it blends */
   border: none;
+  border-radius: 10px;
   color: #ff1a75;
   cursor: pointer;
   z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#musicBtn {
+  position: fixed;
+  top: 20px;
+  left: 20px; /* move to top-left */
+  font-size: 18px; /* smaller text */
+  padding: 8px 12px; /* a bit of padding */
+  background: rgba(255, 255, 255, 0.7); /* slightly transparent so it blends */
+  border: none;
+  border-radius: 10px;
+  color: #ff1a75;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#musicBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
 /* RANDOM QUOTES */
