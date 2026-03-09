@@ -1,22 +1,25 @@
 // PASSWORD PAGE
 function checkPassword(){
-  if(document.getElementById("pass").value==="nhebekbrsha"){
+  if(document.getElementById("pass").value==="04/03/26"){
     window.location="home.html";
-  }else{alert("Wrong password nigga")}
+  }else{alert("Wrong password 😏")}
 }
 
-// FALLING LOVE TEXT
+// FALLING LOVE TEXT (controlled)
 let lines = [
 "I love you Rita ❤️","I miss you Rita","I wanna hug you","You are my favorite","Thinking about you","You make me happy",
 "I can’t stop thinking about you","My heart beats for you","You are my sunshine","Forever yours","You are amazing","My queen ❤️",
 "I dream of you","You make me smile","Love you endlessly"
 ];
-for(let i=0;i<50;i++){
+let delay=0;
+for(let i=0;i<30;i++){
   let text=document.createElement("div");
   text.className="loveText";
   text.innerText=lines[Math.floor(Math.random()*lines.length)];
   text.style.left=Math.random()*100+"%";
-  text.style.animationDuration=(5+Math.random()*7)+"s";
+  text.style.animationDuration=(7+Math.random()*5)+"s";
+  text.style.animationDelay=delay+"s";
+  delay+=0.3; // staggered so they don’t stack
   document.querySelector(".loveBackground")?.appendChild(text);
 }
 
