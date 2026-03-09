@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rita 💗</title>
+<style>
+/* --- GENERAL --- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{overflow-x:hidden;text-align:center;transition:0.5s;}
+
+/* --- PASSWORD PAGE --- */
+body.loginPage{display:flex;justify-content:center;align-items:center;height:100vh;background:#ffd1dc;position:relative;}
+.loveBackground{position:absolute;width:100%;height:100%;top:0;left:0;z-index:0;}
+.loginBox{position:relative;z-index:1;background:rgba(255,255,255,0.9);padding:50px 30px;border-radius:25px;width:90%;max-width:400px;border:3px solid #ff4d88;box-shadow:0 0 20px #ff4d88,0 0 40px #ff4d88 inset;}
+.loginBox h1{font-family:'Sacramento',cursive;font-size:36px;color:#ff1a75;margin-bottom:10px;}
+#passwordMessages p{color:#ff4d88;font-family:'Sacramento',cursive;margin:2px 0;}
+
+/* INPUT */
+#pass{width:90%;padding:12px;border-radius:15px;border:2px solid #ff4d88;margin:10px 0;font-size:18px;outline:none;text-align:center;font-family:'Montserrat',sans-serif;}
+.loginBox button{padding:10px 20px;border:none;border-radius:15px;background:#ff4d88;color:white;font-size:18px;cursor:pointer;transition:0.3s;}
+.loginBox button:hover{background:#ff1a75;}
+
+/* --- HOME PAGE --- */
+body.home{background:#ffd1dc;color:black;transition:0.5s;}
+body.night{background:#2c1a2b;color:white;transition:0.5s;}
+.container{width:90%;max-width:500px;margin:auto;padding:20px;position:relative;}
+#gmgn{font-size:18px;font-weight:600;margin-bottom:10px;}
+#counter{font-size:14px;margin-bottom:15px;}
+#mainPhoto{width:220px;border-radius:20px;margin:10px auto;display:block;box-shadow:0 10px 30px rgba(0,0,0,0.6);animation:floatPic 6s ease-in-out infinite;}
+@keyframes floatPic{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+/* LOVE HEART */
+#loveContainer{position: relative;margin:20px auto;width:120px;height:120px;}
+#loveHeart{width:100%;height:100%;cursor:pointer;transition:0.2s;}
+#loveNumber{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:24px;font-weight:bold;}
+.floatingText{position:absolute;animation:floatText 1.5s ease-out;pointer-events:none;color:#ff4d88;font-weight:bold;font-size:14px;}
+@keyframes floatText{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-50px)}}
+
+/* HEART MENU */
+.heartMenu{display:flex;overflow-x:auto;gap:10px;margin:10px 0;padding-bottom:10px;}
+.heartMenu button{flex:0 0 auto;padding:10px 15px;border-radius:10px;border:none;background:#ff4d88;color:white;cursor:pointer;transition:0.3s;font-weight:600;}
+.heartMenu button:hover{background:#ff1a75;}
+
+/* SECTIONS */
+.section{display:none;padding:10px 0;}
+.section.active{display:block;}
+
+/* OPEN WHEN CARDS */
+.openContainer{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+.openCard{background:white;color:black;padding:10px 14px;border-radius:15px;cursor:pointer;flex:1 1 40%;text-align:center;}
+#openTextBox{background:rgba(255,255,255,0.9);color:#ff1a75;padding:15px;border-radius:15px;margin-top:10px;min-height:50px;}
+
+/* PHOTO WALL */
+.photoWall{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
+.photoWall img{width:100%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.5);transition:0.3s;cursor:pointer;}
+.photoWall img:hover{transform:scale(1.05);}
+#photoMessage{margin-top:10px;font-weight:bold;color:#ff1a75;}
+
+/* RANDOM QUOTES */
+.quote{margin-top:30px;font-style:italic;font-size:16px;color:#ff4d88;}
+
+/* FALLING HEARTS */
+.hearts{position:fixed;width:100%;height:100%;overflow:hidden;z-index:-1;}
+.heartShape{position:absolute;width:20px;height:20px;background:#ff4d88;clip-path:polygon(50% 0%,61% 14%,75% 14%,82% 22%,85% 36%,75% 53%,50% 80%,25% 53%,15% 36%,18% 22%,25% 14%,39% 14%);animation:fall 6s linear infinite;}
+@keyframes fall{0%{transform:translateY(-50px)}100%{transform:translateY(110vh)}}
+
+</style>
+</head>
+<body class="loginPage">
+
+<!-- PASSWORD PAGE -->
+<div class="loveBackground"></div>
+<div class="loginBox">
+  <h1>For Rita 💗</h1>
+  <div id="passwordMessages"></div>
+  <input type="password" id="pass" placeholder="Secret code">
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- HOME PAGE -->
+<div class="homeContent" style="display:none;">
+<div class="hearts"></div>
+<div class="container">
+
+<h2 id="gmgn"></h2>
+<h2 id="counter"></h2>
+
+<img id="mainPhoto">
+<p id="photoGreeting"></p>
+
+<div id="loveContainer">
+  <img id="loveHeart" src="images/love_heart.png">
+  <span id="loveNumber">0</span>
+</div>
+
+<div class="heartMenu">
+  <button onclick="showSection('loveLetter')">Love Letter</button>
+  <button onclick="showSection('music')">Music</button>
+  <button onclick="showSection('notes')">Notes</button>
+  <button onclick="showSection('gallery')">Gallery</button>
+  <button onclick="showSection('openWhen')">Open When</button>
+</div>
+
+<div id="loveLetter" class="section"><p id="loveLetterText"></p></div>
+<div id="music" class="section"><div id="musicList"></div></div>
+<div id="notes" class="section"></div>
+<div id="gallery" class="section">
+  <h3>Her Photos</h3>
+  <div class="photoWall"></div>
+  <p id="photoMessage"></p>
+  <h3>Our Memories</h3>
+  <div class="memoriesWall"><p>Our memories will start here soon.</p></div>
+</div>
+<div id="openWhen" class="section">
+  <h3>Open When...</h3>
+  <div class="openContainer">
+    <div class="openCard" onclick="openMsg(0)">Sad</div>
+    <div class="openCard" onclick="openMsg(1)">Miss Me</div>
+    <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+    <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+    <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+  </div>
+  <div id="openTextBox"><p id="openText"></p></div>
+</div>
+
+<p id="quote" class="quote"></p>
+<audio id="songrita" src="songrita.mp3" loop></audio>
+
+</div>
+</div>
+
+<script>
+// PASSWORD PAGE
+let passwordMessages=["I love you","Forever yours","My heart","You’re my sunshine"];
+let pmDiv=document.getElementById("passwordMessages");
+passwordMessages.forEach(msg=>{
+  let p=document.createElement("p");p.innerText=msg;pmDiv.appendChild(p);
+});
+
+function checkPassword(){
+  let pass=document.getElementById("pass").value;
+  if(pass==="04/03/26"){
+    document.querySelector(".loginBox").style.display="none";
+    document.querySelector(".homeContent").style.display="block";
+    document.body.classList.add("home");
+    document.getElementById("songrita").play();
+    initHome();
+  } else { alert("Wrong password 😏"); }
+}
+
+// INIT HOME PAGE
+function initHome(){
+  // DAY/NIGHT
+  let h=new Date().getHours();
+  if(h>=6 && h<18) document.body.classList.add("day");
+  else document.body.classList.add("night");
+
+  // FALLING HEARTS
+  for(let i=0;i<50;i++){
+    let heart=document.createElement("div");
+    heart.className="heartShape";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    document.querySelector(".hearts").appendChild(heart);
+  }
+
+  // MAIN PHOTO + GREETING
+  let photos=[...Array(15)].map((_,i)=>`images/her${i+1}.jpg`);
+  let mainPhoto=document.getElementById("mainPhoto");
+  mainPhoto.src=photos[Math.floor(Math.random()*photos.length)];
+  let greetings=["Hey Riri","Asslema Ririta","Buenos Noches Mi Amore","Hiiii Riti","Hello Beautiful"];
+  document.getElementById("photoGreeting").innerText=greetings[Math.floor(Math.random()*greetings.length)];
+
+  // LOVE HEART
+  let loveClicks=0;
+  let loveTexts=["I love you ❤️","Forever","All yours","You’re mine ❤️","My heart","Always love"];
+  document.getElementById("loveHeart").onclick=function(){
+    loveClicks++;
+    document.getElementById("loveNumber").innerText=loveClicks;
+    let text=document.createElement("div");
+    text.className="floatingText";
+    text.innerText=loveTexts[Math.floor(Math.random()*loveTexts.length)];
+    document.getElementById("loveContainer").appendChild(text);
+    setTimeout(()=>text.remove(),1500);
+  }
+
+  // MENU NAVIGATION
+  window.showSection=function(id){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+    let el=document.getElementById(id);
+    if(el) el.classList.add("active");
+  }
+
+  // LOVE LETTERS
+  let letters=[
+    "You are my sunshine ❤️\nI think about you every second.\nForever yours.\nYou make me happy.\nI can’t stop dreaming of you.\nLove you endlessly.",
+    "Every moment with you is perfect.\nYou light up my world.\nI miss you when you are away.\nYou are my favorite.\nForever mine.\nYou complete me."
+  ];
+  document.getElementById("loveLetterText").innerText=letters[Math.floor(Math.random()*letters.length)];
+
+  // NOTES
+  let notes=["Take care","Eat on time","You're only mine","Don't forget to smile","I miss you"];
+  let notesContainer=document.getElementById("notes");
+  notes.forEach(n=>{
+    let div=document.createElement("div");
+    div.textContent=n; div.style.padding="10px"; div.style.margin="5px"; div.style.borderRadius="10px";
+    div.style.background="#ffb6c1"; notesContainer.appendChild(div);
+  });
+
+  // GALLERY
+  let photoWall=document.querySelector(".photoWall");
+  photoWall.innerHTML="";
+  photos.forEach(p=>{
+    let img=document.createElement("img");
+    img.src=p;
+    img.onclick=()=>{
+      img.style.transform="scale(1.5)";
+      setTimeout(()=>img.style.transform="scale(1)",500);
+      let messages=["You're so pretty","I love this picture of you","My favorite girl","You look perfect here","I can't stop looking at you"];
+      document.getElementById("photoMessage").innerText=messages[Math.floor(Math.random()*messages.length)];
+    };
+    photoWall.appendChild(img);
+  });
+
+  // OPEN WHEN
+  let openMessages={
+  "Sad":["Remember I'm always here ❤️","You are never alone","Take a deep breath, I love you","I believe in you","Everything will be okay"],
+  "Miss Me":["I'm missing you too","Counting the minutes","Wish I was hugging you","I think about you all the time","Can't wait to see you"],
+  "Can't Sleep":["Imagine me hugging you","Close your eyes, love","Count the stars for me","I'll be in your dreams","Sweet dreams, love"],
+  "Need Motivation":["You are amazing","You can do anything","I’m proud of you","Keep going, love","Stay strong, my love"],
+  "Thinking About Us":["You are my favorite story","Our memories are precious","I love our adventures","Forever yours","Every moment with you is perfect"]
+  };
+  window.openMsg=function(i){
+    let keys=Object.keys(openMessages);
+    let key=keys[i];
+    let messages=openMessages[key];
+    let randomMessage=messages[Math.floor(Math.random()*messages.length)];
+    document.getElementById("openText").innerText=randomMessage;
+  }
+
+  // MUSIC SECTION
+  let songs = [
+    {name:"Just The Two Of Us", file:"songrita.mp3"},
+    {name:"Apocalypse", file:"apocalypse.mp3"},
+    {name:"I Wanna Be Yours", file:"i_wanna_be_yours.mp3"}
+  ];
+  let musicList=document.getElementById("musicList");
+  songs.forEach(s=>{
+    let btn=document.createElement("button");
+    btn.textContent=s.name;
+    btn.style.margin="5px"; btn.style.padding="8px 12px"; btn.style.borderRadius="10px";
+    btn.style.border="none"; btn.style.background="#ff4d88"; btn.style.color="white"; btn.style.cursor="pointer";
+    btn.onclick=()=>{let a=new Audio(s.file);a.play();}
+    musicList.appendChild(btn);
+  });
+
+  // GM/GN
+  let gmLines=["Good morning beautiful ☀️ I hope today brings you happiness","Rise and shine my love ❤️","Morning hug for you 😘","Hello sunshine","Have a great day","You are my joy","Love you today and always","Good morning my angel","Smile my love","A new day for us"];
+  let gnLines=["Good night my love 🌙 Sleep tight ❤️","Sweet dreams my angel 😴","Night kiss for you 💋","Sleep well my darling","Rest my love","I’m with you in spirit","Dream of us tonight","Good night beautiful","I love you","Sleep tight"];
+  function updateGMGN(){
+    let el=document.getElementById("gmgn");
+    let h=new Date().getHours();
+    el.innerText=(h>=6 && h<18)?gmLines[Math.floor(Math.random()*gmLines.length)]:gnLines[Math.floor(Math.random()*gnLines.length)];
+  }
+  updateGMGN();
+  setInterval(updateGMGN,3600000);
+
+  // RANDOM QUOTE
+  let quotes=["You’re worth it ❤️","I’m proud of you","I love you more every day","You make me smile","You’re my everything","My heart is yours","You are amazing"];
+  function updateQuote(){let quote=document.getElementById("quote"); quote.innerText=quotes[Math.floor(Math.random()*quotes.length)];}
+  updateQuote();
+  setInterval(updateQuote,86400000);
+
+  // RELATIONSHIP COUNTER
+  let startDate=new Date("2026-03-04T23:19:00");
+  function updateCounter(){
+    let now=new Date();
+    let diff=now-startDate;
+    let days=Math.floor(diff/(1000*60*60*24));
+    let hours=Math.floor(diff/(1000*60*60)%24);
+    let minutes=Math.floor(diff/(1000*60)%60);
+    let seconds=Math.floor(diff/1000%60);
+    document.getElementById("counter").innerText=days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds with you ❤️";
+  }
+  updateCounter();
+  setInterval(updateCounter,1000);
+}
+</script>
+</body>
+  </html>
