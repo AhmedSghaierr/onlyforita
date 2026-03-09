@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>For Rita ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little World ❤️</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <div id="stars"></div>
-<div class="sunrise"></div>
-<div class="rain"></div>
+<div class="hearts"></div>
 
-<div class="card">
-  <h1 id="title"></h1>
-  <img src="herphoto.jpg" alt="Rita">
-  <p id="message"></p>
-  <div id="counter"></div>
+<div class="container">
 
-  <div class="open-container">
-    <div class="open-card" onclick="openMsg(0)">Open when sad</div>
-    <div class="open-card" onclick="openMsg(1)">Open when you miss me</div>
-    <div class="open-card" onclick="openMsg(2)">Open when you can't sleep</div>
-  </div>
+<h2 id="counter"></h2>
 
-  <p id="openText"></p>
+<img id="mainPhoto">
 
-  <div id="loveHeart" onclick="clickLove()">❤️</div>
-  <div id="loveCount">0</div>
+<h1>Hi Rita ❤️</h1>
 
-  <audio id="music" src="songrita.mp3" loop></audio>
+<p id="message"></p>
+
+<div id="loveHeart" onclick="clickLove()">❤️</div>
+<p id="loveCount">0</p>
+
+<h2 class="sectionTitle">Open When...</h2>
+
+<div class="openContainer">
+
+<div class="openCard" onclick="openMsg(0)">Sad</div>
+<div class="openCard" onclick="openMsg(1)">Miss Me</div>
+<div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+<div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+<div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+
+</div>
+
+<p id="openText"></p>
+
+<h2 class="sectionTitle">My Favorite Pictures of You</h2>
+
+<div class="photoWall">
+
+<img src="images/her1.jpg">
+<img src="images/her2.jpg">
+<img src="images/her3.jpg">
+<img src="images/her4.jpg">
+<img src="images/her5.jpg">
+<img src="images/her6.jpg">
+<img src="images/her7.jpg">
+<img src="images/her8.jpg">
+<img src="images/her9.jpg">
+<img src="images/her10.jpg">
+<img src="images/her11.jpg">
+<img src="images/her12.jpg">
+<img src="images/her13.jpg">
+<img src="images/her14.jpg">
+<img src="images/her15.jpg">
+
+</div>
+
+<audio id="music" src="songrita.mp3" loop></audio>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
