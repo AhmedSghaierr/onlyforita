@@ -5,66 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Little World 💗</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="hearts"></div>
 <div class="container">
-<!-- Music Button -->
-<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+  <!-- Music Button -->
+  <button id="musicBtn" onclick="toggleMusic()">🎵</button>
 
-<!-- Good Morning / Good Night -->
-<h2 id="gmgn"></h2>
+  <!-- Good Morning / Good Night -->
+  <h2 id="gmgn"></h2>
 
-<!-- Relationship counter -->
-<h2 id="counter"></h2>
+  <!-- Relationship counter -->
+  <h2 id="counter"></h2>
 
-<!-- Main photo -->
-<img id="mainPhoto">
+  <!-- Main photo + random greeting -->
+  <img id="mainPhoto">
+  <p id="photoGreeting"></p>
 
-<!-- Open When Messages -->
-<h1>Hi Rita 💗</h1>
-<p id="message"></p>
-<div id="loveHeart" onclick="clickLove()">❤️</div>
-<p id="loveCount">0</p>
+  <!-- Animated Love Counter -->
+  <div id="loveContainer">
+    <div id="loveHeart">
+      <span id="loveNumber">0</span>
+    </div>
+  </div>
 
-<h2 class="sectionTitle">Open When...</h2>
-<div class="openContainer">
-    <div class="openCard" onclick="openMsg(0)">Sad</div>
-    <div class="openCard" onclick="openMsg(1)">Miss Me</div>
-    <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
-    <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
-    <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
-</div>
-<!-- Open When Text Box -->
-<div id="openTextBox">
-<p id="openText"></p>
-</div>
+  <!-- Heart Menu -->
+  <div class="heartMenu">
+    <button onclick="showSection('loveLetter')">Love Letter</button>
+    <button onclick="showSection('music')">Music</button>
+    <button onclick="showSection('notes')">Notes</button>
+    <button onclick="showSection('gallery')">Gallery</button>
+    <button onclick="showSection('openWhen')">Open When</button>
+  </div>
 
-<!-- Photo Wall -->
-<h2 class="sectionTitle">My Favorite Pictures of You</h2>
-<div class="photoWall">
-<img src="images/her1.jpg">
-<img src="images/her2.jpg">
-<img src="images/her3.jpg">
-<img src="images/her4.jpg">
-<img src="images/her5.jpg">
-<img src="images/her6.jpg">
-<img src="images/her7.jpg">
-<img src="images/her8.jpg">
-<img src="images/her9.jpg">
-<img src="images/her10.jpg">
-<img src="images/her11.jpg">
-<img src="images/her12.jpg">
-<img src="images/her13.jpg">
-<img src="images/her14.jpg">
-<img src="images/her15.jpg">
-</div>
+  <!-- Sections -->
+  <div id="loveLetter" class="section"><p id="loveLetterText"></p></div>
+  <div id="music" class="section"></div>
+  <div id="notes" class="section"></div>
+  <div id="gallery" class="section">
+      <h3>Her Photos</h3>
+      <div class="photoWall"></div>
+      <p id="photoMessage"></p>
+      <h3>Our Memories</h3>
+      <div class="memoriesWall"><p>Our memories will start here soon.</p></div>
+  </div>
+  <div id="openWhen" class="section">
+      <h3>Open When...</h3>
+      <div class="openContainer">
+          <div class="openCard" onclick="openMsg(0)">Sad</div>
+          <div class="openCard" onclick="openMsg(1)">Miss Me</div>
+          <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+          <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+          <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+      </div>
+      <div id="openTextBox"><p id="openText"></p></div>
+  </div>
 
-<!-- Random Quote -->
-<p id="quote" class="quote"></p>
+  <!-- Random Quote -->
+  <p id="quote" class="quote"></p>
 
-<audio id="music" src="songrita.mp3" loop></audio>
+  <audio id="musicPlayer" src="songrita.mp3" loop></audio>
 </div>
 <script src="script.js"></script>
 </body>
