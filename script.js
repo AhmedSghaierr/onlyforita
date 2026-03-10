@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (letterBox) {
       const letterText = `
 Rita,
-
 I don't know if this little website can show
 how much you mean to me, but I wanted to try.
 Every time I see you, talk to you, or even
@@ -73,8 +72,6 @@ but how you are.
 I made this small world here just for you,
 so whenever you open it, you remember
 that someone out there is thinking about you.
-
-— Ahmed 
 `;
    const letterBox = document.getElementById("loveLetterBox");
 if (letterBox) {
