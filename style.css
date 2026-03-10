@@ -18,7 +18,7 @@ body {
   align-items: center;
   height: 100vh;
   /* Updated background for login page */
-  background: url('images/loginBackground.jpg') no-repeat center center/cover;
+  background: url('images/login.png') no-repeat center center/cover;
 }
 .loginBox {
   position: relative;
@@ -82,7 +82,7 @@ body {
 body.homePage {
   color: white;
   /* Updated background for home page */
-  background: url('images/homeBackground.jpg') no-repeat center center/cover;
+  background: url('images/home.png') no-repeat center center/cover;
 }
 
 .container {
