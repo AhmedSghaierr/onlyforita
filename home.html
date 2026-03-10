@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Little World 💗</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="homePage">
+
+<!-- Background -->
 <div class="hearts"></div>
 
-<!-- VERTICAL STICKY MUSIC PLAYER -->
-<div id="musicPlayerContainer">
-  <div class="songTitle">Song Rita 💗</div>
-  <button onclick="toggleMusic()">▶️ / ⏸️</button>
-  <button onclick="nextSong()">⏭️</button>
-</div>
-
 <div class="container">
+  <!-- Music Button -->
+  <button id="musicBtn" onclick="toggleMusic()">🎵 click me</button>
 
   <!-- GM/GN + Counter Box -->
   <div id="gmgnCounterBox">
@@ -47,14 +44,6 @@
     <p id="openText"></p>
   </div>
 
-  <!-- Love Letters Box -->
-  <div id="loveLetterBox"></div>
-
-  <!-- Random Quote -->
-  <div class="quoteBox">
-    <p id="quote" class="quote"></p>
-  </div>
-
   <!-- Photo Wall -->
   <h2 class="sectionTitle">My Favorite Pictures of You</h2>
   <div class="photoWall">
@@ -75,7 +64,13 @@
     <img src="images/her15.jpg">
   </div>
 
+  <!-- Random Quote -->
+  <p id="quote" class="quote"></p>
+
+  <!-- Music -->
+  <audio id="music" src="songrita.mp3" loop></audio>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
