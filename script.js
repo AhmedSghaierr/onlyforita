@@ -82,7 +82,7 @@ that someone out there is thinking about you.
 — Ahmed ❤️
 `;
 
-const letterBox = document.getElementById("loveLetter");
+const letterBox = document.getElementById("loveLetterBox");
 
 if (letterBox) {
     letterBox.innerHTML = ""; // Clear any old content first
