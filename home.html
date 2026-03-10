@@ -13,117 +13,94 @@
 <div class="hearts"></div>
 
 <div class="container">
-<!-- SLIDE-OUT MENU -->
-<button id="menuToggle">☰</button>
-<div id="menu">
-  <div id="menuContent">
-    <!-- Top Section: Navigation -->
-    <div class="menuTop">
-      <button onclick="scrollToSection('gallery')">Gallery</button>
-      <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
-      <button onclick="scrollToSection('loveLetter')">Love Letter</button>
-    </div>
+  <!-- SLIDE-OUT MENU -->
+  <button id="menuToggle">☰</button>
+  <div id="menu">
+    <div id="menuContent">
+      <!-- Top Section: Navigation -->
+      <div class="menuTop">
+        <button onclick="scrollToSection('gallery')">Gallery</button>
+        <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
+        <button onclick="scrollToSection('loveLetterBox')">Love Letter</button>
+      </div>
 
-    <!-- Middle Section: Music Player -->
-    <div class="menuMusic">
-      <p>Music Player 🎵</p>
-      <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
-      <button onclick="toggleMusic('songrita')">▶ SongRita</button>
-      <button onclick="pauseMusic()">⏸ Pause</button>
-    </div>
+      <!-- Middle Section: Music Player -->
+      <div class="menuMusic">
+        <p>Music Player 🎵</p>
+        <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
+        <button onclick="toggleMusic('songrita')">▶ SongRita</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+      </div>
 
-    <!-- Bottom Section: Your Name + Signature -->
-    <div class="menuBottom">
-      <p>Ahmed Sghaier</p>
-      <img src="images/signature.png" alt="Signature" id="signatureImg">
+      <!-- Bottom Section: Your Name + Signature -->
+      <div class="menuBottom">
+        <p>Ahmed Sghaier</p>
+        <img src="images/signature.png" alt="Signature" id="signatureImg">
+      </div>
     </div>
   </div>
 
-  <!-- Menu Toggle Button -->
-  <button id="menuToggle">☰</button>
-</div>
+  <!-- GM/GN + Counter Box -->
+  <div id="gmgnCounterBox">
+    <span id="gmgn"></span>
+    <span id="counter"></span>
+  </div>
+  <h2 id="ritaName"></h2>
 
-<!-- GM/GN + Counter Box -->
-<div id="gmgnCounterBox">
-  <span id="gmgn"></span>
-  <span id="counter"></span>
-</div>
-<h2 id="ritaName"></h2>
+  <!-- Main photo -->
+  <img id="mainPhoto" alt="Main Photo">
 
-<!-- Main photo -->
-<img id="mainPhoto">
+  <!-- Love Letter Section -->
+  <h2 class="sectionTitle" id="loveLetterTitle">A Little Letter for You 💌</h2>
+  <div class="loveLetterBox" id="loveLetterBox"></div>
 
-<!-- Love Letter Section -->
-<h2 class="sectionTitle" id="loveLetterTitle">A Little Letter for You 💌</h2>
-<div class="loveLetterBox" id="loveLetterBox">
-Rita,
+  <!-- Animated Love Counter -->
+  <div id="loveContainer">
+    <img id="loveHeart" src="images/loveHeart.png" alt="Heart">
+    <span id="loveNumber">0</span>
+  </div>
 
-I don't know if this little website can show
-how much you mean to me, but I wanted to try.
-
-Every time I see you, talk to you, or even
-think about you, something inside me just
-feels lighter.
-
-You are honestly one of the most beautiful
-people I have ever met, not just how you look,
-but how you are.
-
-I made this small world here just for you,
-so whenever you open it, you remember
-that someone out there is thinking about you.
-
-— Ahmed 
-</div>
-
-<!-- Animated Love Counter -->
-<div id="loveContainer">
-  <img id="loveHeart" src="images/loveHeart.png">
-  <span id="loveNumber">0</span>
-</div>
-
-<!-- Open When Messages -->
-<h2 class="sectionTitle">Open When...</h2>
-<div class="openContainer">
+  <!-- Open When Messages -->
+  <h2 class="sectionTitle">Open When...</h2>
+  <div class="openContainer">
     <div class="openCard" onclick="openMsg(0)">Sad</div>
     <div class="openCard" onclick="openMsg(1)">Miss Me</div>
     <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
     <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
     <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
-</div>
-<div id="openTextBox">
-  <p id="openText"></p>
+  </div>
+  <div id="openTextBox">
+    <p id="openText"></p>
+  </div>
+
+  <!-- Photo Wall -->
+  <h2 id="gallery" class="gallery">My Favorite Pictures of You</h2>
+  <div class="photoWall">
+    <img src="images/her1.jpg">
+    <img src="images/her2.jpg">
+    <img src="images/her3.jpg">
+    <img src="images/her4.jpg">
+    <img src="images/her5.jpg">
+    <img src="images/her6.jpg">
+    <img src="images/her7.jpg">
+    <img src="images/her8.jpg">
+    <img src="images/her9.jpg">
+    <img src="images/her10.jpg">
+    <img src="images/her11.jpg">
+    <img src="images/her12.jpg">
+    <img src="images/her13.jpg">
+    <img src="images/her14.jpg">
+    <img src="images/her15.jpg">
+  </div>
+
+  <!-- Our Photos Section -->
+  <h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
+  <div id="ourPhotosSection" class="photoWall"></div>
+
+  <!-- Random Quote -->
+  <p id="quote" class="quote"></p>
 </div>
 
-<!-- Photo Wall -->
-<h2 id="gallery" class="gallery">My Favorite Pictures of You</h2>
-<div class="photoWall">
-  <img src="images/her1.jpg">
-  <img src="images/her2.jpg">
-  <img src="images/her3.jpg">
-  <img src="images/her4.jpg">
-  <img src="images/her5.jpg">
-  <img src="images/her6.jpg">
-  <img src="images/her7.jpg">
-  <img src="images/her8.jpg">
-  <img src="images/her9.jpg">
-  <img src="images/her10.jpg">
-  <img src="images/her11.jpg">
-  <img src="images/her12.jpg">
-  <img src="images/her13.jpg">
-  <img src="images/her14.jpg">
-  <img src="images/her15.jpg">
-</div>
-
-<!-- Placeholder for "Our Photos" section -->
-<h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
-<div id="ourPhotosSection" class="photoWall">
-  <!-- Add your photos later -->
-</div>
-
-<!-- Random Quote -->
-<p id="quote" class="quote"></p>
-</div>
 <script src="script.js"></script>
 </body>
 </html>
