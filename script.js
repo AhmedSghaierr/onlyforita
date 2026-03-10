@@ -123,19 +123,36 @@ if (letterBox) {
   }
 
   // ---------- MENU ----------
-  const sideMenu = document.getElementById("menu");
-  const menuBtn = document.getElementById("menuToggle");
-  if (menuBtn && sideMenu) {
-      menuBtn.addEventListener("click", () => {
-          sideMenu.classList.toggle("active");
-      });
-  }
+const sideMenu = document.getElementById("menu");
+const menuBtn = document.getElementById("menuToggle");
 
-  window.scrollToSection = function (id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-      sideMenu.classList.remove("active");
-  }
+if (menuBtn && sideMenu) {
+    menuBtn.addEventListener("click", () => {
+
+        sideMenu.classList.toggle("active");
+
+        // hide button when menu is open
+        if (sideMenu.classList.contains("active")) {
+            menuBtn.style.opacity = "0";
+            menuBtn.style.pointerEvents = "none";
+        } else {
+            menuBtn.style.opacity = "1";
+            menuBtn.style.pointerEvents = "auto";
+        }
+
+    });
+}
+
+window.scrollToSection = function (id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    sideMenu.classList.remove("active");
+
+    // show button again when menu closes
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+}
 
   // ---------- MUSIC ----------
   const music1 = new Audio("apocalypse.mp3");
