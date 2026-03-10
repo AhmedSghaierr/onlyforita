@@ -351,6 +351,17 @@ body.homePage{
     transition: 0.3s;
 }
 
+#menuClose{
+position:absolute;
+top:20px;
+right:20px;
+font-size:24px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
 .menuBottom img{
     width:120px;
     margin-top:10px;
