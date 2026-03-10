@@ -348,6 +348,7 @@ body.homePage{
     padding:8px 12px;
     cursor:pointer;
     color:#ff1a75;
+    transition: 0.3s;
 }
 
 .menuBottom img{
