@@ -8,8 +8,6 @@ const isHome = document.querySelector(".container");
 
 // ------------------- LOGIN PAGE -------------------
 if(isLogin){
-
-  // Check password
   window.checkPassword = function(){
     const pass = document.getElementById("pass").value;
     if(pass === "04/03/26") window.location = "home.html";
@@ -42,18 +40,16 @@ if(isLogin){
 // ------------------- HOME PAGE -------------------
 if(isHome){
 
-  // Random main photo
+  // RANDOM MAIN PHOTO
   const photos = [
     "images/her1.jpg","images/her2.jpg","images/her3.jpg","images/her4.jpg","images/her5.jpg",
     "images/her6.jpg","images/her7.jpg","images/her8.jpg","images/her9.jpg","images/her10.jpg",
     "images/her11.jpg","images/her12.jpg","images/her13.jpg","images/her14.jpg","images/her15.jpg"
   ];
   const mainPhoto = document.getElementById("mainPhoto");
-  if(mainPhoto){
-    mainPhoto.src = photos[Math.floor(Math.random()*photos.length)];
-  }
+  if(mainPhoto) mainPhoto.src = photos[Math.floor(Math.random()*photos.length)];
 
-  // Falling hearts
+  // FALLING HEARTS
   const heartsContainer = document.querySelector(".hearts");
   for(let i=0;i<100;i++){
     const heart = document.createElement("div");
@@ -65,7 +61,7 @@ if(isHome){
     heartsContainer?.appendChild(heart);
   }
 
-  // Relationship counter
+  // RELATIONSHIP COUNTER
   const startDate = new Date("2026-03-04T23:19:00");
   function updateCounter(){
     const now = new Date();
@@ -79,7 +75,7 @@ if(isHome){
   }
   setInterval(updateCounter, 1000);
 
-  // Open When Messages
+  // OPEN WHEN MESSAGES
   const openMessages = {
     "Sad":["Remember I'm always here ❤️","You are never alone","Take a deep breath, I love you","I believe in you","I'm just a message away","Everything will be okay","You are stronger than you think","Smile, my love","Sending hugs","I miss your smile"],
     "Miss Me":["I'm missing you too","Counting the minutes until I see you","Wish I was there hugging you","I think about you all the time","You are my favorite person","I love our moments together","Can't wait to see you","My heart beats for you","I dream of you","You complete my day"],
@@ -95,7 +91,7 @@ if(isHome){
     document.getElementById("openText").innerText = randomMessage;
   }
 
-  // Love heart click
+  // LOVE HEART CLICK
   let loveClicks = 0;
   const loveTexts = ["I love you ❤️","Forever","All yours","You’re mine ❤️","My heart","Always love"];
   const loveHeart = document.getElementById("loveHeart");
@@ -126,70 +122,75 @@ if(isHome){
     }
   });
 
-  // Music toggle
-  const music = document.getElementById("music");
-  window.toggleMusic = function(){
-    if(music.paused) music.play();
-    else music.pause();
+  // ----------------- MENU -----------------
+  const sideMenu = document.getElementById("sideMenu");
+  const menuBtn = document.getElementById("menuBtn");
+  menuBtn.addEventListener("click", ()=>{
+    if(sideMenu.style.width === "50%") sideMenu.style.width = "0";
+    else sideMenu.style.width = "50%";
+  });
+
+  // MENU SCROLL BUTTONS
+  document.querySelectorAll(".menuBtnScroll").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const targetId = btn.dataset.target;
+      const target = document.getElementById(targetId);
+      target.scrollIntoView({behavior:"smooth"});
+      sideMenu.style.width = "0"; // close menu after scroll
+    });
+  });
+
+  // ----------------- MUSIC -----------------
+  const music1 = new Audio("apocalypse.mp3");
+  const music2 = new Audio("songrita.mp3");
+  let currentMusic = 0;
+  music1.loop = false;
+  music2.loop = false;
+  const musicList = [music1, music2];
+
+  function playNextMusic(){
+    currentMusic = (currentMusic+1) % musicList.length;
+    musicList[currentMusic].play();
+    musicList[currentMusic].onended = playNextMusic;
+  }
+  window.playMusic = function(){
+    musicList[currentMusic].play();
+    musicList[currentMusic].onended = playNextMusic;
+  }
+  window.pauseMusic = function(){
+    musicList[currentMusic].pause();
   }
 
-  // Random quote
-  const quotes = ["You’re worth it ❤️","I’m proud of you","I love you more every day","You make me smile","You’re my everything","My heart is yours","You are amazing"];
-  function updateQuote(){
-    const quote = document.getElementById("quote");
-    if(quote) quote.innerText = quotes[Math.floor(Math.random()*quotes.length)];
-  }
-  updateQuote();
-  setInterval(updateQuote, 86400000);
+  // AUTO START MUSIC
+  window.addEventListener("load", playMusic);
 
-  // Good morning / Good night
-  const gmLines = ["Good morning beautiful ☀️ I hope today brings you happiness.","Rise and shine my love ❤️","Morning hug for you 😘"];
-  const gnLines = ["Good night my love 🌙 Sleep tight ❤️","Sweet dreams my angel 😴","Night kiss for you 💋"];
-  function updateGMGN(){
-    const el = document.getElementById("gmgn");
-    if(!el) return;
-    const now = new Date();
-    const hours = now.getHours();
-    if(hours>=6 && hours<18) el.innerText = gmLines[Math.floor(Math.random()*gmLines.length)];
-    else el.innerText = gnLines[Math.floor(Math.random()*gnLines.length)];
-  }
-  updateGMGN();
-  setInterval(updateGMGN, 3600000);
+  // ----------------- PHOTO ZOOM -----------------
+  const galleryImages = document.querySelectorAll(".photoWall img");
+  const zoomModal = document.createElement("div");
+  zoomModal.id = "zoomModal";
+  zoomModal.style.display = "none";
+  zoomModal.style.position = "fixed";
+  zoomModal.style.top = "0";
+  zoomModal.style.left = "0";
+  zoomModal.style.width = "100%";
+  zoomModal.style.height = "100%";
+  zoomModal.style.background = "rgba(0,0,0,0.8)";
+  zoomModal.style.display = "flex";
+  zoomModal.style.alignItems = "center";
+  zoomModal.style.justifyContent = "center";
+  zoomModal.style.zIndex = "9999";
+  zoomModal.innerHTML = `<img id="zoomImg" style="max-width:90%; max-height:90%; border-radius:15px; box-shadow:0 0 20px #fff;"><span id="closeZoom" style="position:absolute; top:20px; right:20px; font-size:32px; color:white; cursor:pointer;">&times;</span>`;
+  document.body.appendChild(zoomModal);
 
-}
-// RANDOM LOVE LETTERS
-const loveLetters = [
-  `Dearest Rita,
-From the moment I met you, my world has been brighter.
-Every thought of you fills my heart with warmth.
-I treasure every smile, every laugh, every moment we share.
-You are my sunshine on cloudy days and my calm in the storm.
-I dream of our future together, hand in hand, always.
-Forever yours, with all my heart ❤️`,
+  const zoomImg = document.getElementById("zoomImg");
+  const closeZoom = document.getElementById("closeZoom");
 
-  `My Sweet Rita,
-I think of you every second of the day.
-Your smile is my favorite view.
-Your voice is my favorite sound.
-Being with you feels like home.
-I cherish every memory we make.
-You are my endless joy.
-Always and forever, yours ❤️`,
-
-  `Lovely Rita,
-You are my heart's desire.
-My days are brighter because of you.
-My nights are warmer with thoughts of you.
-Your laughter is my favorite melody.
-Your presence is my greatest comfort.
-You inspire me to be better every day.
-With all my love, eternally ❤️`
-];
-
-// Display a random letter
-const letterBox = document.getElementById("loveLetterBox");
-if(letterBox){
-  const randomLetter = loveLetters[Math.floor(Math.random() * loveLetters.length)];
-  // Replace newlines with <br> so it shows nicely in HTML
-  letterBox.innerHTML = randomLetter.replace(/\n/g, "<br>");
+  galleryImages.forEach(img=>{
+    img.addEventListener("click", ()=>{
+      zoomImg.src = img.src;
+      zoomModal.style.display = "flex";
+    });
+  });
+  closeZoom.addEventListener("click", ()=>{ zoomModal.style.display = "none"; });
+  zoomModal.addEventListener("click", e=>{ if(e.target === zoomModal) zoomModal.style.display="none"; });
 }
