@@ -59,8 +59,8 @@ if (isHome) {
         typeName();
     }
 
-    // ---------- LOVE LETTER ----------
-    const letterText = `
+   // ---------- LOVE LETTER ----------
+const letterText = `
 Rita,
 
 I don't know if this little website can show
@@ -80,18 +80,24 @@ that someone out there is thinking about you.
 
 — Ahmed ❤️
 `;
-    const letterBox = document.getElementById("loveLetter");
-    if (letterBox) {
-        let i = 0;
-        function typeLetter() {
-            if (i < letterText.length) {
-                letterBox.innerHTML += letterText.charAt(i);
-                i++;
-                setTimeout(typeLetter, 25);
-            }
+
+const letterBox = document.getElementById("loveLetter");
+
+if (letterBox) {
+    letterBox.innerHTML = ""; // Clear any old content first
+    let i = 0;
+
+    function typeLetter() {
+        if (i < letterText.length) {
+            // Append inside the box only
+            letterBox.innerHTML += letterText.charAt(i) === "\n" ? "<br>" : letterText.charAt(i);
+            i++;
+            setTimeout(typeLetter, 25);
         }
-        typeLetter();
     }
+
+    typeLetter();
+}
 
     // ---------- RANDOM MAIN PHOTO ----------
     const photos = [
