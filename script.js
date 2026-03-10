@@ -8,6 +8,7 @@ if(document.querySelector(".loginPage")) {
     }
   }
 
+
   // Falling love text on login page
   let lines=[
     "I love you Rita ❤️","I miss you Rita","I wanna hug you",
