@@ -5,13 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Little World 💗</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="homePage">
 <div class="hearts"></div>
+
+<!-- Music Panel -->
+<div id="musicPanel" class="closed">
+  <h3 id="currentSong">songrita.mp3</h3>
+  <div id="musicControls">
+    <button onclick="prevSong()">⏮️</button>
+    <button onclick="toggleMusic()">⏯️</button>
+    <button onclick="nextSong()">⏭️</button>
+    <button onclick="togglePanel()">❌</button>
+  </div>
+</div>
+<button id="musicBtn" onclick="togglePanel()">🎵</button>
+
 <div class="container">
-  <!-- Music Button -->
-  <button id="musicBtn" onclick="toggleMusic()">🎵 click me</button>
 
   <!-- GM/GN + Counter Box -->
   <div id="gmgnCounterBox">
@@ -61,11 +72,15 @@
     <img src="images/her15.jpg">
   </div>
 
-  <!-- Random Quote -->
-  <p id="quote" class="quote"></p>
+  <!-- Love Letters Box -->
+  <div id="loveLetterBox"></div>
+
+  <!-- Quote Box -->
+  <div id="quoteBox"></div>
 
   <audio id="music" src="songrita.mp3" loop></audio>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
