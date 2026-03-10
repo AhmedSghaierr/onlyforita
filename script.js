@@ -86,10 +86,7 @@ const letterBox = document.getElementById("loveLetterBox");
 
 if (letterBox) {
     letterBox.innerHTML = ""; // Clear any old content first
-    let i = 0;
-
-    function typeLetter() {
-        if (i < letterText.length) {
+    
             // Append inside the box only
             letterBox.innerHTML += letterText.charAt(i) === "\n" ? "<br>" : letterText.charAt(i);
             i++;
