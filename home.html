@@ -12,52 +12,55 @@
 <!-- Background -->
 <div class="hearts"></div>
 
-<!-- ---------------- SLIDE-OUT MENU ---------------- -->
-<div id="sideMenu">
-  <!-- Top Section: Navigation -->
-  <div class="menuTop">
-    <button class="menuBtnScroll" data-target="gallery">Gallery</button>
-    <button class="menuBtnScroll" data-target="ourPhotos">Our Photos</button>
-    <button class="menuBtnScroll" data-target="loveLetterBox">Love Letter</button>
+<!-- SLIDE-OUT MENU -->
+<div id="menu">
+  <div id="menuContent">
+    <!-- Top Section: Navigation -->
+    <div class="menuTop">
+      <button onclick="scrollToSection('gallery')">Gallery</button>
+      <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
+      <button onclick="scrollToSection('loveLetter')">Love Letter</button>
+    </div>
+
+    <!-- Middle Section: Music Player -->
+    <div class="menuMusic">
+      <p>Music Player 🎵</p>
+      <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
+      <button onclick="toggleMusic('songrita')">▶ SongRita</button>
+      <button onclick="pauseMusic()">⏸ Pause</button>
+    </div>
+
+    <!-- Bottom Section: Your Name + Signature -->
+    <div class="menuBottom">
+      <p>Ahmed Sghaier</p>
+      <img src="images/signature.png" alt="Signature" id="signatureImg">
+    </div>
   </div>
 
-  <!-- Middle Section: Music Player -->
-  <div class="menuMusic">
-    <p>Music Player 🎵</p>
-    <button onclick="playMusic()">▶ Play</button>
-    <button onclick="pauseMusic()">⏸ Pause</button>
-  </div>
-
-  <!-- Bottom Section: Name + Signature -->
-  <div class="menuBottom">
-    <p>Ahmed Sghaier</p>
-    <img src="images/signature.png" alt="Signature" id="signatureImg">
-  </div>
+  <!-- Menu Toggle Button -->
+  <button id="menuToggle">☰</button>
 </div>
 
-<!-- Menu Toggle Button -->
-<button id="menuBtn">☰</button>
-
-<!-- ---------------- GM/GN + Counter ---------------- -->
+<!-- GM/GN + Counter Box -->
 <div id="gmgnCounterBox">
   <span id="gmgn"></span>
   <span id="counter"></span>
 </div>
 
-<!-- ---------------- MAIN PHOTO ---------------- -->
-<img id="mainPhoto" class="mainPhoto">
+<!-- Main photo -->
+<img id="mainPhoto">
 
-<!-- ---------------- LOVE LETTER ---------------- -->
+<!-- Love Letter Section -->
 <h2 class="sectionTitle">A Little Letter for You 💌</h2>
 <div class="loveLetterBox" id="loveLetterBox"></div>
 
-<!-- ---------------- LOVE HEART COUNTER ---------------- -->
+<!-- Animated Love Counter -->
 <div id="loveContainer">
   <img id="loveHeart" src="images/loveHeart.png">
   <span id="loveNumber">0</span>
 </div>
 
-<!-- ---------------- OPEN WHEN MESSAGES ---------------- -->
+<!-- Open When Messages -->
 <h2 class="sectionTitle">Open When...</h2>
 <div class="openContainer">
     <div class="openCard" onclick="openMsg(0)">Sad</div>
@@ -70,8 +73,8 @@
   <p id="openText"></p>
 </div>
 
-<!-- ---------------- PHOTO WALL ---------------- -->
-<h2 id="gallery" class="sectionTitle">My Favorite Pictures of You</h2>
+<!-- Photo Wall -->
+<h2 id="gallery" class="gallery">My Favorite Pictures of You</h2>
 <div class="photoWall">
   <img src="images/her1.jpg">
   <img src="images/her2.jpg">
@@ -91,18 +94,13 @@
 </div>
 
 <!-- Placeholder for "Our Photos" section -->
-<h2 id="ourPhotos" class="sectionTitle">Our Photos Together</h2>
-<div id="ourPhotosSection">
-  <!-- Add photos here later -->
+<h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
+<div id="ourPhotosSection" class="photoWall">
+  <!-- Add your photos later -->
 </div>
 
-<!-- ---------------- RANDOM QUOTE ---------------- -->
+<!-- Random Quote -->
 <p id="quote" class="quote"></p>
-
-<!-- ---------------- MUSIC ELEMENTS ---------------- -->
-<!-- JS will handle dual music tracks -->
-<audio id="music1" src="apocalypse.mp3"></audio>
-<audio id="music2" src="songrita.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
