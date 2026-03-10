@@ -40,6 +40,21 @@ if(isLogin){
 // ------------------- HOME PAGE -------------------
 if(isHome){
 
+const gmgn = document.getElementById("gmgn");
+
+function updateGMGN(){
+  const hour = new Date().getHours();
+
+  if(hour >= 5 && hour < 18){
+    gmgn.innerText = "Good Morning Rita ☀️";
+  } else {
+    gmgn.innerText = "Good Night Rita 🌙";
+  }
+}
+
+updateGMGN();
+
+
   // RANDOM MAIN PHOTO
   const photos = [
     "images/her1.jpg","images/her2.jpg","images/her3.jpg","images/her4.jpg","images/her5.jpg",
