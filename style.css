@@ -9,88 +9,14 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   text-align: center;
-}
-
-/* --------------------- LOGIN PAGE --------------------- */
-.loginPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  /* Updated background for login page */
-  background: url('images/login.png') no-repeat center center/cover;
-}
-.loginBox {
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 50px 30px;
-  border-radius: 25px;
-  width: 90%;
-  max-width: 400px;
-  border: 3px solid #ff4d88;
-  box-shadow: 0 0 20px #ff4d88, 0 0 40px #ff4d88 inset;
-}
-.loginBox h1.loginTitle {
-  font-size: 32px;
-  color: #ff1a75;
-  margin-bottom: 10px;
-}
-.loginBox input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 2px solid #ff4d88;
-  background: #f2f2f2;
-  margin-top: 15px;
-  font-size: 18px;
-  box-shadow: 0 0 10px #ff4d88 inset;
-}
-.loginBox button {
-  margin-top: 20px;
-  padding: 15px;
-  width: 100%;
-  border: none;
-  border-radius: 15px;
-  background: #ff4d88;
+  background: url('images/home.png') no-repeat center center/cover;
   color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* Falling love text */
-.loveBackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-.loveText {
-  position: absolute;
-  color: #ff4d88;
-  font-size: 14px;
-  opacity: 0.5;
-  animation: fallText 10s linear infinite;
-}
-@keyframes fallText {
-  0% { transform: translateY(-10vh); }
-  100% { transform: translateY(110vh); }
 }
 
 /* --------------------- HOME PAGE --------------------- */
 body.homePage {
   color: white;
-  /* Updated background for home page */
   background: url('images/home.png') no-repeat center center/cover;
-}
-
-.container {
-  width: 90%;
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-  position: relative;
 }
 
 /* GM/GN + Counter Box */
@@ -107,22 +33,24 @@ body.homePage {
 }
 #gmgn { font-size: 18px; color: #ff1a75; display: block; white-space: nowrap; margin-bottom: 6px; }
 #counter { font-size: 16px; color: white; display: block; }
+
 /* LOVE LETTER */
 .loveLetterBox {
-  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
-  color: #ff1a75; /* pinkish text */
+  background: rgba(255, 255, 255, 0.85); 
+  color: #ff1a75; 
   padding: 20px;
   border-radius: 20px;
   margin: 20px auto;
   max-width: 500px;
-  font-family: 'Dancing Script', cursive; /* handwritten style */
+  font-family: 'Dancing Script', cursive; 
   font-size: 18px;
   line-height: 1.6;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   text-align: center;
-  min-height: 150px; /* optional, keeps box visible even before text appears */
+  min-height: 150px; 
 }
 
+/* MAIN PHOTO */
 #mainPhoto {
   width: 220px;
   border-radius: 20px;
@@ -130,9 +58,13 @@ body.homePage {
   display: block;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   animation: floatPic 6s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.4s ease;
 }
+#mainPhoto:hover { transform: scale(1.08); }
 @keyframes floatPic { 0% { transform: translateY(0) } 50% { transform: translateY(-10px) } 100% { transform: translateY(0) } }
 
+/* LOVE HEART */
 #loveContainer { position: relative; margin: 20px auto; width: 120px; height: 120px; }
 #loveHeart { width: 100%; height: 100%; object-fit: contain; display: block; cursor: pointer; transition: transform 0.2s ease; }
 #loveHeart.pulse { transform: scale(1.2); }
@@ -144,36 +76,25 @@ body.homePage {
 .tinyHeart { position: absolute; font-size: 14px; color: #ff99cc; animation: heartBurst 1s forwards; }
 @keyframes heartBurst { 0% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(calc(-50px + 100 * var(--randX)),-80px) scale(0); } }
 
+/* OPEN WHEN MESSAGES */
 .openContainer { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
-.openCard { background: white; color: black; padding: 10px 14px; border-radius: 15px; cursor: pointer; }
+.openCard { background: white; color: black; padding: 10px 14px; border-radius: 15px; cursor: pointer; transition: transform 0.2s; }
+.openCard:hover { transform: scale(1.05); }
 #openTextBox { background: rgba(255, 255, 255, 0.9); color: #ff1a75; padding: 15px; border-radius: 15px; margin-top: 10px; min-height: 50px; }
 
-.photoWall { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 20px; }
-.photoWall img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.3s; }
-.photoWall img:hover { transform: scale(1.05); }
+/* PHOTO WALL */
+.photoWall { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px,1fr)); gap: 10px; margin-top: 20px; }
+.photoWall img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.3s; cursor: pointer; }
+.photoWall img:hover { transform: scale(1.08); }
 
+/* FALLING HEARTS */
 .hearts { position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
 .heart { position: absolute; color: #ff4d88; font-size: 18px; animation: fall 6s linear infinite; user-select: none; }
 @keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
 
-#musicBtn {
-  position: fixed;
-  top: 10px;
-  left: 20px;
-  font-size: 18px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255,0.7);
-  border: none;
-  border-radius: 10px;
-  color: #ff1a75;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-#musicBtn:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
-
+/* QUOTE */
 .quote { margin-top: 30px; font-style: italic; font-size: 16px; color: #ff4d88; }
+
 /* --- SLIDE-OUT MENU --- */
 #menu {
   position: fixed;
@@ -192,6 +113,7 @@ body.homePage {
   justify-content: space-between;
   padding: 20px;
 }
+#menu.active { left: 0; }
 
 #menuContent button {
   display: block;
@@ -205,12 +127,14 @@ body.homePage {
   font-weight: bold;
   width: 100%;
   text-align: left;
+  transition: background 0.3s, transform 0.2s;
+}
+#menuContent button:hover { 
+  background: rgba(255,255,255,0.85); 
+  transform: scale(1.03);
 }
 
-#menuContent button:hover {
-  background: rgba(255,255,255,0.8);
-}
-
+/* MENU TOGGLE */
 #menuToggle {
   position: fixed;
   top: 20px;
@@ -226,12 +150,21 @@ body.homePage {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.2s ease;
 }
+#menuToggle:hover { transform: scale(1.1); }
 
-#menuToggle:hover {
-  transform: scale(1.1);
-}
+/* MENU BOTTOM */
+.menuBottom p { font-weight: bold; font-size: 18px; margin-top: 10px; color: #ff1a75; }
+.menuBottom img { width: 120px; margin-top: 10px; cursor: pointer; }
 
-.menuBottom img {
-  width: 120px;
-  margin-top: 10px;
+/* MUSIC PLAYER */
+.menuMusic p { font-weight: bold; margin-bottom: 10px; color: #ff1a75; }
+.menuMusic button { margin-bottom: 5px; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  #menu { width: 70%; }
+  #menu.active { left: 0; }
+  #mainPhoto { width: 160px; }
+  .loveLetterBox { font-size: 16px; }
+  .photoWall { grid-template-columns: repeat(auto-fit, minmax(80px,1fr)); }
 }
