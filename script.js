@@ -1,143 +1,171 @@
-// ===== PASSWORD PAGE FUNCTION =====
-function checkPassword(){
-  if(document.getElementById("pass")?.value === "04/03/26"){
-    window.location = "home.html";
-  } else { alert("Wrong password 😅"); }
+// ===== LOGIN PAGE =====
+if(document.querySelector(".loginPage")) {
+  function checkPassword() {
+    if(document.getElementById("pass").value === "04/03/26"){
+      window.location = "home.html";
+    } else { 
+      alert("Wrong password 😅"); 
+    }
+  }
+
+  // Falling love text on login page
+  let lines=[
+    "I love you Rita ❤️","I miss you Rita","I wanna hug you",
+    "You are my favorite","Thinking about you","You make me happy",
+    "I can’t stop thinking about you","My heart beats for you","You are my sunshine",
+    "Forever yours","You are amazing","My queen ❤️","I dream of you","You make me smile","Love you endlessly"
+  ];
+  let delay=0;
+  for(let i=0;i<30;i++){
+    let text=document.createElement("div");
+    text.className="loveText";
+    text.innerText=lines[Math.floor(Math.random()*lines.length)];
+    text.style.left=Math.random()*100+"%";
+    text.style.animationDuration=(7+Math.random()*5)+"s";
+    text.style.animationDelay=delay+"s";
+    delay+=0.3;
+    document.querySelector(".loveBackground")?.appendChild(text);
+  }
 }
 
-// ===== FALLING HEARTS AS IMAGE =====
-for(let i=0;i<60;i++){
-  let heart=document.createElement("img");
-  heart.src="images/falling_hearts.png";
-  heart.className="heart";
-  heart.style.left=Math.random()*100+"%";
-  heart.style.width=(20+Math.random()*20)+"px";
-  heart.style.animationDuration=(3+Math.random()*4)+"s";
-  document.querySelector(".hearts")?.appendChild(heart);
-}
+// ===== HOME PAGE =====
+if(document.querySelector(".container")) {
 
-// ===== RELATIONSHIP COUNTER =====
-let startDate=new Date("2026-03-04T23:19:00");
-function updateCounter(){
-  let now=new Date();
-  let diff=now-startDate;
-  let days=Math.floor(diff/(1000*60*60*24));
-  let hours=Math.floor(diff/(1000*60*60)%24);
-  let minutes=Math.floor(diff/(1000*60)%60);
-  let seconds=Math.floor(diff/1000%60);
-  let el=document.getElementById("counter");
-  if(el) el.innerText=`${days} days ${hours}h ${minutes}m ${seconds}s with you ❤️`;
-}
-setInterval(updateCounter,1000);
+  // Random main photo
+  let photos=[
+    "images/her1.jpg","images/her2.jpg","images/her3.jpg","images/her4.jpg","images/her5.jpg",
+    "images/her6.jpg","images/her7.jpg","images/her8.jpg","images/her9.jpg","images/her10.jpg",
+    "images/her11.jpg","images/her12.jpg","images/her13.jpg","images/her14.jpg","images/her15.jpg"
+  ];
+  let mainPhoto=document.getElementById("mainPhoto");
+  if(mainPhoto){
+    let random=photos[Math.floor(Math.random()*photos.length)];
+    mainPhoto.src=random;
+  }
 
-// ===== RANDOM MAIN PHOTO =====
-let photos=[
-  "images/her1.jpg","images/her2.jpg","images/her3.jpg","images/her4.jpg","images/her5.jpg",
-  "images/her6.jpg","images/her7.jpg","images/her8.jpg","images/her9.jpg","images/her10.jpg",
-  "images/her11.jpg","images/her12.jpg","images/her13.jpg","images/her14.jpg","images/her15.jpg"
-];
-if(document.getElementById("mainPhoto")){
-  let random=photos[Math.floor(Math.random()*photos.length)];
-  document.getElementById("mainPhoto").src=random;
-}
+  // Falling hearts (using image if you want)
+  for(let i=0;i<100;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️"; // Or use <img src='images/falling_hearts.png'> if you prefer
+    heart.style.left=Math.random()*100+"%";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    heart.style.fontSize=(14+Math.random()*10)+"px";
+    document.querySelector(".hearts")?.appendChild(heart);
+  }
 
-// ===== LOVE HEART CLICK =====
-let loveClicks=0;
-let loveTexts=["I love you ❤️","Forever","All yours","You’re mine ❤️","My heart","Always love"];
-function clickLove(){
-  loveClicks++;
-  document.getElementById("loveNumber").innerText=loveClicks;
+  // Relationship counter
+  let startDate=new Date("2026-03-04T23:19:00");
+  function updateCounter(){
+    let now=new Date();
+    let diff=now-startDate;
+    let days=Math.floor(diff/(1000*60*60*24));
+    let hours=Math.floor(diff/(1000*60*60)%24);
+    let minutes=Math.floor(diff/(1000*60)%60);
+    let seconds=Math.floor(diff/1000%60);
+    let el=document.getElementById("counter");
+    if(el){el.innerText=days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds with you ❤️"}
+  }
+  setInterval(updateCounter,1000);
 
-  let heartEl=document.getElementById("loveHeart");
-  heartEl.classList.add("pulse");
-  setTimeout(()=>heartEl.classList.remove("pulse"),200);
+  // Open When Messages
+  let openMessages={
+    "Sad":["Remember I'm always here ❤️","You are never alone","Take a deep breath, I love you","I believe in you","I'm just a message away","Everything will be okay","You are stronger than you think","Smile, my love","Sending hugs","I miss your smile"],
+    "Miss Me":["I'm missing you too","Counting the minutes until I see you","Wish I was there hugging you","I think about you all the time","You are my favorite person","I love our moments together","Can't wait to see you","My heart beats for you","I dream of you","You complete my day"],
+    "Can't Sleep":["Imagine me hugging you","Close your eyes, love","Count the stars for me","I'll be in your dreams","Breathe slowly, relax","Think about our happy moments","I love you endlessly","You are my moonlight","I'm with you in spirit","Sweet dreams, love"],
+    "Need Motivation":["You are amazing","You can do anything","Believe in yourself","I’m proud of you","Keep going, love","Nothing can stop you","You inspire me","Your smile brightens the day","I believe in us","Stay strong, my love"],
+    "Thinking About Us":["You are my favorite story","Our memories are precious","I love our adventures","You make life magical","Forever yours","Every moment with you is perfect","I cherish you","You make me happy","Our love is endless","I can’t wait for more memories"]
+  };
+  function openMsg(i){
+    let keys=["Sad","Miss Me","Can't Sleep","Need Motivation","Thinking About Us"];
+    let key=keys[i];
+    let messages=openMessages[key];
+    let randomMessage=messages[Math.floor(Math.random()*messages.length)];
+    document.getElementById("openText").innerText=randomMessage;
+  }
 
-  // Floating text
-  let text=document.createElement("div");
-  text.className="floatingText";
-  text.innerText=loveTexts[Math.floor(Math.random()*loveTexts.length)];
-  heartEl.appendChild(text);
-  setTimeout(()=>text.remove(),1500);
-}
-document.getElementById("loveHeart")?.addEventListener("click", clickLove);
+  // Love Heart Click
+  let loveClicks=0;
+  let loveTexts=["I love you ❤️","Forever","All yours","You’re mine ❤️","My heart","Always love"];
+  function clickLove(){
+    loveClicks++;
+    document.getElementById("loveNumber").innerText=loveClicks;
 
-// ===== OPEN WHEN MESSAGES =====
-let openMessages={
-"Sad":["Remember I'm always here ❤️","You are never alone","Take a deep breath, I love you","I believe in you"],
-"Miss Me":["I'm missing you too","Counting the minutes until I see you","Wish I was there hugging you"],
-"Can't Sleep":["Imagine me hugging you","Close your eyes, love","Count the stars for me"],
-"Need Motivation":["You are amazing","You can do anything","Believe in yourself","I’m proud of you"],
-"Thinking About Us":["You are my favorite story","Our memories are precious","I love our adventures","You make life magical"]
-};
-function openMsg(i){
-  let keys=["Sad","Miss Me","Can't Sleep","Need Motivation","Thinking About Us"];
-  let key=keys[i];
-  let messages=openMessages[key];
-  let randomMessage=messages[Math.floor(Math.random()*messages.length)];
-  document.getElementById("openText").innerText=randomMessage;
-}
+    let heartEl=document.getElementById("loveHeart");
+    heartEl.classList.add("pulse");
+    setTimeout(()=>heartEl.classList.remove("pulse"),200);
 
-// ===== GM/GN =====
-let gmLines=["Good morning beautiful ☀️","Rise and shine my love ❤️","Morning hug for you 😘"];
-let gnLines=["Good night my love 🌙","Sweet dreams my angel 😴","Night kiss for you 💋"];
-function updateGMGN(){
-  let el=document.getElementById("gmgn");
-  if(!el) return;
-  let hours=new Date().getHours();
-  el.innerText=(hours>=6 && hours<18)
-    ? gmLines[Math.floor(Math.random()*gmLines.length)]
-    : gnLines[Math.floor(Math.random()*gnLines.length)];
-}
-updateGMGN();
-setInterval(updateGMGN,3600000);
+    // Floating text
+    let text=document.createElement("div");
+    text.className="floatingText";
+    text.innerText=loveTexts[Math.floor(Math.random()*loveTexts.length)];
+    heartEl.appendChild(text);
+    setTimeout(()=>text.remove(),1500);
 
-// ===== RANDOM QUOTES =====
-let quotes=[
-  "You’re worth it ❤️","I’m proud of you","I love you more every day","You make me smile","You’re my everything"
-];
-function updateQuote(){
-  let quote=document.getElementById("quoteBox");
-  if(quote) quote.innerText=quotes[Math.floor(Math.random()*quotes.length)];
-}
-updateQuote();
-setInterval(updateQuote,86400000);
+    // Tiny heart particles
+    for(let i=0;i<5;i++){
+      let tiny=document.createElement("div");
+      tiny.className="tinyHeart";
+      tiny.style.setProperty("--randX",Math.random());
+      tiny.style.left="50%";
+      tiny.style.top="50%";
+      heartEl.appendChild(tiny);
+      setTimeout(()=>tiny.remove(),1000);
+    }
+  }
+  document.getElementById("loveHeart").addEventListener("click", clickLove);
 
-// ===== LOVE LETTERS =====
-let loveLetters=[
-`My dearest love,\nYour smile is my sunshine,\nEvery moment with you is magic,\nI adore your soul,\nYour eyes mesmerize me,\nForever yours,\nLove always.`,
-`Beloved,\nYour laugh makes my heart dance,\nI think of you endlessly,\nYour beauty is unmatched,\nYou complete me,\nMy heart is yours,\nEternally devoted.`
-];
-function updateLoveLetter(){
-  let box=document.getElementById("loveLetterBox");
-  if(box) box.innerText=loveLetters[Math.floor(Math.random()*loveLetters.length)];
-}
-updateLoveLetter();
-setInterval(updateLoveLetter,60000); // change every minute
+  // Music toggle
+  let music=document.getElementById("music");
+  function toggleMusic(){
+    if(music.paused){music.play();}
+    else{music.pause();}
+  }
 
-// ===== MUSIC PANEL =====
-let music=document.getElementById("music");
-let panel=document.getElementById("musicPanel");
-let songs=["songrita.mp3","apocalypse.mp3"];
-let currentSong=0;
+  // Random Quote
+  let quotes=[
+    "You’re worth it ❤️","I’m proud of you","I love you more every day","You make me smile","You’re my everything","My heart is yours","You are amazing"
+  ];
+  function updateQuote(){
+    let quote=document.getElementById("quote");
+    if(quote){quote.innerText=quotes[Math.floor(Math.random()*quotes.length)];}
+  }
+  updateQuote();
+  setInterval(updateQuote,86400000);
 
-function toggleMusic(){
-  if(music.paused){ music.play(); }
-  else { music.pause(); }
-}
+  // Good Morning / Good Night
+  let gmLines=[
+    "Good morning beautiful ☀️ I hope today brings you happiness.","Rise and shine my love ❤️","Morning hug for you 😘"
+  ];
+  let gnLines=[
+    "Good night my love 🌙 Sleep tight ❤️","Sweet dreams my angel 😴","Night kiss for you 💋"
+  ];
+  function updateGMGN(){
+    let el=document.getElementById("gmgn");
+    if(!el) return;
+    let now=new Date();
+    let hours=now.getHours();
+    if(hours>=6 && hours<18){
+      el.innerText=gmLines[Math.floor(Math.random()*gmLines.length)];
+    } else {
+      el.innerText=gnLines[Math.floor(Math.random()*gnLines.length)];
+    }
+  }
+  updateGMGN();
+  setInterval(updateGMGN,3600000);
 
-function nextSong(){
-  currentSong=(currentSong+1)%songs.length;
-  music.src=songs[currentSong];
-  music.play();
-  document.getElementById("currentSong").innerText=songs[currentSong];
-}
-function prevSong(){
-  currentSong=(currentSong-1+songs.length)%songs.length;
-  music.src=songs[currentSong];
-  music.play();
-  document.getElementById("currentSong").innerText=songs[currentSong];
-}
-
-function togglePanel(){
-  panel.classList.toggle("closed");
+  // Love letters box
+  let loveLetters=[
+    "My dearest Rita,\nEvery time I see you, my heart smiles. You are the most beautiful soul I've ever met. I cherish every moment with you, your laughter brightens my days, and your love completes me. Forever yours.",
+    "Sweet Rita,\nYour beauty amazes me, inside and out. I think about you endlessly. You are my sunshine, my heart, and my everything. I can't wait for our next adventure together.",
+    "My beloved,\nYou are the dream I never want to wake from. Your smile, your eyes, your laughter—they stay with me always. I love you more than words can say, and I will always cherish you.",
+    "Dearest Rita,\nEach day with you feels like a gift. Your kindness, your love, your presence—it means the world to me. I am endlessly grateful for you and our moments together.",
+    "My angel,\nI am yours forever. Your beauty, your heart, your soul inspire me daily. I think of you constantly and love you more with each passing day."
+  ];
+  function updateLoveLetter(){
+    let el=document.getElementById("loveLetter");
+    if(el){el.innerText=loveLetters[Math.floor(Math.random()*loveLetters.length)];}
+  }
+  updateLoveLetter();
+  setInterval(updateLoveLetter,60000);
 }
