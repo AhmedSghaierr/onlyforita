@@ -142,6 +142,24 @@ body.homePage{
     text-align: left; /* proper letter alignment */
 }
 
+/* LOVE LETTER STATIC BOX */
+#loveLetterBox {
+    background: rgba(242, 242, 247, 0.95); /* subtle iOS Notes gray */
+    color: #ff1a75; /* pinkish text */
+    padding: 25px 20px;
+    border-radius: 25px; /* more rounded corners */
+    margin: 20px auto;
+    max-width: 520px;
+    font-family: 'Dancing Script', cursive; /* handwriting font */
+    font-size: 20px;
+    line-height: 1.7;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    min-height: 200px;
+    white-space: pre-wrap; /* preserves line breaks */
+    text-align: left;
+    overflow-y: auto; /* scroll if text overflows */
+}
+
 /* MAIN PHOTO */
 #mainPhoto{
     width:220px;
