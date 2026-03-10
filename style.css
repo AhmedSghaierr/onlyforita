@@ -1,34 +1,29 @@
-/* ------------------
-   GLOBAL STYLES
-------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+
 body {
   min-height: 100vh;
   overflow-x: hidden;
   text-align: center;
 }
 
-/* ------------------
-   LOGIN PAGE
-------------------- */
+/* --------------------- LOGIN PAGE --------------------- */
 .loginPage {
-  background: url('images/login.png') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
-  position: relative;
+  /* Updated background for login page */
+  background: url('images/loginBackground.jpg') no-repeat center center/cover;
 }
 .loginBox {
   position: relative;
   z-index: 1;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 50px 30px;
   border-radius: 25px;
   width: 90%;
@@ -38,7 +33,6 @@ body {
 }
 .loginBox h1.loginTitle {
   font-size: 32px;
-  font-family: 'Dancing Script', cursive;
   color: #ff1a75;
   margin-bottom: 10px;
 }
@@ -72,7 +66,6 @@ body {
   overflow: hidden;
   z-index: 0;
 }
-
 .loveText {
   position: absolute;
   color: #ff4d88;
@@ -80,22 +73,18 @@ body {
   opacity: 0.5;
   animation: fallText 10s linear infinite;
 }
-
 @keyframes fallText {
   0% { transform: translateY(-10vh); }
   100% { transform: translateY(110vh); }
 }
 
-/* ------------------
-   HOME PAGE
-------------------- */
-body.home {
-  background: url('images/home.png') center/cover no-repeat;
-  background-size: cover;
+/* --------------------- HOME PAGE --------------------- */
+body.homePage {
   color: white;
+  /* Updated background for home page */
+  background: url('images/homeBackground.jpg') no-repeat center center/cover;
 }
 
-/* Container */
 .container {
   width: 90%;
   max-width: 500px;
@@ -114,45 +103,59 @@ body.home {
   border-radius: 20px;
   margin: 15px auto;
   max-width: 300px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-#gmgn { font-size: 18px; font-family:'Dancing Script',cursive; color: #ff1a75; margin-bottom:6px; }
-#counter { font-size:16px; color:white; }
+#gmgn { font-size: 18px; color: #ff1a75; display: block; white-space: nowrap; margin-bottom: 6px; }
+#counter { font-size: 16px; color: white; display: block; }
 
-/* MAIN PHOTO */
-#mainPhoto { width: 220px; border-radius:20px; margin:20px auto; display:block; box-shadow:0 10px 30px rgba(0,0,0,0.6); animation: floatPic 6s ease-in-out infinite;}
-@keyframes floatPic {0%{transform:translateY(0);}50%{transform:translateY(-10px);}100%{transform:translateY(0);}}
+#mainPhoto {
+  width: 220px;
+  border-radius: 20px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  animation: floatPic 6s ease-in-out infinite;
+}
+@keyframes floatPic { 0% { transform: translateY(0) } 50% { transform: translateY(-10px) } 100% { transform: translateY(0) } }
 
-/* LOVE HEART */
-#loveContainer { position: relative; margin:20px auto; width:120px; height:120px;}
-#loveHeart { width:100%; height:100%; object-fit:contain; cursor:pointer; transition: transform 0.2s ease;}
-#loveHeart.pulse { transform: scale(1.2);}
-#loveNumber { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:22px; font-weight:bold; pointer-events:none; }
+#loveContainer { position: relative; margin: 20px auto; width: 120px; height: 120px; }
+#loveHeart { width: 100%; height: 100%; object-fit: contain; display: block; cursor: pointer; transition: transform 0.2s ease; }
+#loveHeart.pulse { transform: scale(1.2); }
+#loveNumber { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 22px; font-weight: bold; pointer-events: none; }
 
-/* OPEN WHEN */
-.openContainer { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:20px; background: rgba(255,255,255,0.2); padding:15px; border-radius:20px;}
-.openCard { flex:1 1 120px; min-width:120px; background: rgba(255,255,255,0.5); color:#ff1a75; padding:12px; border-radius:15px; font-weight:bold; cursor:pointer; text-align:center; transition:0.2s;}
-.openCard:hover { background: rgba(255,255,255,0.7); transform:scale(1.05);}
-#openTextBox { background: rgba(255,255,255,0.9); color:#ff1a75; padding:15px; border-radius:15px; margin-top:10px; min-height:80px; font-family:'Dancing Script',cursive; font-size:16px; }
+.floatingText { position: absolute; color: #ffb6c1; font-size: 16px; font-weight: bold; animation: floatUp 1.5s forwards; }
+@keyframes floatUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-50px); } }
 
-/* LOVE LETTER BOX */
-#loveLetterBox { margin: 20px auto; background: rgba(255,255,255,0.9); color:#ff1a75; padding:15px; border-radius:15px; font-family:'Dancing Script',cursive; font-size:16px; min-height:150px; }
+.tinyHeart { position: absolute; font-size: 14px; color: #ff99cc; animation: heartBurst 1s forwards; }
+@keyframes heartBurst { 0% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(calc(-50px + 100 * var(--randX)),-80px) scale(0); } }
 
-/* QUOTE BOX */
-.quoteBox { margin-top:15px; padding:10px; border-radius:15px; border: 2px solid #ff4d88; box-shadow:0 0 10px #ff4d88; display:inline-block; }
-.quote { font-style:italic; font-size:16px; color:#ff4d88; font-family:'Dancing Script',cursive; }
+.openContainer { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+.openCard { background: white; color: black; padding: 10px 14px; border-radius: 15px; cursor: pointer; }
+#openTextBox { background: rgba(255, 255, 255, 0.9); color: #ff1a75; padding: 15px; border-radius: 15px; margin-top: 10px; min-height: 50px; }
 
-/* PHOTO WALL */
-.photoWall { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:20px; }
-.photoWall img { width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s;}
-.photoWall img:hover { transform:scale(1.05); }
+.photoWall { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 20px; }
+.photoWall img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.3s; }
+.photoWall img:hover { transform: scale(1.05); }
 
-/* FALLING HEARTS */
-.hearts { position: fixed; width: 100%; height: 100%; overflow:hidden; z-index:-1;}
-@keyframes fall {0%{transform:translateY(-10vh);}100%{transform:translateY(110vh);}}
+.hearts { position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+.heart { position: absolute; color: #ff4d88; font-size: 18px; animation: fall 6s linear infinite; user-select: none; }
+@keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
 
-/* STICKY VERTICAL MEDIA PLAYER */
-#musicPlayerContainer { position: fixed; right:0; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; background: rgba(255,255,255,0.8); border-radius:12px 0 0 12px; padding:10px; box-shadow:-4px 0 12px rgba(0,0,0,0.2); z-index:999;}
-#musicPlayerContainer button { background:none; border:none; color:#ff1a75; font-size:24px; margin:10px 0; cursor:pointer; }
-#musicPlayerContainer .songTitle { font-family:'Dancing Script',cursive; color:#ff1a75; font-size:16px; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:120px; animation: slideSong 8s linear infinite;}
-@keyframes slideSong {0%{transform:translateX(120px);}100%{transform:translateX(-120px);}}
+#musicBtn {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  font-size: 18px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255,0.7);
+  border: none;
+  border-radius: 10px;
+  color: #ff1a75;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#musicBtn:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0,0,0,0.25); }
+
+.quote { margin-top: 30px; font-style: italic; font-size: 16px; color: #ff4d88; }
