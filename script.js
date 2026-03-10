@@ -2,6 +2,7 @@
 const isLogin = document.querySelector(".loginPage");
 const isHome = document.querySelector(".homePage");
 
+
 // ---------------- LOGIN PAGE ----------------
 if (isLogin) {
     window.checkPassword = function () {
