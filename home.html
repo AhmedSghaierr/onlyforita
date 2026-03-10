@@ -8,21 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body class="homePage">
-<div class="hearts"></div>
-
-<!-- Music Panel -->
-<div id="musicPanel" class="closed">
-  <h3 id="currentSong">songrita.mp3</h3>
-  <div id="musicControls">
-    <button onclick="prevSong()">⏮️</button>
-    <button onclick="toggleMusic()">⏯️</button>
-    <button onclick="nextSong()">⏭️</button>
-    <button onclick="togglePanel()">❌</button>
-  </div>
-</div>
-<button id="musicBtn" onclick="togglePanel()">🎵</button>
+<div class="fallingHeartsContainer"></div>
 
 <div class="container">
+
+  <!-- Music Panel -->
+  <div id="musicPanel">
+    <button id="musicToggle" onclick="toggleMusicPanel()">🎵</button>
+    <div id="musicControls">
+      <p id="currentSong">Song Name</p>
+      <button onclick="prevSong()">⏮️</button>
+      <button onclick="toggleMusic()">⏯️</button>
+      <button onclick="nextSong()">⏭️</button>
+    </div>
+  </div>
 
   <!-- GM/GN + Counter Box -->
   <div id="gmgnCounterBox">
@@ -52,6 +51,16 @@
     <p id="openText"></p>
   </div>
 
+  <!-- Love Letter Box -->
+  <div id="loveLetterBox">
+    <p id="loveLetter"></p>
+  </div>
+
+  <!-- Quote Box -->
+  <div id="quoteBox">
+    <p id="quote" class="quote"></p>
+  </div>
+
   <!-- Photo Wall -->
   <h2 class="sectionTitle">My Favorite Pictures of You</h2>
   <div class="photoWall">
@@ -72,15 +81,12 @@
     <img src="images/her15.jpg">
   </div>
 
-  <!-- Love Letters Box -->
-  <div id="loveLetterBox"></div>
+  <!-- Audio Files -->
+  <audio id="music" src="apocalypse.mp3" loop></audio>
+  <audio id="music2" src="songrita.mp3" loop></audio>
 
-  <!-- Quote Box -->
-  <div id="quoteBox"></div>
-
-  <audio id="music" src="songrita.mp3" loop></audio>
 </div>
 
-<script src="script.js"></script>
+<script src="home.js"></script>
 </body>
 </html>
