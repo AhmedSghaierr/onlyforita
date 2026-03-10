@@ -1,21 +1,20 @@
-// -------------------
-// COMBINED SCRIPT.JS
-// -------------------
-
-// Detect page by element
-const isLogin = document.querySelector(".loginPage");
-const isHome = document.querySelector(".container");
-
 // ---------- LOGIN PAGE ----------
 if(isLogin){
-  window.checkPassword = function(){
-    const pass = document.getElementById("pass").value;
-    if(pass==="04/03/26") window.location="home.html";
-    else alert("Wrong password ybhima");
+  // PASSWORD CHECK
+  const enterBtn = document.getElementById("enterBtn");
+  if(enterBtn){
+    enterBtn.addEventListener("click", function(){
+      const pass = document.getElementById("pass").value;
+      if(pass==="04/03/26") window.location="home.html";
+      else alert("Wrong password 😅");
+    });
   }
 
-  // Falling love text
-  const lines = ["I love you Rita ❤️","I miss you Rita","I wanna hug you","You are my favorite","Thinking about you","You make me happy","I can’t stop thinking about you","My heart beats for you","You are my sunshine","Forever yours","You are amazing","My queen ❤️","I dream of you","You make me smile","Love you endlessly"];
+  // FALLING LOVE TEXT
+  const lines = ["I love you Rita ❤️","I miss you Rita","I wanna hug you","You are my favorite",
+  "Thinking about you","You make me happy","I can’t stop thinking about you","My heart beats for you",
+  "You are my sunshine","Forever yours","You are amazing","My queen ❤️","I dream of you","You make me smile","Love you endlessly"];
+  
   const bg = document.querySelector(".loveBackground");
   if(bg){
     let delay = 0;
@@ -26,7 +25,7 @@ if(isLogin){
       text.style.left=Math.random()*100+"%";
       text.style.animationDuration=(7+Math.random()*5)+"s";
       text.style.animationDelay=delay+"s";
-      delay+=0.3;
+      delay += 0.3;
       bg.appendChild(text);
     }
   }
