@@ -90,6 +90,51 @@ typeName();
 
 }
 
+// ---------- LOVE LETTER ----------
+const letterText = `
+Rita,
+
+I don't know if this little website can show
+how much you mean to me, but I wanted to try.
+
+Every time I see you, talk to you, or even
+think about you, something inside me just
+feels lighter.
+
+You are honestly one of the most beautiful
+people I have ever met, not just how you look,
+but how you are.
+
+I made this small world here just for you,
+so whenever you open it, you remember
+that someone out there is thinking about you.
+
+— Ahmed ❤️
+`;
+
+const letterBox = document.getElementById("loveLetterBox");
+
+if(letterBox){
+
+let i = 0;
+
+function typeLetter(){
+
+if(i < letterText.length){
+
+letterBox.innerHTML += letterText.charAt(i);
+i++;
+
+setTimeout(typeLetter,25);
+
+}
+
+}
+
+typeLetter();
+
+}
+
 // ---------- RANDOM PHOTO ----------
 const photos=[
 "images/her1.jpg","images/her2.jpg","images/her3.jpg","images/her4.jpg","images/her5.jpg",
