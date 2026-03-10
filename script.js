@@ -157,3 +157,39 @@ if(isHome){
   setInterval(updateGMGN, 3600000);
 
 }
+// RANDOM LOVE LETTERS
+const loveLetters = [
+  `Dearest Rita,
+From the moment I met you, my world has been brighter.
+Every thought of you fills my heart with warmth.
+I treasure every smile, every laugh, every moment we share.
+You are my sunshine on cloudy days and my calm in the storm.
+I dream of our future together, hand in hand, always.
+Forever yours, with all my heart ❤️`,
+
+  `My Sweet Rita,
+I think of you every second of the day.
+Your smile is my favorite view.
+Your voice is my favorite sound.
+Being with you feels like home.
+I cherish every memory we make.
+You are my endless joy.
+Always and forever, yours ❤️`,
+
+  `Lovely Rita,
+You are my heart's desire.
+My days are brighter because of you.
+My nights are warmer with thoughts of you.
+Your laughter is my favorite melody.
+Your presence is my greatest comfort.
+You inspire me to be better every day.
+With all my love, eternally ❤️`
+];
+
+// Display a random letter
+const letterBox = document.getElementById("loveLetterBox");
+if(letterBox){
+  const randomLetter = loveLetters[Math.floor(Math.random() * loveLetters.length)];
+  // Replace newlines with <br> so it shows nicely in HTML
+  letterBox.innerHTML = randomLetter.replace(/\n/g, "<br>");
+}
