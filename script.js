@@ -125,33 +125,41 @@ if (letterBox) {
   // ---------- MENU ----------
 const sideMenu = document.getElementById("menu");
 const menuBtn = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
 
-if (menuBtn && sideMenu) {
-    menuBtn.addEventListener("click", () => {
+if(menuBtn && sideMenu){
 
-        sideMenu.classList.toggle("active");
+menuBtn.addEventListener("click",()=>{
+sideMenu.classList.add("active");
 
-        // hide button when menu is open
-        if (sideMenu.classList.contains("active")) {
-            menuBtn.style.opacity = "0";
-            menuBtn.style.pointerEvents = "none";
-        } else {
-            menuBtn.style.opacity = "1";
-            menuBtn.style.pointerEvents = "auto";
-        }
+menuBtn.style.opacity="0";
+menuBtn.style.pointerEvents="none";
+});
 
-    });
 }
 
-window.scrollToSection = function (id) {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+if(menuClose){
 
-    sideMenu.classList.remove("active");
+menuClose.addEventListener("click",()=>{
+sideMenu.classList.remove("active");
 
-    // show button again when menu closes
-    menuBtn.style.opacity = "1";
-    menuBtn.style.pointerEvents = "auto";
+menuBtn.style.opacity="1";
+menuBtn.style.pointerEvents="auto";
+});
+
+}
+
+window.scrollToSection=function(id){
+
+const el=document.getElementById(id);
+
+if(el) el.scrollIntoView({behavior:"smooth"});
+
+sideMenu.classList.remove("active");
+
+menuBtn.style.opacity="1";
+menuBtn.style.pointerEvents="auto";
+
 }
 
   // ---------- MUSIC ----------
