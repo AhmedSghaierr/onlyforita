@@ -12,9 +12,36 @@
 <!-- Background -->
 <div class="hearts"></div>
 
-<div class="container">
-  <!-- Music Button -->
-  <button id="musicBtn" onclick="toggleMusic()">🎵 click me</button>
+
+
+<!-- SLIDE-OUT MENU -->
+<div id="menu">
+  <div id="menuContent">
+    <!-- Top Section: Navigation -->
+    <div class="menuTop">
+      <button onclick="scrollToSection('gallery')">Gallery</button>
+      <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
+      <button onclick="scrollToSection('loveLetter')">Love Letter</button>
+    </div>
+
+    <!-- Middle Section: Music Player -->
+    <div class="menuMusic">
+      <p>Music Player 🎵</p>
+      <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
+      <button onclick="toggleMusic('songrita')">▶ SongRita</button>
+      <button onclick="pauseMusic()">⏸ Pause</button>
+    </div>
+
+    <!-- Bottom Section: Your Name + Signature -->
+    <div class="menuBottom">
+      <p>Ahmed Sghaier</p>
+      <img src="images/signature.png" alt="Signature" id="signatureImg">
+    </div>
+  </div>
+
+  <!-- Menu Toggle Button -->
+  <button id="menuToggle">☰</button>
+</div>
 
   <!-- GM/GN + Counter Box -->
   <div id="gmgnCounterBox">
@@ -47,7 +74,7 @@
   </div>
 
   <!-- Photo Wall -->
-  <h2 class="sectionTitle">My Favorite Pictures of You</h2>
+  <h2 class="gallery">My Favorite Pictures of You</h2>
   <div class="photoWall">
     <img src="images/her1.jpg">
     <img src="images/her2.jpg">
@@ -71,6 +98,7 @@
 
   <!-- Music -->
   <audio id="music" src="songrita.mp3" loop></audio>
+<audio id="music" src="apocalypse.mp3" loop></audio>
 </div>
 
 <script src="script.js"></script>
