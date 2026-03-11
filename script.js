@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
   // ---------- LOGIN PAGE ----------
   const isLogin = document.querySelector(".loginPage");
   if (isLogin) {
@@ -36,15 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const gmgn = document.getElementById("gmgn");
   function updateGMGN() {
       const hour = new Date().getHours();
-      if (hour >= 5 && hour < 18) gmgn.innerText = "Good Morning Riti ☀️";
-      else gmgn.innerText = "Good Night Routa🌙";
+      if (hour >= 5 && hour < 18) gmgn.innerText = "Good Morning Rita ☀️";
+      else gmgn.innerText = "Good Night Rita 🌙";
   }
   updateGMGN();
 
   // ---------- NAME TYPING ----------
   const nameEl = document.getElementById("ritaName");
   if (nameEl) {
-      const text = "That's The LOML💞";
+      const text = "Rita ❤️";
       let i = 0;
       function typeName() {
           if (i < text.length) {
@@ -153,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "I love our connection 💖",
     "You make everything brighter 💞",
     "I treasure your love 💗",
-    "You’re my sweetest dream💞"
+    "You’re my sweetest dream 💕"
   ];
 
   const msgBox = document.getElementById("msgOfDayText");
@@ -161,22 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dayIndex = today.getDate() + today.getMonth() * 31; // unique for each day
   const messageOfTheDay = dailyMessages[dayIndex % dailyMessages.length];
   if (msgBox) msgBox.innerText = `"${messageOfTheDay}"`;
-
-// ---------- HEARTS BACKGROUND ----------
-const heartsContainer = document.querySelector(".hearts");
-if (heartsContainer) {
-    const heartSymbols = ["❤️", "💖", "💗", "💘", "💞", "💝"];
-    for (let i = 0; i < 50; i++) { // number of hearts
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.fontSize = (12 + Math.random() * 24) + "px"; // random sizes
-        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-        heart.style.animationDelay = (Math.random() * 5) + "s";
-        heartsContainer.appendChild(heart);
-    }
-}
 
   // ---------- LOVE LETTER ----------
   const letterBox = document.getElementById("loveLetterBox");
@@ -297,7 +280,7 @@ that someone out there is thinking about you.
 
   // ---------- OPEN WHEN MESSAGES ----------
   const openMessages = {
-    "Sad": [
+      "Sad": [
         "Hey love, it’s okay to feel down sometimes 💖 I’m right here with you.",
         "Even on sad days, remember you’re amazing and loved 🌸",
         "Take a deep breath, everything will be okay 💕",
@@ -358,7 +341,7 @@ that someone out there is thinking about you.
         "You’re my favorite thought, always 💗"
     ]
 };
- 
+
   window.openMsg = function(i) {
       const keys = ["Sad","Miss Me","Can't Sleep","Need Motivation","Thinking About Us"];
       const openTextEl = document.getElementById("openText");
@@ -375,37 +358,27 @@ that someone out there is thinking about you.
       }, 300);
   }
 
-// ---------- MUSIC PLAYER ----------
-const musicList = [
-    new Audio("apocalypse.mp3"),
-    new Audio("songrita.mp3")
-];
-let currentMusic = 0;
-let isPlaying = false;
+  // ---------- MUSIC PLAYER ----------
+  const musicList = [
+      new Audio("apocalypse.mp3"),
+      new Audio("songrita.mp3")
+  ];
+  let currentMusic = 0;
 
-window.toggleMusic = function(name) {
-    // Stop all music first
-    musicList.forEach(m => m.pause());
+  window.toggleMusic = function(name) {
+      musicList.forEach(m => m.pause());
+      currentMusic = name === "apocalypse" ? 0 : 1;
+      const music = musicList[currentMusic];
+      music.volume = 0.1;
+      music.play().catch(() => console.log("User must interact to play music"));
+      const fade = setInterval(() => {
+          if (music.volume < 1) music.volume = Math.min(music.volume + 0.05, 1);
+          else clearInterval(fade);
+      }, 200);
+      music.onended = () => {
+          currentMusic = (currentMusic + 1) % musicList.length;
+          musicList[currentMusic].play();
+      }
+  }
 
-    // Pick song
-    currentMusic = name === "apocalypse" ? 0 : 1;
-    const music = musicList[currentMusic];
-    music.volume = 0.1;
-
-    // Toggle play/pause
-    if (!isPlaying) {
-        music.play().catch(() => console.log("User must interact to play music"));
-        const fade = setInterval(() => {
-            if (music.volume < 1) music.volume = Math.min(music.volume + 0.05, 1);
-            else clearInterval(fade);
-        }, 200);
-        music.onended = () => {
-            currentMusic = (currentMusic + 1) % musicList.length;
-            musicList[currentMusic].play();
-        }
-        isPlaying = true;
-    } else {
-        music.pause();
-        isPlaying = false;
-    }
-}
+});
