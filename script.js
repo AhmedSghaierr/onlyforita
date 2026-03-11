@@ -57,104 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- MESSAGE OF THE DAY ----------
   const dailyMessages = [
-    "Thinking of you always 💖",
-    "You make my day brighter ☀️",
-    "Can’t wait to see you again 😘",
-    "You’re my favorite part of life 🌸",
-    "Every little thing reminds me of you ❤️",
-    "You are my happiness 💗",
-    "My heart beats faster when I think of you 💓",
-    "You’re my sweet escape 🍬",
-    "Life is better with you 💞",
-    "Forever in my thoughts 💌",
-    "I love the way you laugh 😍",
-    "You’re my everything 🌹",
-    "I can’t stop smiling thinking of you 😊",
-    "You make ordinary days magical ✨",
-    "Just wanted to say I adore you 💕",
-    "Every time I see you, I fall a little more ❤️",
-    "You’re my sunshine on cloudy days ☀️",
-    "I can’t help but think about you 💖",
-    "You’re my favorite notification 💌",
-    "I hope your day is as sweet as your smile 🍯",
-    "Every love song reminds me of you 🎶",
-    "I dream of you even when I’m awake 😘",
-    "You’ve stolen my heart completely 💓",
-    "Being with you feels like home 🏡",
-    "You’re the best part of my story 💞",
-    "I can’t wait to make more memories with you 💗",
-    "You are my little daily miracle 🌸",
-    "Just thinking of you makes me happy 😊",
-    "You’re the reason I look forward to tomorrow 💖",
-    "I smile whenever I see your name 💕",
-    "Even in my dreams, I’m with you 🌙",
-    "You make my heart do silly flips 😍",
-    "I can’t get enough of you ❤️",
-    "You’re the cherry on top of my life 🍒",
-    "Everything reminds me of you 💌",
-    "I wish I could hug you right now 🤗",
-    "My favorite thought is you 💖",
-    "You’re my sweetest distraction 🍬",
-    "I love every little thing about you 💕",
-    "I’m addicted to thinking of you 😘",
-    "You make my world brighter 🌟",
-    "I’m counting the seconds until I see you 💗",
-    "You’re my favorite hello and hardest goodbye 💓",
-    "Even silence feels magical with you 🌸",
-    "You’re the smile I didn’t know I needed 😊",
-    "You’re in my heart, always 💖",
-    "I can’t imagine a day without thinking of you 💕",
-    "You’re my forever favorite 💞",
-    "Being with you is pure joy 🌟",
-    "I love the way you look at me 💖",
-    "You make everything better 💗",
-    "Every moment with you is special 💞",
-    "I treasure you more than words can say 💕",
-    "You are my dream come true 🌸",
-    "I can’t wait to hold you again 🤗",
-    "You are my endless happiness 💓",
-    "Thinking of you brings a smile 😊",
-    "You are my heart’s delight 💖",
-    "You complete me in every way 💗",
-    "I adore you more each day 🌹",
-    "You’re my guiding star ✨",
-    "I love us 💞",
-    "You’re my favorite everything 💖",
-    "My love for you grows constantly ❤️",
-    "You’re my safe place 🏡",
-    "Life is sweeter with you 💕",
-    "I miss you even when you’re here 😘",
-    "You are perfection to me 💖",
-    "You make every day amazing 🌟",
-    "I’m yours completely 💗",
-    "You’re my heart’s treasure 💞",
-    "I love our story 💖",
-    "You are my reason to smile 😊",
-    "You’re my best thought of the day 💕",
-    "I cherish every moment with you 💓",
-    "You are my favorite hello 💌",
-    "You’re my happiness booster 💗",
-    "I dream about our future 💖",
-    "You make me a better person 🌸",
-    "I love being with you 💞",
-    "You make life beautiful ❤️",
-    "You’re my joy and my peace 💖",
-    "I’m so lucky to have you 💗",
-    "You’re my heart’s melody 🎶",
-    "I love loving you 💕",
-    "Every day with you is magic ✨",
-    "You are my heart’s song 💖",
-    "You make me complete 💓",
-    "I’m thinking of you always 💗",
-    "You’re my heart’s home 🏡",
-    "I adore your soul 🌸",
-    "You’re my heart’s sunshine ☀️",
-    "I love our connection 💖",
-    "You make everything brighter 💞",
-    "I treasure your love 💗",
-    "You’re my sweetest dream 💕"
+      "Thinking of you always 💖", "You make my day brighter ☀️", "Can’t wait to see you again 😘",
+      "You’re my favorite part of life 🌸", "Every little thing reminds me of you ❤️",
+      "You are my happiness 💗", "My heart beats faster when I think of you 💓", "You’re my sweet escape 🍬",
+      "Life is better with you 💞", "Forever in my thoughts 💌", "I love the way you laugh 😍",
+      "You’re my everything 🌹", "I can’t stop smiling thinking of you 😊", "You make ordinary days magical ✨",
+      "Just wanted to say I adore you 💕", "Every time I see you, I fall a little more ❤️"
   ];
-
   const msgBox = document.getElementById("msgOfDayText");
   const today = new Date();
   const dayIndex = today.getDate() + today.getMonth() * 31; // unique for each day
@@ -277,5 +186,53 @@ that someone out there is thinking about you.
 
   closeZoom.addEventListener("click", () => { zoomModal.style.display = "none"; });
   zoomModal.addEventListener("click", (e) => { if (e.target === zoomModal) zoomModal.style.display = "none"; });
+
+  // ---------- OPEN WHEN MESSAGES ----------
+  const openMessages = {
+      "Sad": ["I’m here if you need me 💖","You are stronger than you think 🌟"],
+      "Miss Me": ["I miss you too 😘","Wish I could hug you right now 🤗"],
+      "Can't Sleep": ["Close your eyes, I’m thinking of you 🌙","Sweet dreams soon 💫"],
+      "Need Motivation": ["You can do it, I believe in you 💪","Every day is a new chance ✨"],
+      "Thinking About Us": ["I think about us always 💕","You make my heart smile ❤️"]
+  };
+
+  window.openMsg = function(i) {
+      const keys = ["Sad","Miss Me","Can't Sleep","Need Motivation","Thinking About Us"];
+      const openTextEl = document.getElementById("openText");
+      if (!openTextEl) return;
+      const key = keys[i];
+      const messages = openMessages[key];
+      if (!messages || messages.length === 0) return;
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      openTextEl.style.transition = "opacity 0.3s ease";
+      openTextEl.style.opacity = 0;
+      setTimeout(() => {
+          openTextEl.innerText = randomMessage;
+          openTextEl.style.opacity = 1;
+      }, 300);
+  }
+
+  // ---------- MUSIC PLAYER ----------
+  const musicList = [
+      new Audio("apocalypse.mp3"),
+      new Audio("songrita.mp3")
+  ];
+  let currentMusic = 0;
+
+  window.toggleMusic = function(name) {
+      musicList.forEach(m => m.pause());
+      currentMusic = name === "apocalypse" ? 0 : 1;
+      const music = musicList[currentMusic];
+      music.volume = 0.1;
+      music.play().catch(() => console.log("User must interact to play music"));
+      const fade = setInterval(() => {
+          if (music.volume < 1) music.volume = Math.min(music.volume + 0.05, 1);
+          else clearInterval(fade);
+      }, 200);
+      music.onended = () => {
+          currentMusic = (currentMusic + 1) % musicList.length;
+          musicList[currentMusic].play();
+      }
+  }
 
 });
