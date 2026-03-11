@@ -1,25 +1,26 @@
 const isLogin = document.querySelector(".loginPage");
 const isHome = document.querySelector(".homePage");
 
+// ---------------- LOGIN PAGE ----------------
+
 if (isLogin) {
 
-window.checkPassword = function(){
+window.checkPassword = function () {
 
 const pass = document.getElementById("pass").value;
 
-if(pass === "04/03/26"){
+if (pass === "04/03/26") {
 window.location = "home.html";
 }
-else{
+else {
 alert("Wrong password");
 }
 
 }
 
-const lines=[
+const lines = [
 "I love you Rita ❤️",
 "I miss you Rita",
-"I wanna hug you",
 "You are my favorite",
 "Thinking about you",
 "You make me happy",
@@ -28,19 +29,21 @@ const lines=[
 "Forever yours"
 ];
 
-const bg=document.querySelector(".loveBackground");
+const bg = document.querySelector(".loveBackground");
 
-for(let i=0;i<30;i++){
+for (let i = 0; i < 40; i++) {
 
-const text=document.createElement("div");
+const text = document.createElement("div");
 
-text.className="loveText";
+text.className = "loveText";
 
-text.innerText=lines[Math.floor(Math.random()*lines.length)];
+text.innerText = lines[Math.floor(Math.random()*lines.length)];
 
-text.style.left=Math.random()*100+"%";
+text.style.left = Math.random()*100 + "%";
 
-text.style.animationDuration=(7+Math.random()*5)+"s";
+text.style.animationDuration = (6 + Math.random()*6) + "s";
+
+text.style.animationDelay = Math.random()*5 + "s";
 
 bg.appendChild(text);
 
