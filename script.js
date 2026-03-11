@@ -35,15 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const gmgn = document.getElementById("gmgn");
   function updateGMGN() {
       const hour = new Date().getHours();
-      if (hour >= 5 && hour < 18) gmgn.innerText = "Good Morning Rita ☀️";
-      else gmgn.innerText = "Good Night Rita 🌙";
+      if (hour >= 5 && hour < 18) gmgn.innerText = "Good Morning Riti ☀️";
+      else gmgn.innerText = "Good Night Routa🌙";
   }
   updateGMGN();
 
   // ---------- NAME TYPING ----------
   const nameEl = document.getElementById("ritaName");
   if (nameEl) {
-      const text = "Rita ❤️";
+      const text = "That's The LOML💞";
       let i = 0;
       function typeName() {
           if (i < text.length) {
@@ -160,6 +160,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const dayIndex = today.getDate() + today.getMonth() * 31; // unique for each day
   const messageOfTheDay = dailyMessages[dayIndex % dailyMessages.length];
   if (msgBox) msgBox.innerText = `"${messageOfTheDay}"`;
+
+// ---------- HEARTS BACKGROUND ----------
+const heartsContainer = document.querySelector(".hearts");
+if (heartsContainer) {
+    const heartSymbols = ["❤️", "💖", "💗", "💘", "💞", "💝"];
+    for (let i = 0; i < 50; i++) { // number of hearts
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize = (12 + Math.random() * 24) + "px"; // random sizes
+        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+        heart.style.animationDelay = (Math.random() * 5) + "s";
+        heartsContainer.appendChild(heart);
+    }
+}
 
   // ---------- LOVE LETTER ----------
   const letterBox = document.getElementById("loveLetterBox");
