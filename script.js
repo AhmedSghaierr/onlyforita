@@ -111,16 +111,34 @@ if (letterBox) {
   setInterval(updateCounter, 1000);
 
   // ---------- LOVE HEART ----------
-  let loveClicks = 0;
-  const loveHeart = document.getElementById("loveHeart");
-  if (loveHeart) {
-      loveHeart.addEventListener("click", () => {
-          loveClicks++;
-          document.getElementById("loveNumber").innerText = loveClicks;
-          loveHeart.classList.add("pulse");
-          setTimeout(() => { loveHeart.classList.remove("pulse"); }, 200);
-      });
-  }
+let ahmedLove = 0;
+let ritaLove = 0;
+
+const loveHeart = document.getElementById("loveHeart");
+const ahmedText = document.getElementById("ahmedLove");
+const ritaText = document.getElementById("ritaLove");
+
+if (loveHeart) {
+
+loveHeart.addEventListener("click", () => {
+
+if(Math.random() < 0.5){
+ahmedLove++;
+if(ahmedText) ahmedText.innerText = ahmedLove;
+}else{
+ritaLove++;
+if(ritaText) ritaText.innerText = ritaLove;
+}
+
+loveHeart.classList.add("pulse");
+
+setTimeout(()=>{
+loveHeart.classList.remove("pulse");
+},200);
+
+});
+
+}
 
   // ---------- MENU ----------
 const sideMenu = document.getElementById("menu");
