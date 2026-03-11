@@ -146,15 +146,15 @@ body.homePage{
 #loveLetterBox {
     background: rgba(242, 242, 247, 0.95); /* subtle iOS Notes gray */
     color: #ff1a75; /* pinkish text */
-    padding: 25px 20px;
+    padding: 15px 15px;
     border-radius: 25px; /* more rounded corners */
     margin: 20px auto;
-    max-width: 520px;
+    max-width: 400px;
     font-family: 'Dancing Script', cursive; /* handwriting font */
-    font-size: 20px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.5;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    min-height: 200px;
+    min-height: 150px;
     white-space: pre-wrap; /* preserves line breaks */
     text-align: left;
     overflow-y: auto; /* scroll if text overflows */
