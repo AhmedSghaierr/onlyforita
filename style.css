@@ -1,64 +1,522 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-body{min-height:100vh;overflow-x:hidden;text-align:center;}
-/* -------- LOGIN PAGE -------- */
-.loginPage{display:flex;justify-content:center;align-items:center;height:100vh;background:url('images/login.png') no-repeat center center/cover;}
-.loginBox{position:relative;z-index:1;background:rgba(255,255,255,0.9);padding:50px 30px;border-radius:25px;width:90%;max-width:400px;border:3px solid #ff4d88;box-shadow:0 0 20px #ff4d88,0 0 40px #ff4d88 inset;}
-.loginTitle{font-size:32px;color:#ff1a75;margin-bottom:10px;}
-.loginBox input{width:100%;padding:15px;border-radius:12px;border:2px solid #ff4d88;background:#f2f2f2;margin-top:15px;font-size:18px;box-shadow:0 0 10px #ff4d88 inset;}
-.loginBox button{margin-top:20px;padding:15px;width:100%;border:none;border-radius:15px;background:#ff4d88;color:white;font-size:20px;cursor:pointer;}
+/* ===============================
+GLOBAL
+=============================== */
 
-.loveBackground {
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  overflow:hidden;
-  z-index:0;
-  pointer-events:none; /* prevents blocking touches on the input/button */
-}
-..loveText {
-  position:absolute;
-  color:#ff4d88;
-  font-size:14px;
-  opacity:0.8;
-  white-space:nowrap;
-  user-select:none;
-  animation-name:fallText;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
 }
 
-@keyframes fallText {
-  0% { transform: translateY(-10vh); }
-  100% { transform: translateY(110vh); }
+body{
+min-height:100vh;
+overflow-x:hidden;
+text-align:center;
 }
 
-/* -------- HOME PAGE -------- */
-body.homePage{color:white;background:url('images/home.png') no-repeat center center/cover;padding:20px;}
-.container{width:100%;max-width:520px;margin:auto;padding:10px;}
-#gmgnCounterBox{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.2);padding:12px 20px;border-radius:20px;margin:15px auto;max-width:300px;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
-#gmgn{font-size:18px;color:#ff1a75;margin-bottom:6px;}
-#counter{font-size:16px;color:white;}
-#mainPhoto{width:220px;border-radius:20px;margin:20px auto;display:block;box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:0.3s;}
-#mainPhoto:hover{transform:scale(1.05);}
-#loveContainer{position:relative;margin:20px auto;width:120px;height:120px;}
-#loveHeart{width:100%;cursor:pointer;transition:transform .2s;}
-#loveHeart.pulse{transform:scale(1.2);}
-#loveNumber{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:22px;font-weight:bold;pointer-events:none;}
-.openButtons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
-.openButtons button{background:white;color:black;padding:10px 14px;border-radius:15px;cursor:pointer;}
-#openTextBox{background:rgba(255,255,255,0.9);color:#ff1a75;padding:15px;border-radius:15px;margin-top:10px;min-height:50px;}
-.photoWall{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
-.photoWall img{width:100%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.5);transition:.3s;cursor:pointer;}
-.photoWall img:hover{transform:scale(1.05);}
-#imageModal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:10000;}
-#imageModal img{max-width:90%;max-height:90%;border-radius:20px;}
-.hearts{position:fixed;width:100%;height:100%;overflow:hidden;z-index:-1;}
-.heart{position:absolute;color:#ff4d88;font-size:18px;animation:fall 6s linear infinite;}
-@keyframes fall{0%{transform:translateY(-10vh)}100%{transform:translateY(110vh)}}
-#menu{position:fixed;top:0;left:-260px;width:260px;height:100%;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border-right:1px solid rgba(255,255,255,0.3);z-index:9998;transition:left .4s ease;display:flex;flex-direction:column;justify-content:space-between;padding:20px;}
-#menu.active{left:0;}
-#menuContent button{display:block;margin:10px 0;padding:10px 15px;border-radius:12px;border:none;background:rgba(255,255,255,0.6);cursor:pointer;color:#ff1a75;font-weight:bold;width:100%;text-align:left;}
-#menuToggle{position:fixed;top:20px;left:20px;z-index:9999;font-size:24px;background:rgba(255,255,255,0.7);border:none;border-radius:12px;padding:8px 12px;cursor:pointer;color:#ff1a75;}
-.menuBottom img{width:120px;margin-top:10px;}
+
+/* ===============================
+LOGIN PAGE
+=============================== */
+
+.loginPage{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:url('images/login.png') no-repeat center center/cover;
+}
+
+.loginBox{
+position:relative;
+z-index:1;
+background:rgba(255,255,255,0.9);
+padding:50px 30px;
+border-radius:25px;
+width:90%;
+max-width:400px;
+
+border:3px solid #ff4d88;
+
+box-shadow:
+0 0 20px #ff4d88,
+0 0 40px #ff4d88 inset;
+}
+
+.loginTitle{
+font-size:32px;
+color:#ff1a75;
+margin-bottom:10px;
+}
+
+.loginBox input{
+width:100%;
+padding:15px;
+
+border-radius:12px;
+border:2px solid #ff4d88;
+
+background:#f2f2f2;
+
+margin-top:15px;
+
+font-size:18px;
+
+box-shadow:0 0 10px #ff4d88 inset;
+}
+
+.loginBox button{
+margin-top:20px;
+
+padding:15px;
+width:100%;
+
+border:none;
+border-radius:15px;
+
+background:#ff4d88;
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+}
+
+
+/* ===============================
+FALLING LOVE TEXT
+=============================== */
+
+.loveBackground{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+z-index:0;
+
+pointer-events:none;
+}
+
+.loveText{
+position:absolute;
+
+color:#ff4d88;
+font-size:14px;
+
+opacity:0.8;
+
+white-space:nowrap;
+user-select:none;
+
+animation-name:fallText;
+animation-timing-function:linear;
+animation-iteration-count:infinite;
+}
+
+@keyframes fallText{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+
+/* ===============================
+HOME PAGE
+=============================== */
+
+body.homePage{
+color:white;
+background:url('images/home.png') no-repeat center center/cover;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:520px;
+margin:auto;
+padding:10px;
+}
+
+
+/* ===============================
+GM GN + COUNTER
+=============================== */
+
+#gmgnCounterBox{
+display:flex;
+flex-direction:column;
+align-items:center;
+
+background:rgba(255,255,255,0.2);
+
+padding:12px 20px;
+
+border-radius:20px;
+
+margin:15px auto;
+
+max-width:300px;
+
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+#gmgn{
+font-size:18px;
+color:#ff1a75;
+margin-bottom:6px;
+}
+
+#counter{
+font-size:16px;
+color:white;
+}
+
+
+/* ===============================
+MAIN PHOTO
+=============================== */
+
+#mainPhoto{
+width:220px;
+
+border-radius:20px;
+
+margin:20px auto;
+display:block;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+
+transition:0.3s;
+}
+
+#mainPhoto:hover{
+transform:scale(1.05);
+}
+
+
+/* ===============================
+LOVE LETTER BOX
+=============================== */
+
+#loveLetterBox{
+
+background:rgba(255,255,255,0.9);
+color:#ff1a75;
+
+padding:18px;
+
+border-radius:20px;
+
+max-width:340px;
+margin:20px auto;
+
+font-family:'Dancing Script',cursive;
+
+font-size:18px;
+line-height:1.6;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+
+text-align:left;
+
+}
+
+
+/* ===============================
+LOVE HEART COUNTER
+=============================== */
+
+#loveContainer{
+position:relative;
+margin:20px auto;
+width:120px;
+height:120px;
+}
+
+#loveHeart{
+width:100%;
+cursor:pointer;
+transition:transform .2s;
+}
+
+#loveHeart.pulse{
+transform:scale(1.2);
+}
+
+#loveNumber{
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+color:white;
+
+font-size:22px;
+font-weight:bold;
+
+pointer-events:none;
+}
+
+
+/* ===============================
+OPEN WHEN BOXES
+=============================== */
+
+.openContainer{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+max-width:350px;
+
+margin:15px auto;
+
+}
+
+.openCard{
+
+background:white;
+
+color:#ff1a75;
+
+padding:10px;
+
+border-radius:12px;
+
+font-size:14px;
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+
+transition:0.2s;
+
+}
+
+.openCard:hover{
+transform:scale(1.05);
+}
+
+#openTextBox{
+
+background:rgba(255,255,255,0.9);
+
+color:#ff1a75;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-top:10px;
+
+min-height:50px;
+
+}
+
+
+/* ===============================
+PHOTO WALL
+=============================== */
+
+.photoWall{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.photoWall img{
+
+width:100%;
+
+border-radius:10px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.photoWall img:hover{
+transform:scale(1.05);
+}
+
+
+/* ===============================
+IMAGE ZOOM
+=============================== */
+
+#imageModal{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.9);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:10000;
+
+}
+
+#imageModal img{
+
+max-width:90%;
+max-height:90%;
+
+border-radius:20px;
+
+}
+
+
+/* ===============================
+FALLING HEARTS
+=============================== */
+
+.hearts{
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.heart{
+
+position:absolute;
+
+color:#ff4d88;
+
+font-size:18px;
+
+animation:fall 6s linear infinite;
+
+}
+
+@keyframes fall{
+
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+
+}
+
+
+/* ===============================
+MENU
+=============================== */
+
+#menu{
+
+position:fixed;
+
+top:0;
+left:-260px;
+
+width:260px;
+height:100%;
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(20px);
+
+border-right:1px solid rgba(255,255,255,0.3);
+
+z-index:9998;
+
+transition:left .4s ease;
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+
+padding:20px;
+
+}
+
+#menu.active{
+left:0;
+}
+
+#menuContent button{
+
+display:block;
+
+margin:10px 0;
+
+padding:10px 15px;
+
+border-radius:12px;
+border:none;
+
+background:rgba(255,255,255,0.6);
+
+cursor:pointer;
+
+color:#ff1a75;
+font-weight:bold;
+
+width:100%;
+
+text-align:left;
+
+}
+
+#menuToggle{
+
+position:fixed;
+
+top:20px;
+left:20px;
+
+z-index:9999;
+
+font-size:24px;
+
+background:rgba(255,255,255,0.7);
+
+border:none;
+
+border-radius:12px;
+
+padding:8px 12px;
+
+cursor:pointer;
+
+color:#ff1a75;
+
+}
+
+.menuBottom img{
+width:120px;
+margin-top:10px;
+}
