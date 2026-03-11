@@ -226,5 +226,39 @@ box.style.opacity=1;
 },200);
 
 }
+// ---------------- MUSIC PLAYER ----------------
 
+const music1 = document.getElementById("apocalypseMusic");
+const music2 = document.getElementById("songritaMusic");
+
+let currentMusic = null;
+
+window.toggleMusic = function(song){
+
+if(currentMusic){
+currentMusic.pause();
+currentMusic.currentTime = 0;
+}
+
+if(song === "apocalypse"){
+currentMusic = music1;
+}
+
+if(song === "songrita"){
+currentMusic = music2;
+}
+
+if(currentMusic){
+currentMusic.play();
+}
+
+}
+
+window.pauseMusic = function(){
+
+if(currentMusic){
+currentMusic.pause();
+}
+
+}
 }
