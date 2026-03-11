@@ -1,152 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For You ❤️</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Couples Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="home-body">
+  <!-- Matrix hearts background -->
+  <canvas id="matrix"></canvas>
 
-<body class="homePage">
+  <!-- Side menu -->
+  <div id="side-menu" class="side-menu">
+    <button id="close-menu">×</button>
+    <nav>
+      <button data-target="her-photos">Her Photos</button>
+      <button data-target="our-photos">Our Photos</button>
+      <button data-target="letter">Letter</button>
+      <button data-target="open-when">Open When</button>
+    </nav>
+  </div>
+  <button id="menu-btn" class="menu-btn">☰</button>
 
-<button id="menuToggle">☰</button>
+  <!-- Greetings & MOTD -->
+  <div class="top-section">
+    <p id="greeting">Good Morning</p>
+    <img src="images/her1.jpg" alt="Main Her Pic" id="main-pic" class="main-pic">
+    <p id="motd">Message of the Day</p>
+  </div>
 
-<div id="menu">
+  <!-- Photos Sections -->
+  <section id="her-photos">
+    <h2>Her Photos</h2>
+    <div class="photo-grid" id="her-photo-grid"></div>
+  </section>
 
-<button id="menuClose">✕</button>
+  <section id="our-photos">
+    <h2>Our Photos</h2>
+    <div class="photo-grid" id="our-photo-grid"></div>
+  </section>
 
-<div id="menuContent">
+  <!-- Letter Section -->
+  <section id="letter">
+    <h2>Letter</h2>
+    <div class="letter-box">
+      <p>Dear Ririta, I just want you to know that...</p>
+    </div>
+    <img src="images/signature.png" alt="Signature" class="signature">
+  </section>
 
-<button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
-<button onclick="scrollToSection('loveLetterBox')">Love Letter</button>
-<button onclick="scrollToSection('openWhenSection')">Open When</button>
-<button onclick="scrollToSection('photoSection')">Photo Wall</button>
+  <!-- Open When Section -->
+  <section id="open-when">
+    <h2>Open When</h2>
+    <div class="heart-counter">
+      <img src="images/loveHeart.png" id="heart-btn" alt="Heart">
+      <span id="heart-count">0</span> times someone thought of you
+    </div>
+    <div class="open-buttons">
+      <button data-type="sad">Sad</button>
+      <button data-type="missme">Miss Me</button>
+      <button data-type="cantsleep">Can't Sleep</button>
+      <button data-type="motivation">Need Motivation</button>
+    </div>
+    <div class="open-text-box" id="open-text-box"></div>
+  </section>
 
-</div>
+  <!-- Music Player -->
+  <div class="music-player">
+    <audio id="music" controls autoplay loop>
+      <source src="apocalypse.mp3" type="audio/mp3">
+      <source src="songrita.mp3" type="audio/mp3">
+    </audio>
+  </div>
 
-</div>
-
-
-<div class="container">
-
-<div id="gmgnCounterBox">
-<div id="gmgn"></div>
-<div id="counter"></div>
-</div>
-
-
-<div id="msgOfDayBox">
-<div id="msgOfDayTitleBox">Message Of The Day</div>
-<div id="msgOfDay"></div>
-</div>
-
-
-<img id="mainPhoto">
-
-
-<div id="loveContainer">
-
-<img id="loveHeart" src="images/heart.png">
-
-<div class="loveCounters">
-
-Today clicks: <span id="dailyCount">0</span><br>
-Total clicks: <span id="totalCount">0</span>
-
-</div>
-
-</div>
-
-
-<div id="loveLetterBox">
-<div id="loveLetterTitleBox">Love Letter</div>
-<div id="loveLetterText">
-
-I made this little place for you.  
-Every time you open it I want you to remember  
-how special you are to me.
-
-</div>
-</div>
-
-
-
-<div id="openWhenSection">
-
-<h2>Open When</h2>
-
-<div class="openContainer">
-
-<div class="openCard" onclick="openMsg(0)">Sad</div>
-<div class="openCard" onclick="openMsg(1)">Miss Me</div>
-<div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
-<div class="openCard" onclick="openMsg(3)">Need Motivation</div>
-
-</div>
-
-<div id="openTextBox"></div>
-
-</div>
-
-
-
-<div id="photoSection">
-
-<h2>Favorite Photos of You 💗</h2>
-
-<div class="photoWall">
-
-<img src="images/her1.jpg">
-<img src="images/her2.jpg">
-<img src="images/her3.jpg">
-<img src="images/her4.jpg">
-<img src="images/her5.jpg">
-<img src="images/her6.jpg">
-<img src="images/her7.jpg">
-<img src="images/her8.jpg">
-<img src="images/her9.jpg">
-<img src="images/her10.jpg">
-<img src="images/her11.jpg">
-<img src="images/her12.jpg">
-<img src="images/her13.jpg">
-<img src="images/her14.jpg">
-<img src="images/her15.jpg">
-
-</div>
-
-
-<h2 style="margin-top:30px;">Our Memories Together 🤍</h2>
-
-<div class="photoWall" id="ourPhotos">
-
-</div>
-
-</div>
-
-
-<div class="quote">
-“You are my favorite notification.”
-</div>
-
-</div>
-
-
-<div id="imageModal">
-<img>
-</div>
-
-
-<div class="hearts"></div>
-
-<audio id="music" src="music/music.mp3" loop></audio>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
