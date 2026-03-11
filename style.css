@@ -11,7 +11,6 @@ body{
     text-align:center;
 }
 
-
 /* ---------------- LOGIN PAGE ---------------- */
 
 .loginPage{
@@ -140,41 +139,31 @@ body.homePage{
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-
-/* LOVE LETTER FIXED */
-#loveLetter {
-    background: rgba(255, 255, 255, 0.85);
-    color: #ff1a75;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 10px;
-    line-height: 1.6;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    min-height: 95px;
-    overflow-y: auto; /* allows scrolling if text overflows */
-    white-space: pre-wrap; /* preserves line breaks */
-    text-align: left; /* proper letter alignment */
+#msgOfDayBox .sectionTitle{
+    margin-bottom:10px;
 }
 
-/* LOVE LETTER STATIC BOX */
+/* LOVE LETTER BOX */
 #loveLetterBox {
-    background: rgba(242, 242, 247, 0.95); /* subtle iOS Notes gray */
-    color: #ff1a75; /* pinkish text */
-    padding: 15px 15px;
-    border-radius: 25px; /* more rounded corners */
+    background: rgba(242, 242, 247, 0.95);
+    color: #ff1a75;
+    padding: 15px;
+    border-radius: 25px;
     margin: 20px auto;
     max-width: 400px;
-    font-family: 'Dancing Script', cursive; /* handwriting font */
+    font-family: 'Dancing Script', cursive;
     font-size: 18px;
     line-height: 1.5;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     min-height: 150px;
-    white-space: pre-wrap; /* preserves line breaks */
+    white-space: pre-wrap;
     text-align: left;
-    overflow-y: auto; /* scroll if text overflows */
+    overflow-y: auto;
+}
+
+#loveLetterBox .sectionTitle{
+    text-align:center;
+    margin-bottom:10px;
 }
 
 /* MAIN PHOTO */
@@ -343,15 +332,16 @@ opacity:1;
     backdrop-filter:blur(20px);
     border-right:1px solid rgba(255,255,255,0.3);
     z-index:9998;
-    transition:left .4s ease;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     padding:20px;
+    transition:transform 0.35s cubic-bezier(.25,.8,.25,1);
+    transform:translateX(-100%);
 }
 
 #menu.active{
-    left:0;
+    transform:translateX(0);
 }
 
 #menuContent button{
@@ -380,16 +370,7 @@ opacity:1;
     padding:8px 12px;
     cursor:pointer;
     color:#ff1a75;
-    transition: 0.3s;
-}
-
-#menu{
-transform:translateX(-100%);
-transition:transform 0.35s cubic-bezier(.25,.8,.25,1);
-}
-
-#menu.active{
-transform:translateX(0);
+    transition:0.3s;
 }
 
 #menuClose {
@@ -408,6 +389,7 @@ transform:translateX(0);
     align-items: center;
     justify-content: center; 
 }
+
 .menuBottom img{
     width:120px;
     margin-top:10px;
