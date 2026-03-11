@@ -123,23 +123,14 @@ const dailyMessages = [
   "You’re my forever favorite 💞"
 ];
 
-const today = new Date().toISOString().slice(0, 10); // e.g., "2026-03-11"
-const lastMessageDate = localStorage.getItem("lastMessageDate");
-let messageOfTheDay;
+const msgBox = document.getElementById("msgOfDayText");
 
-if (lastMessageDate === today) {
-    // Use the previous message
-    messageOfTheDay = localStorage.getItem("messageOfTheDay");
-} else {
-    // Pick a new random message
-    messageOfTheDay = dailyMessages[Math.floor(Math.random() * dailyMessages.length)];
-    localStorage.setItem("messageOfTheDay", messageOfTheDay);
-    localStorage.setItem("lastMessageDate", today);
-}
+// Get a new message every day based on the day number so it won’t repeat often
+const today = new Date();
+const dayIndex = today.getDate() + today.getMonth() * 31; // unique for each day of year
+const messageOfTheDay = messagesOfTheDay[dayIndex % messagesOfTheDay.length];
 
-// Display the message
-const quoteEl = document.getElementById("quote");
-if (quoteEl) quoteEl.innerText = messageOfTheDay;
+if (msgBox) msgBox.innerText = `"${messageOfTheDay}"`;
 
   // ---------- LOVE LETTER ----------
   const letterBox = document.getElementById("loveLetterBox");
