@@ -376,17 +376,21 @@ transition:transform 0.35s cubic-bezier(.25,.8,.25,1);
 transform:translateX(0);
 }
 
-#menuClose{
-position:absolute;
-top:20px;
-right:20px;
-font-size:24px;
-background:none;
-border:none;
-color:white;
-cursor:pointer;
+#menuClose {
+    width: 40px;                 /* small square */
+    height: 40px;                /* equal height */
+    padding: 0;                  /* remove extra space */
+    margin: 10px 0;              /* spacing similar to other buttons */
+    font-size: 24px;             /* size of the × */
+    border-radius: 8px;          /* slightly rounded corners */
+    background: rgba(255,255,255,0.6); /* same style as other buttons */
+    color: #ff1a75;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;     /* center the × */
 }
-
 .menuBottom img{
     width:120px;
     margin-top:10px;
