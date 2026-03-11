@@ -253,22 +253,35 @@ body.homePage{
 
 /* IMAGE ZOOM */
 #imageModal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:10000;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:10000;
 }
 
 #imageModal img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:20px;
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+animation:zoomImage .3s ease;
+}
+
+@keyframes zoomImage{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
 }
 
 /* HEART BACKGROUND */
