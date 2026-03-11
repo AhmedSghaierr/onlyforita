@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
   // ---------- LOGIN PAGE ----------
   const isLogin = document.querySelector(".loginPage");
   if (isLogin) {
