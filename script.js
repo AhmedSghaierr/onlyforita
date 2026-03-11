@@ -118,16 +118,16 @@ const loveHeart = document.getElementById("loveHeart");
 const ahmedText = document.getElementById("ahmedLove");
 const ritaText = document.getElementById("ritaLove");
 
-if (loveHeart) {
+if(loveHeart){
 
-loveHeart.addEventListener("click", () => {
+loveHeart.addEventListener("click",()=>{
 
 if(Math.random() < 0.5){
 ahmedLove++;
-if(ahmedText) ahmedText.innerText = ahmedLove;
+ahmedText.innerText = ahmedLove;
 }else{
 ritaLove++;
-if(ritaText) ritaText.innerText = ritaLove;
+ritaText.innerText = ritaLove;
 }
 
 loveHeart.classList.add("pulse");
