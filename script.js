@@ -110,34 +110,34 @@ if (letterBox) {
   }
   setInterval(updateCounter, 1000);
 
-  // ---------- LOVE HEART ----------
-let ahmedLove = 0;
-let ritaLove = 0;
+ // ---------- LOVE HEART ----------
+let ahmedLove = localStorage.getItem("ahmedLove") ? parseInt(localStorage.getItem("ahmedLove")) : 0;
+let ritaLove = localStorage.getItem("ritaLove") ? parseInt(localStorage.getItem("ritaLove")) : 0;
 
 const loveHeart = document.getElementById("loveHeart");
-const ahmedText = document.getElementById("ahmedLove");
-const ritaText = document.getElementById("ritaLove");
+const ahmedEl = document.getElementById("ahmedLove");
+const ritaEl = document.getElementById("ritaLove");
 
-if(loveHeart){
+// Initialize counters on page load
+if (ahmedEl) ahmedEl.innerText = ahmedLove;
+if (ritaEl) ritaEl.innerText = ritaLove;
 
-loveHeart.addEventListener("click",()=>{
+if (loveHeart) {
+  loveHeart.addEventListener("click", () => {
+    // Randomly choose who "loves" who this click
+    if (Math.random() < 0.5) {
+      ahmedLove++;
+      ahmedEl.innerText = ahmedLove;
+      localStorage.setItem("ahmedLove", ahmedLove);
+    } else {
+      ritaLove++;
+      ritaEl.innerText = ritaLove;
+      localStorage.setItem("ritaLove", ritaLove);
+    }
 
-if(Math.random() < 0.5){
-ahmedLove++;
-ahmedText.innerText = ahmedLove;
-}else{
-ritaLove++;
-ritaText.innerText = ritaLove;
-}
-
-loveHeart.classList.add("pulse");
-
-setTimeout(()=>{
-loveHeart.classList.remove("pulse");
-},200);
-
-});
-
+    loveHeart.classList.add("pulse");
+    setTimeout(() => { loveHeart.classList.remove("pulse"); }, 200);
+  });
 }
 
   // ---------- MENU ----------
