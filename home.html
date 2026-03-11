@@ -9,22 +9,23 @@
 </head>
 <body class="homePage">
 
-
 <!-- Background -->
 <div class="hearts"></div>
 
 <div class="container">
+
   <!-- SLIDE-OUT MENU -->
   <button id="menuToggle">☰</button>
   <div id="menu">
     <div id="menuContent">
-<button id="menuClose">✕</button>
+      <button id="menuClose">✕</button>
+
       <!-- Top Section: Navigation -->
       <div class="menuTop">
         <button onclick="scrollToSection('gallery')">Gallery</button>
         <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
         <button onclick="scrollToSection('loveLetterBox')">Love Letter</button>
-<button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
+        <button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
       </div>
 
       <!-- Middle Section: Music Player -->
@@ -48,28 +49,31 @@
     <span id="gmgn"></span>
     <span id="counter"></span>
   </div>
+
+  <!-- Name -->
   <h2 id="ritaName"></h2>
 
   <!-- Main photo -->
   <img id="mainPhoto" alt="Main Photo">
 
-<!-- Message of the Day Section -->
-<h2 class="sectionTitle" id="msgOfDayTitle">Message of the day for my love riti💗</h2>
-<div id="msgOfDayBox">
-  <p id="msgOfDayText">Loading your special message...</p>
-</div>
+  <!-- Message of the Day Section -->
+  <div id="msgOfDayBox">
+    <h2 id="msgOfDayTitle" class="boxTitle">Message of the day for my love riti💗</h2>
+    <p id="msgOfDayText">Loading your special message...</p>
+  </div>
 
   <!-- Love Letter Section -->
-  <h2 class="sectionTitle" id="loveLetterTitle">A Little Letter for You 💌</h2>
-  <div class="loveLetterBox" id="loveLetterBox"></div>
+  <div id="loveLetterBox">
+    <h2 id="loveLetterTitle" class="boxTitle">A Little Letter for You 💌</h2>
+  </div>
 
   <!-- Animated Love Counter -->
   <div id="loveContainer">
-  <img id="loveHeart" src="images/loveHeart.png">
-  <div class="loveCounters">
-    <p id="loveText">Someone can’t stop thinking about you 💗 <span id="loveNumber">0</span></p>
+    <img id="loveHeart" src="images/loveHeart.png">
+    <div class="loveCounters">
+      <p id="loveText">Someone can’t stop thinking about you 💗 <span id="loveNumber">0</span></p>
+    </div>
   </div>
-</div>
 
   <!-- Open When Messages -->
   <h2 class="sectionTitle">Open When...</h2>
@@ -104,13 +108,13 @@
     <img src="images/her15.jpg">
   </div>
 
-<br>
   <!-- Our Photos Section -->
   <h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
   <div id="ourPhotosSection" class="photoWall"></div>
 
   <!-- Random Quote -->
   <p id="quote" class="quote"></p>
+
 </div>
 
 <script src="script.js"></script>
