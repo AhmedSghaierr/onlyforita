@@ -204,6 +204,16 @@ body.homePage{
     font-weight:bold;
     pointer-events:none;
 }
+.loveCounters{
+margin-top:10px;
+font-size:16px;
+color:white;
+}
+
+.loveCounters span{
+color:#ff4d88;
+font-weight:bold;
+}
 
 /* OPEN WHEN */
 .openContainer{
