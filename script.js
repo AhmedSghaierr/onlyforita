@@ -358,27 +358,37 @@ that someone out there is thinking about you.
       }, 300);
   }
 
-  // ---------- MUSIC PLAYER ----------
-  const musicList = [
-      new Audio("apocalypse.mp3"),
-      new Audio("songrita.mp3")
-  ];
-  let currentMusic = 0;
+// ---------- MUSIC PLAYER ----------
+const musicList = [
+    new Audio("apocalypse.mp3"),
+    new Audio("songrita.mp3")
+];
+let currentMusic = 0;
+let isPlaying = false;
 
-  window.toggleMusic = function(name) {
-      musicList.forEach(m => m.pause());
-      currentMusic = name === "apocalypse" ? 0 : 1;
-      const music = musicList[currentMusic];
-      music.volume = 0.1;
-      music.play().catch(() => console.log("User must interact to play music"));
-      const fade = setInterval(() => {
-          if (music.volume < 1) music.volume = Math.min(music.volume + 0.05, 1);
-          else clearInterval(fade);
-      }, 200);
-      music.onended = () => {
-          currentMusic = (currentMusic + 1) % musicList.length;
-          musicList[currentMusic].play();
-      }
-  }
+window.toggleMusic = function(name) {
+    // Stop all music first
+    musicList.forEach(m => m.pause());
 
-});
+    // Pick song
+    currentMusic = name === "apocalypse" ? 0 : 1;
+    const music = musicList[currentMusic];
+    music.volume = 0.1;
+
+    // Toggle play/pause
+    if (!isPlaying) {
+        music.play().catch(() => console.log("User must interact to play music"));
+        const fade = setInterval(() => {
+            if (music.volume < 1) music.volume = Math.min(music.volume + 0.05, 1);
+            else clearInterval(fade);
+        }, 200);
+        music.onended = () => {
+            currentMusic = (currentMusic + 1) % musicList.length;
+            musicList[currentMusic].play();
+        }
+        isPlaying = true;
+    } else {
+        music.pause();
+        isPlaying = false;
+    }
+}
