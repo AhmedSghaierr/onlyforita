@@ -1,32 +1,46 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-// ---------- LOGIN PAGE ----------
-const isLogin=document.querySelector(".loginPage");
-const isHome=document.querySelector(".homePage");
+  // ---------- LOGIN PAGE ----------
+  const isLogin = document.querySelector(".loginPage");
+  if (isLogin) {
 
-if(isLogin){
-    window.checkPassword=function(){
-        const pass=document.getElementById("pass").value;
-        if(pass==="04/03/26") window.location="home.html";
-        else alert("Wrong password ybhima");
-    }
+      // FALLING COMPLIMENTS TEXT
+      const lines = [
+          "I love you Rita ❤️", "I miss you Rita", "I wanna hug you", "You are my favorite",
+          "Thinking about you", "You make me happy", "I can’t stop thinking about you",
+          "My heart beats for you", "You are my sunshine", "Forever yours",
+          "Ririta", "Rita", "Riti", "Rourou", "Ritej", "Rhy", "Hby"
+      ];
 
-    const lines=["I love you Rita ❤️","I miss you Rita","I wanna hug you","You are my favorite","Thinking about you","You make me happy","I can’t stop thinking about you","My heart beats for you","You are my sunshine","Forever yours"];
-    const bg=document.querySelector(".loveBackground");
-    if(bg){
-        let delay=0;
-        for(let i=0;i<30;i++){
-            const text=document.createElement("div");
-            text.className="loveText";
-            text.innerText=lines[Math.floor(Math.random()*lines.length)];
-            text.style.left=Math.random()*100+"%";
-            text.style.animationDuration=(7+Math.random()*5)+"s";
-            text.style.animationDelay=delay+"s";
-            delay+=0.3;
-            bg.appendChild(text);
-        }
-    }
-}
+      const bg = document.querySelector(".loveBackground");
+      if (bg) {
+          let delay = 0;
+          for (let i = 0; i < 30; i++) {
+              const text = document.createElement("div");
+              text.className = "loveText";
+              text.innerText = lines[Math.floor(Math.random() * lines.length)];
+              text.style.left = Math.random() * 100 + "%";
+              text.style.animationDuration = (7 + Math.random() * 5) + "s";
+              text.style.animationDelay = delay + "s";
+              delay += 0.3;
+              bg.appendChild(text);
+          }
+      }
+
+      // PASSWORD CHECK
+      const loginBtn = document.getElementById("loginBtn"); // matches id in HTML
+      loginBtn.addEventListener("click", () => {
+          const pass = document.getElementById("pass").value; // matches input id
+          if (pass === "04/03/26") {
+              window.location = "home.html";
+          } else {
+              alert("Wrong password ybhima");
+          }
+      });
+
+  }
+
+});
 
 // ---------- GM / GN ----------
 const gmgn=document.getElementById("gmgn");
