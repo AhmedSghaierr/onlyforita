@@ -110,36 +110,24 @@ if (letterBox) {
   }
   setInterval(updateCounter, 1000);
 
- // ---------- LOVE HEART ----------
-let ahmedLove = localStorage.getItem("ahmedLove") ? parseInt(localStorage.getItem("ahmedLove")) : 0;
-let ritaLove = localStorage.getItem("ritaLove") ? parseInt(localStorage.getItem("ritaLove")) : 0;
-
+// ---------- LOVE HEART ----------
+let loveClicks = localStorage.getItem("loveClicks") ? parseInt(localStorage.getItem("loveClicks")) : 0;
 const loveHeart = document.getElementById("loveHeart");
-const ahmedEl = document.getElementById("ahmedLove");
-const ritaEl = document.getElementById("ritaLove");
+const loveNumber = document.getElementById("loveNumber");
 
-// Initialize counters on page load
-if (ahmedEl) ahmedEl.innerText = ahmedLove;
-if (ritaEl) ritaEl.innerText = ritaLove;
+if (loveNumber) loveNumber.innerText = loveClicks;
 
 if (loveHeart) {
   loveHeart.addEventListener("click", () => {
-    // Randomly choose who "loves" who this click
-    if (Math.random() < 0.5) {
-      ahmedLove++;
-      ahmedEl.innerText = ahmedLove;
-      localStorage.setItem("ahmedLove", ahmedLove);
-    } else {
-      ritaLove++;
-      ritaEl.innerText = ritaLove;
-      localStorage.setItem("ritaLove", ritaLove);
-    }
+    loveClicks++;
+    loveNumber.innerText = loveClicks;
+    localStorage.setItem("loveClicks", loveClicks);
 
     loveHeart.classList.add("pulse");
     setTimeout(() => { loveHeart.classList.remove("pulse"); }, 200);
   });
 }
-
+ 
   // ---------- MENU ----------
 const sideMenu = document.getElementById("menu");
 const menuBtn = document.getElementById("menuToggle");
