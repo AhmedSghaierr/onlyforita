@@ -97,50 +97,6 @@ type();
 }
 
 
-const letter=`
-
-Rita,
-
-I don't know if this little website can show
-how much you mean to me, but I wanted to try.
-
-Every time I see you or think about you
-something inside me feels lighter.
-
-You are honestly one of the most beautiful
-people I have ever met.
-
-I made this little world just for you.
-
-— Ahmed ❤️
-
-`;
-
-const box=document.getElementById("loveLetterBox");
-
-if(box){
-
-let i=0;
-
-function typeLetter(){
-
-if(i<letter.length){
-
-box.innerHTML+=letter.charAt(i)==="\n"?"<br>":letter.charAt(i);
-
-i++;
-
-setTimeout(typeLetter,20);
-
-}
-
-}
-
-typeLetter();
-
-}
-
-
 const photos=[
 "images/her1.jpg",
 "images/her2.jpg",
