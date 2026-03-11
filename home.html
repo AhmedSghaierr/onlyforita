@@ -1,96 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Our Little World 💗</title>
-<link rel="stylesheet" href="style.css?v=1.0">
+
+<link rel="stylesheet" href="style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
+
 <body class="homePage">
 
 <div class="hearts"></div>
 
 <div class="container">
-    <!-- MENU -->
-    <button id="menuToggle">☰</button>
-    <div id="menu">
-        <div id="menuContent">
-            <div class="menuTop">
-                <button onclick="scrollToSection('gallery')">Gallery</button>
-                <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
-                <button onclick="scrollToSection('loveLetter')">Love Letter</button>
-                <button onclick="scrollToSection('openWhen')">Open When...</button>
-            </div>
-            <div class="menuMusic">
-                <p>Music Player 🎵</p>
-                <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
-                <button onclick="toggleMusic('songrita')">▶ SongRita</button>
-                <button onclick="pauseMusic()">⏸ Pause</button>
-            </div>
-            <div class="menuBottom">
-                <p>Ahmed Sghaier</p>
-                <img src="images/signature.png" alt="Signature" id="signatureImg">
-            </div>
-        </div>
-    </div>
 
-    <!-- GM/GN + Counter -->
-    <div id="gmgnCounterBox">
-        <span id="gmgn"></span>
-        <span id="counter"></span>
-    </div>
+<button id="menuToggle">☰</button>
 
-    <!-- Main Photo -->
-    <img id="mainPhoto">
+<div id="menu">
+<div id="menuContent">
 
-    <!-- Love Letter -->
-    <h2 class="sectionTitle" id="loveLetter">A Little Letter for You 💌</h2>
-    <div class="loveLetterBox" id="loveLetterBox"></div>
-
-    <!-- Heart Counter -->
-    <div id="loveContainer">
-        <img id="loveHeart" src="images/loveHeart.png">
-        <span id="loveNumber">0</span>
-    </div>
-
-    <!-- Open When -->
-    <h2 class="sectionTitle">Open When...</h2>
-    <div class="openButtons">
-        <button onclick="openMsg(0)">Sad</button>
-        <button onclick="openMsg(1)">Miss Me</button>
-        <button onclick="openMsg(2)">Can't Sleep</button>
-        <button onclick="openMsg(3)">Need Motivation</button>
-        <button onclick="openMsg(4)">Thinking About Us</button>
-    </div>
-    <div id="openTextBox"><p id="openText"></p></div>
-
-    <!-- Photo Wall -->
-    <h2 id="gallery" class="gallery">My Favorite Pictures of You</h2>
-    <div class="photoWall" id="herPhotos">
-        <img src="images/her1.jpg">
-        <img src="images/her2.jpg">
-        <img src="images/her3.jpg">
-        <img src="images/her4.jpg">
-        <img src="images/her5.jpg">
-        <img src="images/her6.jpg">
-        <img src="images/her7.jpg">
-        <img src="images/her8.jpg">
-        <img src="images/her9.jpg">
-        <img src="images/her10.jpg">
-        <img src="images/her11.jpg">
-        <img src="images/her12.jpg">
-        <img src="images/her13.jpg">
-        <img src="images/her14.jpg">
-        <img src="images/her15.jpg">
-    </div>
-
-    <h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
-    <div id="ourPhotosSection" class="photoWall"></div>
-
-    <p id="quote" class="quote"></p>
+<div class="menuTop">
+<button onclick="scrollToSection('gallery')">Gallery</button>
+<button onclick="scrollToSection('ourPhotos')">Our Photos</button>
+<button onclick="scrollToSection('loveLetterTitle')">Love Letter</button>
 </div>
 
-<script src="script.js?v=1.0" defer></script>
+<div class="menuMusic">
+<p>Music Player 🎵</p>
+
+<button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
+<button onclick="toggleMusic('songrita')">▶ SongRita</button>
+<button onclick="pauseMusic()">⏸ Pause</button>
+</div>
+
+<div class="menuBottom">
+<p>Ahmed Sghaier</p>
+<img src="images/signature.png">
+</div>
+
+</div>
+</div>
+
+<div id="gmgnCounterBox">
+<span id="gmgn"></span>
+<span id="counter"></span>
+</div>
+
+<h2 id="ritaName"></h2>
+
+<img id="mainPhoto">
+
+<h2 id="loveLetterTitle" class="sectionTitle">A Little Letter for You 💌</h2>
+
+<div id="loveLetterBox"></div>
+
+<div id="loveContainer">
+<img id="loveHeart" src="images/loveHeart.png">
+<span id="loveNumber">0</span>
+</div>
+
+<h2 class="sectionTitle">Open When...</h2>
+
+<div class="openContainer">
+<div class="openCard" onclick="openMsg(0)">Sad</div>
+<div class="openCard" onclick="openMsg(1)">Miss Me</div>
+<div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+<div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+<div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+</div>
+
+<div id="openTextBox">
+<p id="openText"></p>
+</div>
+
+<h2 id="gallery">My Favorite Pictures of You</h2>
+
+<div class="photoWall">
+
+<img src="images/her1.jpg">
+<img src="images/her2.jpg">
+<img src="images/her3.jpg">
+<img src="images/her4.jpg">
+<img src="images/her5.jpg">
+<img src="images/her6.jpg">
+<img src="images/her7.jpg">
+<img src="images/her8.jpg">
+<img src="images/her9.jpg">
+<img src="images/her10.jpg">
+<img src="images/her11.jpg">
+<img src="images/her12.jpg">
+<img src="images/her13.jpg">
+<img src="images/her14.jpg">
+<img src="images/her15.jpg">
+
+</div>
+
+<h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
+
+<div id="ourPhotosSection" class="photoWall"></div>
+
+<p id="quote" class="quote"></p>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
