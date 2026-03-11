@@ -3,118 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little World 💗</title>
+<title>For Rita ❤️</title>
+
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
+
 <body class="homePage">
 
-<!-- Hearts background -->
+<!-- HEART BACKGROUND -->
 <div class="hearts"></div>
 
-<div class="container">
-  <!-- SLIDE-OUT MENU -->
-  <button id="menuToggle">☰</button>
-  <div id="menu">
-    <div id="menuContent">
-      <button id="menuClose">×</button>
 
-      <!-- Top Section: Navigation -->
-      <div class="menuTop">
-        <button onclick="scrollToSection('gallery')">Gallery</button>
-        <button onclick="scrollToSection('ourPhotos')">Our Photos</button>
-        <button onclick="scrollToSection('loveLetterBox')">Love Letter</button>
-        <button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
-      </div>
+<!-- MENU BUTTON -->
+<button id="menuToggle">☰</button>
 
-      <!-- Middle Section: Music Player -->
-      <div class="menuMusic">
-        <p>Music Player 🎵</p>
-        <button onclick="toggleMusic('apocalypse')">▶ Apocalypse</button>
-        <button onclick="toggleMusic('songrita')">▶ Just The Two Of Us</button>
-        <button onclick="pauseMusic()">|| Pause</button>
-      </div>
 
-      <!-- Bottom Section: Your Name + Signature -->
-      <div class="menuBottom">
-        <p>Ahmed Sghaier</p>
-        <img src="images/signature.png" alt="Signature" id="signatureImg">
-      </div>
-    </div>
-  </div>
+<!-- SIDE MENU -->
+<div id="menu">
 
-  <!-- GM/GN + Counter Box -->
-  <div id="gmgnCounterBox">
-    <span id="gmgn"></span>
-    <span id="counter"></span>
-  </div>
+<button id="menuClose">✕</button>
 
-  <!-- Name -->
-  <h2 id="ritaName">THE LOML💞</h2>
+<div id="menuContent">
 
-  <!-- Main photo -->
-  <img id="mainPhoto" alt="Main Photo">
+<button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
 
-  <!-- Message of the Day Section -->
-  <div id="msgOfDayBox">
-    <h2 class="sectionTitle" style="margin-bottom:10px;">Message of the day for my love riti💗</h2>
-    <p id="msgOfDayText">Loading your special message...</p>
-  </div>
+<button onclick="scrollToSection('loveLetterTitleBox')">Love Letter</button>
 
-  <!-- Love Letter Section -->
-  <div id="loveLetterBox">
-    <h2 class="sectionTitle" style="margin-bottom:10px;">A Little Letter for You 💌</h2>
-  </div>
+<button onclick="scrollToSection('mainPhoto')">Main Photo</button>
 
-  <!-- Animated Love Counter -->
-  <div id="loveContainer">
-    <img id="loveHeart" src="images/loveHeart.png">
-    <div class="loveCounters">
-      <p id="loveText">Someone can’t stop thinking about you 💗 <span id="loveNumber">0</span></p>
-    </div>
-  </div>
+<button onclick="scrollToSection('loveContainer')">Love Counter</button>
 
-  <!-- Open When Messages -->
-  <h2 class="sectionTitle">Open When...</h2>
-  <div class="openContainer">
-    <div class="openCard" onclick="openMsg(0)">Sad</div>
-    <div class="openCard" onclick="openMsg(1)">Miss Me</div>
-    <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
-    <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
-    <div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
-  </div>
-  <div id="openTextBox">
-    <p id="openText"></p>
-  </div>
+<button onclick="scrollToSection('openSection')">Open When</button>
 
-  <!-- Photo Wall -->
-  <h2 id="gallery" class="gallery">My Favorite Pictures of You</h2>
-  <div class="photoWall">
-    <img src="images/her1.jpg">
-    <img src="images/her2.jpg">
-    <img src="images/her3.jpg">
-    <img src="images/her4.jpg">
-    <img src="images/her5.jpg">
-    <img src="images/her6.jpg">
-    <img src="images/her7.jpg">
-    <img src="images/her8.jpg">
-    <img src="images/her9.jpg">
-    <img src="images/her10.jpg">
-    <img src="images/her11.jpg">
-    <img src="images/her12.jpg">
-    <img src="images/her13.jpg">
-    <img src="images/her14.jpg">
-    <img src="images/her15.jpg">
-  </div>
+<button onclick="scrollToSection('photoWallSection')">Photo Wall</button>
 
-  <!-- Our Photos Section -->
-  <h2 id="ourPhotos" class="sectionTitle">Our Photos Together 💖</h2>
-  <div id="ourPhotosSection" class="photoWall"></div>
+<button onclick="toggleMusic('apocalypse')">Play Apocalypse</button>
 
-  <!-- Random Quote -->
-  <p id="quote" class="quote"></p>
+<button onclick="toggleMusic('songrita')">Play Rita Song</button>
+
+<button onclick="pauseMusic()">Pause Music</button>
+
 </div>
 
+<div class="menuBottom">
+<img src="images/menuphoto.png">
+</div>
+
+</div>
+
+
+
+<div class="container">
+
+<!-- GM/GN + COUNTER -->
+<div id="gmgnCounterBox">
+<div id="gmgn"></div>
+<div id="counter"></div>
+</div>
+
+
+
+<!-- MESSAGE OF THE DAY -->
+<div id="msgOfDayBox">
+
+<div id="msgOfDayTitleBox">Message of the Day</div>
+
+<div id="msgOfDayText"></div>
+
+</div>
+
+
+
+<!-- LOVE LETTER -->
+<div id="loveLetterTitleBox">A Letter For You 💌</div>
+
+<div id="loveLetterBox"></div>
+
+
+
+<!-- MAIN PHOTO -->
+<img id="mainPhoto" src="images/her1.jpg">
+
+
+
+<!-- LOVE HEART -->
+<div id="loveContainer">
+
+<img id="loveHeart" src="images/heart.png">
+
+<div class="loveCounters">
+You clicked the heart <span id="loveNumber">0</span> times ❤️
+</div>
+
+</div>
+
+
+
+<!-- OPEN WHEN -->
+<div id="openSection">
+
+<h2>Open When...</h2>
+
+<div class="openContainer">
+
+<div class="openCard" onclick="openMsg(0)">Sad</div>
+<div class="openCard" onclick="openMsg(1)">Miss Me</div>
+<div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
+<div class="openCard" onclick="openMsg(3)">Need Motivation</div>
+<div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
+
+</div>
+
+<div id="openTextBox">
+<div id="openText"></div>
+</div>
+
+</div>
+
+
+
+<!-- PHOTO WALL -->
+<div id="photoWallSection">
+
+<h2>Our Memories 📸</h2>
+
+<div class="photoWall">
+
+<img src="images/her1.jpg">
+<img src="images/her2.jpg">
+<img src="images/her3.jpg">
+<img src="images/her4.jpg">
+<img src="images/her5.jpg">
+<img src="images/her6.jpg">
+<img src="images/her7.jpg">
+<img src="images/her8.jpg">
+<img src="images/her9.jpg">
+<img src="images/her10.jpg">
+<img src="images/her11.jpg">
+<img src="images/her12.jpg">
+<img src="images/her13.jpg">
+<img src="images/her14.jpg">
+<img src="images/her15.jpg">
+
+</div>
+
+</div>
+
+
+
+<!-- IMAGE MODAL (for zoom effect) -->
+<div id="imageModal">
+<img id="modalImage">
+</div>
+
+
+
+<!-- QUOTE -->
+<div class="quote">
+"Every love story is beautiful, but ours is my favorite."
+</div>
+
+
+</div>
+
+
+
 <script src="script.js"></script>
+
 </body>
 </html>
