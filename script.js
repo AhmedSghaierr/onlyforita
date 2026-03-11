@@ -56,6 +56,91 @@ document.addEventListener("DOMContentLoaded", () => {
       typeName();
   }
 
+// ---------- MESSAGE OF THE DAY ----------
+const dailyMessages = [
+  "Thinking of you always 💖",
+  "You make my day brighter ☀️",
+  "Can’t wait to see you again 😘",
+  "You’re my favorite part of life 🌸",
+  "Every little thing reminds me of you ❤️",
+  "You are my happiness 💗",
+  "My heart beats faster when I think of you 💓",
+  "You’re my sweet escape 🍬",
+  "Life is better with you 💞",
+  "Forever in my thoughts 💌",
+  "I love the way you laugh 😍",
+  "You’re my everything 🌹",
+  "I can’t stop smiling thinking of you 😊",
+  "You make ordinary days magical ✨",
+  "Just wanted to say I adore you 💕",
+  "Thinking of you always 💖",
+  "You make my day brighter ☀️",
+  "Can’t wait to see you again 😘",
+  "You’re my favorite part of life 🌸",
+  "Every little thing reminds me of you ❤️",
+  "You are my happiness 💗",
+  "My heart beats faster when I think of you 💓",
+  "You’re my sweet escape 🍬",
+  "Life is better with you 💞",
+  "Forever in my thoughts 💌",
+  "I love the way you laugh 😍",
+  "You’re my everything 🌹",
+  "I can’t stop smiling thinking of you 😊",
+  "You make ordinary days magical ✨",
+  "Just wanted to say I adore you 💕",
+  "Every time I see you, I fall a little more ❤️",
+  "You’re my sunshine on cloudy days ☀️",
+  "I can’t help but think about you 💖",
+  "You’re my favorite notification 💌",
+  "I hope your day is as sweet as your smile 🍯",
+  "Every love song reminds me of you 🎶",
+  "I dream of you even when I’m awake 😘",
+  "You’ve stolen my heart completely 💓",
+  "Being with you feels like home 🏡",
+  "You’re the best part of my story 💞",
+  "I can’t wait to make more memories with you 💗",
+  "You are my little daily miracle 🌸",
+  "Just thinking of you makes me happy 😊",
+  "You’re the reason I look forward to tomorrow 💖",
+  "I smile whenever I see your name 💕",
+  "Even in my dreams, I’m with you 🌙",
+  "You make my heart do silly flips 😍",
+  "I can’t get enough of you ❤️",
+  "You’re the cherry on top of my life 🍒",
+  "Everything reminds me of you 💌",
+  "I wish I could hug you right now 🤗",
+  "My favorite thought is you 💖",
+  "You’re my sweetest distraction 🍬",
+  "I love every little thing about you 💕",
+  "I’m addicted to thinking of you 😘",
+  "You make my world brighter 🌟",
+  "I’m counting the seconds until I see you 💗",
+  "You’re my favorite hello and hardest goodbye 💓",
+  "Even silence feels magical with you 🌸",
+  "You’re the smile I didn’t know I needed 😊",
+  "You’re in my heart, always 💖",
+  "I can’t imagine a day without thinking of you 💕",
+  "You’re my forever favorite 💞"
+];
+
+const today = new Date().toISOString().slice(0, 10); // e.g., "2026-03-11"
+const lastMessageDate = localStorage.getItem("lastMessageDate");
+let messageOfTheDay;
+
+if (lastMessageDate === today) {
+    // Use the previous message
+    messageOfTheDay = localStorage.getItem("messageOfTheDay");
+} else {
+    // Pick a new random message
+    messageOfTheDay = dailyMessages[Math.floor(Math.random() * dailyMessages.length)];
+    localStorage.setItem("messageOfTheDay", messageOfTheDay);
+    localStorage.setItem("lastMessageDate", today);
+}
+
+// Display the message
+const quoteEl = document.getElementById("quote");
+if (quoteEl) quoteEl.innerText = messageOfTheDay;
+
   // ---------- LOVE LETTER ----------
   const letterBox = document.getElementById("loveLetterBox");
   if (letterBox) {
