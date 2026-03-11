@@ -1,399 +1,124 @@
-/* ---------------- GENERAL ---------------- */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Dancing Script', cursive;
+/* General reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+
+/* Login Page */
+.login-body {
+  background: url('images/login.png') center/cover no-repeat;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+.login-container {
+  position: absolute;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+.login-container input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+}
+.login-container button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff4d6d;
+  color: white;
+}
+#login-error {color:red; margin-top:10px;}
+
+/* Falling compliments */
+.falling-text {
+  position: absolute;
+  font-size: 18px;
+  color: #fff;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% {top:-50px;}
+  100% {top:110vh;}
 }
 
-body{
-    min-height:100vh;
-    overflow-x:hidden;
-    text-align:center;
+/* Home Page */
+.home-body {
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* ---------------- LOGIN PAGE ---------------- */
-.loginPage{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:url('images/login.png') no-repeat center center/cover;
+/* Matrix hearts */
+#matrix { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  left:-50%;
+  top:0;
+  width:50%;
+  height:100%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  transition: left 0.5s ease;
+  z-index:10;
+}
+.side-menu nav button {
+  display:block;
+  margin:15px 0;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background: #ff4d6d;
+  color:white;
+  cursor:pointer;
+}
+.menu-btn {position:fixed; top:20px; left:20px; z-index:15; font-size:24px;}
+
+/* Top Section */
+.top-section {
+  text-align:center; margin:20px;
+}
+.main-pic {width:200px; border-radius:20px; transition: transform 0.3s;}
+.main-pic:hover {transform: scale(1.05) rotate(2deg); cursor:pointer;}
+
+/* Photo grids */
+.photo-grid {display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
+.photo-grid img {width:150px; border-radius:15px; cursor:pointer; transition: transform 0.3s;}
+.photo-grid img:hover {transform: scale(1.1);}
+
+/* Letter & Open When Sections */
+.letter-box, .open-text-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  margin:20px auto;
+  padding:20px;
+  border-radius:20px;
+  width:80%;
+}
+.signature {display:block; margin:10px auto; width:200px;}
+.open-buttons {text-align:center; margin:10px;}
+.open-buttons button {
+  margin:5px; padding:10px 20px; border:none; border-radius:10px; background:#ff4d6d; color:white; cursor:pointer;
 }
 
-.loginBox{
-    position:relative;
-    z-index:1;
-    background:rgba(255,255,255,0.9);
-    padding:40px 30px;
-    border-radius:25px;
-    width:90%;
-    max-width:400px;
-    border:3px solid #ff4d88;
-    box-shadow:0 0 20px #ff4d88,0 0 40px #ff4d88 inset;
-}
+/* Heart counter */
+.heart-counter {text-align:center; margin:20px; font-size:18px;}
+#heart-btn {width:50px; cursor:pointer; vertical-align:middle;}
 
-.loginTitle{
-    font-size:32px;
-    color:#ff1a75;
-    margin-bottom:10px;
-}
+/* Music Player */
+.music-player {position:fixed; bottom:20px; right:20px;}
 
-.loginBox input{
-    width:100%;
-    padding:15px;
-    border-radius:12px;
-    border:2px solid #ff4d88;
-    background:#f2f2f2;
-    margin-top:15px;
-    font-size:18px;
-    box-shadow:0 0 10px #ff4d88 inset;
+/* Zoom modal */
+#photo-modal {
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center;
+  display:none; z-index:20;
 }
-
-.loginBox button{
-    margin-top:20px;
-    padding:15px;
-    width:100%;
-    border:none;
-    border-radius:15px;
-    background:#ff4d88;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-}
-
-/* Falling text for login page */
-.loveBackground{
-    position:fixed;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:0;
-}
-
-.loveText{
-    position:absolute;
-    color:#ff4d88;
-    font-size:14px;
-    opacity:0.5;
-    animation:fallText 10s linear infinite;
-}
-
-@keyframes fallText{
-    0%{transform:translateY(-10vh)}
-    100%{transform:translateY(110vh)}
-}
-
-/* ---------------- HOME PAGE ---------------- */
-body.homePage{
-    color:white;
-    background:url('images/home.png') no-repeat center center/cover;
-    padding:20px;
-}
-
-/* container fix */
-.container{
-    width:100%;
-    max-width:520px;
-    margin:auto;
-    padding:10px;
-}
-
-/* GM/GN + Counter */
-#gmgnCounterBox{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    background:rgba(255,255,255,0.2);
-    padding:12px 20px;
-    border-radius:20px;
-    margin:15px auto;
-    max-width:300px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}
-
-#gmgn{
-    font-size:18px;
-    color:#ff1a75;
-    margin-bottom:6px;
-}
-
-#counter{
-    font-size:16px;
-    color:white;
-}
-
-/* ---------- MESSAGE OF THE DAY ---------- */
-#msgOfDayBox {
-    background: rgba(255, 255, 255, 0.85);
-    color: #ff1a75;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: relative;
-}
-
-#msgOfDayTitleBox{
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-/* ---------- LOVE LETTER ---------- */
-#loveLetterBox {
-    background: rgba(242, 242, 247, 0.95);
-    color: #ff1a75;
-    padding: 15px;
-    border-radius: 25px;
-    margin: 20px auto;
-    max-width: 400px;
-    font-size: 18px;
-    line-height: 1.5;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    min-height: 120px;
-    white-space: pre-wrap;
-    text-align: left;
-    overflow-y: auto;
-}
-
-#loveLetterTitleBox{
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:12px;
-    text-align:center;
-}
-
-/* ---------- MAIN PHOTO ---------- */
-#mainPhoto{
-    width:220px;
-    border-radius:20px;
-    margin:20px auto;
-    display:block;
-    box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    animation:floatPic 6s ease-in-out infinite;
-}
-
-@keyframes floatPic{
-    0%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-    100%{transform:translateY(0)}
-}
-
-/* ---------- LOVE HEART ---------- */
-#loveContainer{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    margin:20px auto;
-}
-
-#loveHeart{
-    width:120px;
-    cursor:pointer;
-    transition:transform .2s;
-}
-
-#loveHeart.pulse{
-    transform:scale(1.2);
-}
-
-.loveCounters{
-    margin-top:10px;
-    font-size:16px;
-    color:white;
-    text-align:center;
-}
-
-.loveCounters span{
-    color:#ff4d88;
-    font-weight:bold;
-}
-
-/* ---------- OPEN WHEN ---------- */
-.openContainer{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-    margin-top:10px;
-}
-
-.openCard{
-    background:white;
-    color:black;
-    padding:10px 14px;
-    border-radius:15px;
-    cursor:pointer;
-}
-
-#openTextBox{
-    background:rgba(255,255,255,0.9);
-    color:#ff1a75;
-    padding:15px;
-    border-radius:15px;
-    margin-top:10px;
-    min-height:50px;
-    text-align:center;
-}
-
-/* ---------- PHOTO WALL ---------- */
-.photoWall{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:20px;
-}
-
-.photoWall img{
-    width:100%;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.5);
-    transition:.3s;
-    cursor:pointer;
-}
-
-.photoWall img:hover{
-    transform:scale(1.05);
-}
-
-/* ---------- IMAGE ZOOM ---------- */
-#imageModal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-backdrop-filter:blur(10px);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:10000;
-}
-
-#imageModal img{
-max-width:90%;
-max-height:90%;
-border-radius:20px;
-animation:zoomImage .3s ease;
-}
-
-@keyframes zoomImage{
-from{
-transform:scale(.8);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-/* ---------- HEART BACKGROUND ---------- */
-.hearts{
-    position:fixed;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
-}
-
-.heart{
-    position:absolute;
-    color:#ff4d88;
-    font-size:18px;
-    animation:fall 6s linear infinite;
-}
-
-@keyframes fall{
-    0%{transform:translateY(-10vh)}
-    100%{transform:translateY(110vh)}
-}
-
-/* ---------- QUOTE ---------- */
-.quote{
-    margin-top:30px;
-    font-style:italic;
-    font-size:16px;
-    color:#ff4d88;
-}
-
-/* ---------- MENU ---------- */
-#menu{
-    position:fixed;
-    top:0;
-    left:-260px;
-    width:260px;
-    height:100%;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(20px);
-    border-right:1px solid rgba(255,255,255,0.3);
-    z-index:9998;
-    transition:transform .35s cubic-bezier(.25,.8,.25,1);
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    padding:20px;
-}
-
-#menu.active{
-    transform:translateX(0);
-}
-
-#menuContent button{
-    display:block;
-    margin:10px 0;
-    padding:10px 15px;
-    border-radius:12px;
-    border:none;
-    background:rgba(255,255,255,0.6);
-    cursor:pointer;
-    color:#ff1a75;
-    font-weight:bold;
-    width:100%;
-    text-align:left;
-}
-
-#menuToggle{
-    position:fixed;
-    top:20px;
-    left:20px;
-    z-index:9999;
-    font-size:24px;
-    background:rgba(255,255,255,0.7);
-    border:none;
-    border-radius:12px;
-    padding:8px 12px;
-    cursor:pointer;
-    color:#ff1a75;
-    transition: 0.3s;
-}
-
-#menuClose {
-    width: 35px;            
-    height: 35px;          
-    padding: 0;     
-    margin: 0;             
-    font-size: 20px;
-    line-height: 1;         
-    border-radius: 8px;         
-    background: rgba(255,255,255,0.6);
-    color: #ff1a75;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-
-.menuBottom img{
-    width:120px;
-    margin-top:10px;
-}
+#photo-modal img {max-width:90%; max-height:90%; border-radius:20px;}
