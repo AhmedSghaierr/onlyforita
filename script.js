@@ -178,25 +178,25 @@ setTimeout(()=>heart.classList.remove("pulse"),200);
 });
 
 
-const sideMenu=document.getElementById("menu");
+// ---------- MENU ----------
 
-const menuBtn=document.getElementById("menuToggle");
+const sideMenu = document.getElementById("menu");
+const menuBtn = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
 
-menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener("click", () => {
 
-sideMenu.classList.toggle("active");
+sideMenu.classList.add("active");
+menuBtn.style.display = "none";
 
 });
 
-
-window.scrollToSection=function(id){
-
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
+menuClose.addEventListener("click", () => {
 
 sideMenu.classList.remove("active");
+menuBtn.style.display = "block";
 
-}
-
+});
 
 const openMessages=[
 ["Remember I'm always here ❤️","You are not alone","Everything will be okay"],
