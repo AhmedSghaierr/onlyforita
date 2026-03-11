@@ -463,6 +463,33 @@ padding:20px;
 
 }
 
+#menuClose{
+
+position:absolute;
+
+top:15px;
+right:15px;
+
+width:30px;
+height:30px;
+
+background:white;
+
+color:#ff1a75;
+
+border-radius:6px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:bold;
+cursor:pointer;
+
+box-shadow:0 2px 6px rgba(0,0,0,0.3);
+
+}
+
 #menu.active{
 left:0;
 }
