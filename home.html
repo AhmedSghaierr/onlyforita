@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Rita ❤️</title>
+
+<title>For You ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 
+</head>
 
 <body class="homePage">
 
-<!-- HEART BACKGROUND -->
-<div class="hearts"></div>
-
-
-<!-- MENU BUTTON -->
 <button id="menuToggle">☰</button>
 
-
-<!-- SIDE MENU -->
 <div id="menu">
 
 <button id="menuClose">✕</button>
@@ -29,83 +24,62 @@
 <div id="menuContent">
 
 <button onclick="scrollToSection('msgOfDayBox')">Message of the Day</button>
-
-<button onclick="scrollToSection('loveLetterTitleBox')">Love Letter</button>
-
-<button onclick="scrollToSection('mainPhoto')">Main Photo</button>
-
-<button onclick="scrollToSection('loveContainer')">Love Counter</button>
-
-<button onclick="scrollToSection('openSection')">Open When</button>
-
-<button onclick="scrollToSection('photoWallSection')">Photo Wall</button>
-
-<button onclick="toggleMusic('apocalypse')">Play Apocalypse</button>
-
-<button onclick="toggleMusic('songrita')">Play Rita Song</button>
-
-<button onclick="pauseMusic()">Pause Music</button>
+<button onclick="scrollToSection('loveLetterBox')">Love Letter</button>
+<button onclick="scrollToSection('openWhenSection')">Open When</button>
+<button onclick="scrollToSection('photoSection')">Photo Wall</button>
 
 </div>
 
-<div class="menuBottom">
-<img src="images/menuphoto.png">
 </div>
-
-</div>
-
 
 
 <div class="container">
 
-<!-- GM/GN + COUNTER -->
 <div id="gmgnCounterBox">
 <div id="gmgn"></div>
 <div id="counter"></div>
 </div>
 
 
-
-<!-- MESSAGE OF THE DAY -->
 <div id="msgOfDayBox">
-
-<div id="msgOfDayTitleBox">Message of the Day</div>
-
-<div id="msgOfDayText"></div>
-
+<div id="msgOfDayTitleBox">Message Of The Day</div>
+<div id="msgOfDay"></div>
 </div>
 
 
-
-<!-- LOVE LETTER -->
-<div id="loveLetterTitleBox">A Letter For You 💌</div>
-
-<div id="loveLetterBox"></div>
+<img id="mainPhoto">
 
 
-
-<!-- MAIN PHOTO -->
-<img id="mainPhoto" src="images/her1.jpg">
-
-
-
-<!-- LOVE HEART -->
 <div id="loveContainer">
 
 <img id="loveHeart" src="images/heart.png">
 
 <div class="loveCounters">
-You clicked the heart <span id="loveNumber">0</span> times ❤️
-</div>
+
+Today clicks: <span id="dailyCount">0</span><br>
+Total clicks: <span id="totalCount">0</span>
 
 </div>
 
+</div>
 
 
-<!-- OPEN WHEN -->
-<div id="openSection">
+<div id="loveLetterBox">
+<div id="loveLetterTitleBox">Love Letter</div>
+<div id="loveLetterText">
 
-<h2>Open When...</h2>
+I made this little place for you.  
+Every time you open it I want you to remember  
+how special you are to me.
+
+</div>
+</div>
+
+
+
+<div id="openWhenSection">
+
+<h2>Open When</h2>
 
 <div class="openContainer">
 
@@ -113,22 +87,18 @@ You clicked the heart <span id="loveNumber">0</span> times ❤️
 <div class="openCard" onclick="openMsg(1)">Miss Me</div>
 <div class="openCard" onclick="openMsg(2)">Can't Sleep</div>
 <div class="openCard" onclick="openMsg(3)">Need Motivation</div>
-<div class="openCard" onclick="openMsg(4)">Thinking About Us</div>
 
 </div>
 
-<div id="openTextBox">
-<div id="openText"></div>
-</div>
+<div id="openTextBox"></div>
 
 </div>
 
 
 
-<!-- PHOTO WALL -->
-<div id="photoWallSection">
+<div id="photoSection">
 
-<h2>Our Memories 📸</h2>
+<h2>Favorite Photos of You 💗</h2>
 
 <div class="photoWall">
 
@@ -150,26 +120,31 @@ You clicked the heart <span id="loveNumber">0</span> times ❤️
 
 </div>
 
+
+<h2 style="margin-top:30px;">Our Memories Together 🤍</h2>
+
+<div class="photoWall" id="ourPhotos">
+
+</div>
+
 </div>
 
 
-
-<!-- IMAGE MODAL (for zoom effect) -->
-<div id="imageModal">
-<img id="modalImage">
-</div>
-
-
-
-<!-- QUOTE -->
 <div class="quote">
-"Every love story is beautiful, but ours is my favorite."
+“You are my favorite notification.”
+</div>
+
 </div>
 
 
+<div id="imageModal">
+<img>
 </div>
 
 
+<div class="hearts"></div>
+
+<audio id="music" src="music/music.mp3" loop></audio>
 
 <script src="script.js"></script>
 
