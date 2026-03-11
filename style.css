@@ -1,8 +1,9 @@
+/* ---------------- GENERAL ---------------- */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Montserrat',sans-serif;
+    font-family: 'Dancing Script', cursive;
 }
 
 body{
@@ -12,7 +13,6 @@ body{
 }
 
 /* ---------------- LOGIN PAGE ---------------- */
-
 .loginPage{
     display:flex;
     justify-content:center;
@@ -25,7 +25,7 @@ body{
     position:relative;
     z-index:1;
     background:rgba(255,255,255,0.9);
-    padding:50px 30px;
+    padding:40px 30px;
     border-radius:25px;
     width:90%;
     max-width:400px;
@@ -62,7 +62,7 @@ body{
     cursor:pointer;
 }
 
-/* falling love text */
+/* Falling text for login page */
 .loveBackground{
     position:fixed;
     width:100%;
@@ -85,7 +85,6 @@ body{
 }
 
 /* ---------------- HOME PAGE ---------------- */
-
 body.homePage{
     color:white;
     background:url('images/home.png') no-repeat center center/cover;
@@ -100,7 +99,7 @@ body.homePage{
     padding:10px;
 }
 
-/* GM GN box */
+/* GM/GN + Counter */
 #gmgnCounterBox{
     display:flex;
     flex-direction:column;
@@ -137,13 +136,16 @@ body.homePage{
     line-height: 1.6;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
 }
 
-#msgOfDayBox .sectionTitle{
-    margin-bottom:10px;
+#msgOfDayTitleBox{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
 }
 
-/* LOVE LETTER BOX */
+/* ---------- LOVE LETTER ---------- */
 #loveLetterBox {
     background: rgba(242, 242, 247, 0.95);
     color: #ff1a75;
@@ -151,22 +153,23 @@ body.homePage{
     border-radius: 25px;
     margin: 20px auto;
     max-width: 400px;
-    font-family: 'Dancing Script', cursive;
     font-size: 18px;
     line-height: 1.5;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    min-height: 150px;
+    min-height: 120px;
     white-space: pre-wrap;
     text-align: left;
     overflow-y: auto;
 }
 
-#loveLetterBox .sectionTitle{
+#loveLetterTitleBox{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
     text-align:center;
-    margin-bottom:10px;
 }
 
-/* MAIN PHOTO */
+/* ---------- MAIN PHOTO ---------- */
 #mainPhoto{
     width:220px;
     border-radius:20px;
@@ -182,7 +185,7 @@ body.homePage{
     100%{transform:translateY(0)}
 }
 
-/* LOVE HEART */
+/* ---------- LOVE HEART ---------- */
 #loveContainer{
     display:flex;
     flex-direction:column;
@@ -213,7 +216,7 @@ body.homePage{
     font-weight:bold;
 }
 
-/* OPEN WHEN */
+/* ---------- OPEN WHEN ---------- */
 .openContainer{
     display:flex;
     flex-wrap:wrap;
@@ -237,9 +240,10 @@ body.homePage{
     border-radius:15px;
     margin-top:10px;
     min-height:50px;
+    text-align:center;
 }
 
-/* PHOTO WALL */
+/* ---------- PHOTO WALL ---------- */
 .photoWall{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -259,7 +263,7 @@ body.homePage{
     transform:scale(1.05);
 }
 
-/* IMAGE ZOOM */
+/* ---------- IMAGE ZOOM ---------- */
 #imageModal{
 position:fixed;
 top:0;
@@ -292,7 +296,7 @@ opacity:1;
 }
 }
 
-/* HEART BACKGROUND */
+/* ---------- HEART BACKGROUND ---------- */
 .hearts{
     position:fixed;
     width:100%;
@@ -313,7 +317,7 @@ opacity:1;
     100%{transform:translateY(110vh)}
 }
 
-/* QUOTE */
+/* ---------- QUOTE ---------- */
 .quote{
     margin-top:30px;
     font-style:italic;
@@ -321,7 +325,7 @@ opacity:1;
     color:#ff4d88;
 }
 
-/* -------- MENU -------- */
+/* ---------- MENU ---------- */
 #menu{
     position:fixed;
     top:0;
@@ -332,12 +336,11 @@ opacity:1;
     backdrop-filter:blur(20px);
     border-right:1px solid rgba(255,255,255,0.3);
     z-index:9998;
+    transition:transform .35s cubic-bezier(.25,.8,.25,1);
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     padding:20px;
-    transition:transform 0.35s cubic-bezier(.25,.8,.25,1);
-    transform:translateX(-100%);
 }
 
 #menu.active{
@@ -370,7 +373,7 @@ opacity:1;
     padding:8px 12px;
     cursor:pointer;
     color:#ff1a75;
-    transition:0.3s;
+    transition: 0.3s;
 }
 
 #menuClose {
