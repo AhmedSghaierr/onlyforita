@@ -61,6 +61,11 @@ if (isHome) {
       `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds with you ❤️`;
   }
   setInterval(updateCounter,1000);
+const startText = document.getElementById("startDateText");
+
+if(startText){
+startText.innerText = "Since: March 21, 2026 💗";
+}
 
   // ---------- MESSAGE OF THE DAY ----------
   const dailyMessages = [
