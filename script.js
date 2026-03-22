@@ -316,6 +316,8 @@ const music2 = document.getElementById("songritaMusic");
 const divaMusic = document.getElementById("divaMusic");
 const needtoMusic = document.getElementById("needtoMusic");
 const kissmeMusic = document.getElementById("kissmeMusic");
+const letitMusic =
+document.getElementById("letitMusic");
 
 let currentMusic = null;
 
@@ -325,11 +327,16 @@ window.toggleMusic = function(song){
         currentMusic.currentTime = 0;
     }
     currentMusic = 
-        (song === "apocalypse") ? music1 :
-        (song === "songrita") ? music2 :
-        (song === "diva") ? divaMusic :
+        (song === "apocalypse") ? 
+music1 :
+        (song === "songrita") ? 
+music2 :
+        (song === "diva") ? 
+divaMusic :
         (song === "needto") ? needtoMusic :
         (song === "kissme") ? kissmeMusic :
+        (song === "letit") ? 
+letitMusic :
         null;
 
     if(currentMusic) currentMusic.play();
