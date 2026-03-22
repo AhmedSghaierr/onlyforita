@@ -9,6 +9,7 @@ LOGIN PAGE
   background:url('images/login.png') no-repeat center center/cover;
 }
 
+
 .loginBox{
   position:relative;
   z-index:1;
