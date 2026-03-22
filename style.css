@@ -188,7 +188,7 @@ GM GN + COUNTER (matches Open When style)
   font-family: 'Aboreto', 'Pacifico', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-size: 18px; /* slightly larger for emphasis */
   font-weight: 400; /* matches Aboreto style */
-  color: #ffffff;
+  color: #ff1a75;
 }
 
 /* Fade-in animation */
