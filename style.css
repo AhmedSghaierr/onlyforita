@@ -175,9 +175,9 @@ GM GN + COUNTER
 }
 
 #startDateText {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: 'Aboreto', 'Pacifico', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px; /* slightly larger for emphasis */
+  font-weight: 400; /* matches Aboreto style */
   color: #ffffff;
 }
 
