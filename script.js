@@ -311,14 +311,30 @@ loveHeart.addEventListener("click", () => {
   }
 
   // ---------- MUSIC PLAYER ----------
-  const music1 = document.getElementById("apocalypseMusic");
-  const music2 = document.getElementById("songritaMusic");
-  let currentMusic = null;
-  window.toggleMusic = function(song){
-    if(currentMusic){ currentMusic.pause(); currentMusic.currentTime=0; }
-    currentMusic = (song==="apocalypse")? music1 : (song==="songrita")? music2 : null;
-    if(currentMusic) currentMusic.play();
-  }
-  window.pauseMusic = function(){ if(currentMusic) currentMusic.pause(); }
+const music1 = document.getElementById("apocalypseMusic");
+const music2 = document.getElementById("songritaMusic");
+const divaMusic = document.getElementById("divaMusic");
+const needtoMusic = document.getElementById("needtoMusic");
+const kissmeMusic = document.getElementById("kissmeMusic");
 
+let currentMusic = null;
+
+window.toggleMusic = function(song){
+    if(currentMusic){
+        currentMusic.pause();
+        currentMusic.currentTime = 0;
+    }
+    currentMusic = 
+        (song === "apocalypse") ? music1 :
+        (song === "songrita") ? music2 :
+        (song === "diva") ? divaMusic :
+        (song === "needto") ? needtoMusic :
+        (song === "kissme") ? kissmeMusic :
+        null;
+
+    if(currentMusic) currentMusic.play();
+}
+
+window.pauseMusic = function(){
+    if(currentMusic) currentMusic.pause();
 }
