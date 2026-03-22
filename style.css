@@ -133,52 +133,38 @@ body.homePage{
 }
 
 /* ===============================
-GM GN + COUNTER (distinct style)
+GM GN + COUNTER (matches Open When style)
 =============================== */
 #gmgnCounterBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08); /* lighter frosted glass */
-  backdrop-filter: blur(14px); /* subtle glass effect */
-  padding: 22px 32px;
-  border-radius: 22px;
-  border: 1.5px solid rgba(255, 77, 136, 0.7); /* soft neon edge */
-  box-shadow: 
-    0 0 10px rgba(255, 77, 136, 0.4),
-    0 0 20px rgba(255, 26, 117, 0.2) inset; /* subtle glow inset */
+  background: rgba(255, 255, 255, 0.9); /* match Open When box opacity */
+  padding: 18px 24px;
+  border-radius: 20px;
   max-width: 320px;
   margin: 18px auto;
-  opacity: 0;
-  animation: fadeIn 1.5s forwards; /* fade-in only, no pulse */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* same as Open When boxes */
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-#gmgnCounterBox:hover {
-  transform: scale(1.03); /* small hover pop effect */
+  font-family: 'Aboreto', 'Pacifico', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: #ff1a75;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
 }
 
 #gmgnCounterBox span {
-  font-family: 'Aboreto', 'Pacifico', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  color: #ffffff;
+  display: block;
+  margin-bottom: 6px;
 }
 
 #gmgn {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 6px;
 }
 
 #counter {
   font-size: 16px;
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(255,77,136,0.6); /* subtle neon glow for counter numbers */
-}
-
-/* Reuse fadeIn animation */
-@keyframes fadeIn {
-  to { opacity: 1; }
+  color: #ff1a75;
 }
 
 #startDateContainer {
