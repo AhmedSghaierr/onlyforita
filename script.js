@@ -338,3 +338,4 @@ window.toggleMusic = function(song){
 window.pauseMusic = function(){
     if(currentMusic) currentMusic.pause();
 }
+}
