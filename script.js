@@ -12,7 +12,6 @@ if (isLogin) {
     }
   }
 
-
   // Falling love texts
   const lines = [
     "I love you Rita ❤️",
@@ -340,6 +339,8 @@ const needtoMusic = document.getElementById("needtoMusic");
 const kissmeMusic = document.getElementById("kissmeMusic");
 const letitMusic =
 document.getElementById("letitMusic");
+const stillMusic =
+document.getElementById("stillMusic");
 
 let currentMusic = null;
 
@@ -359,6 +360,9 @@ divaMusic :
         (song === "kissme") ? kissmeMusic :
         (song === "letit") ? 
 letitMusic :
+        (song === "still") ? 
+stillMusic :
+
         null;
 
     if(currentMusic) currentMusic.play();
