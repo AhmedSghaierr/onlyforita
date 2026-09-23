@@ -12,6 +12,7 @@ if (isLogin) {
     }
   }
 
+
   // Falling love texts
   const lines = [
     "I love you Rita ❤️",
