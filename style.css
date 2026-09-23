@@ -404,7 +404,7 @@ OPEN WHEN MESSAGE DISPLAY
   text-align:left;
   min-height:40px;
   transition:all 0.3s ease;
-    
+
 }
 /* ===============================
 OPEN WHEN TEXT ANIMATION
@@ -624,4 +624,517 @@ MUSIC PLAYER
 
 #currentTime, #duration {
   font-size: 12px;
+}
+
+/* ===============================
+   MEMORY INTRO
+================================ */
+
+#memoryIntro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 1.4s ease,
+    visibility 1.4s ease,
+    backdrop-filter 1.4s ease;
+}
+
+
+/* ===============================
+   LIQUID GLASS SHAPES
+================================ */
+
+.liquidShape {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(35px);
+
+  opacity: 0.45;
+
+  pointer-events: none;
+
+  animation:
+    liquidFloat 8s ease-in-out infinite alternate;
+}
+
+.liquidOne {
+  width: 420px;
+  height: 420px;
+
+  top: -150px;
+  left: -120px;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 77, 136, 0.75),
+      rgba(255, 26, 117, 0.15),
+      transparent 70%
+    );
+}
+
+.liquidTwo {
+  width: 500px;
+  height: 500px;
+
+  bottom: -220px;
+  right: -180px;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 26, 117, 0.55),
+      rgba(255, 77, 136, 0.15),
+      transparent 70%
+    );
+
+  animation-delay: -3s;
+}
+
+.liquidThree {
+  width: 260px;
+  height: 260px;
+
+  top: 40%;
+  right: -100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 180, 210, 0.55),
+      transparent 70%
+    );
+
+  animation-delay: -5s;
+}
+
+
+@keyframes liquidFloat {
+
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(35px, -25px, 0)
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translate3d(-20px, 30px, 0)
+      scale(0.95);
+  }
+}
+
+
+/* ===============================
+   GLASS PANEL
+================================ */
+
+#introGlass {
+
+  position: relative;
+
+  width: min(90%, 520px);
+
+  padding: 50px 30px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 77, 136, 0.12),
+      rgba(255, 255, 255, 0.08)
+    );
+
+  border:
+    1px solid rgba(255, 77, 136, 0.35);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.25),
+    0 0 30px rgba(255, 26, 117, 0.12),
+    inset 0 1px 1px rgba(255,255,255,0.7),
+    inset 0 -1px 1px rgba(255,255,255,0.15);
+
+  backdrop-filter:
+    blur(25px)
+    saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(25px)
+    saturate(140%);
+
+  overflow: hidden;
+
+  transform: translateY(0);
+
+  transition:
+    transform 1.2s ease,
+    opacity 1.2s ease;
+}
+
+
+/* ===============================
+   GLASS REFLECTION
+================================ */
+
+#introGlass::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -60%;
+  left: -30%;
+
+  width: 70%;
+  height: 200%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.18),
+      transparent
+    );
+
+  transform: rotate(25deg);
+
+  animation:
+    glassReflection 6s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes glassReflection {
+
+  0% {
+    transform:
+      translateX(-100%)
+      rotate(25deg);
+  }
+
+  50% {
+    transform:
+      translateX(180%)
+      rotate(25deg);
+  }
+
+  100% {
+    transform:
+      translateX(180%)
+      rotate(25deg);
+  }
+}
+
+
+/* ===============================
+   INTRO TEXT
+================================ */
+
+#introText {
+
+  position: relative;
+
+  z-index: 2;
+
+  color: #ff1a75;
+
+  text-align: center;
+
+  font-family: 'Aboreto', sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.8px;
+
+  text-shadow:
+    0 0 8px rgba(255, 26, 117, 0.25),
+    0 2px 8px rgba(0,0,0,0.25);
+}
+
+
+/* Paragraph animation */
+
+#introText p {
+
+  margin-bottom: 25px;
+
+  opacity: 0;
+
+  animation:
+    introParagraph 1s ease forwards;
+}
+
+
+#introText p:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+#introText p:nth-child(2) {
+  animation-delay: 1s;
+}
+
+#introText p:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+#introText p:nth-child(4) {
+  animation-delay: 2.3s;
+}
+
+
+@keyframes introParagraph {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* ===============================
+   DIVIDER
+================================ */
+
+.introLine {
+
+  width: 45px;
+  height: 2px;
+
+  margin:
+    8px auto 25px;
+
+  background: #ff4d88;
+
+  box-shadow:
+    0 0 8px #ff4d88,
+    0 0 15px rgba(255, 26, 117, 0.5);
+
+  opacity: 0;
+
+  animation:
+    introParagraph 1s ease forwards 3s;
+}
+
+
+/* ===============================
+   ENTER BUTTON
+================================ */
+
+#enterWebsite {
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 130px;
+
+  padding:
+    13px 28px;
+
+  border-radius: 15px;
+
+  border:
+    2px solid #ff4d88;
+
+  background:
+    rgba(255, 77, 136, 0.18);
+
+  color: #ff1a75;
+
+  font-family: 'Aboreto', sans-serif;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 10px rgba(255, 77, 136, 0.55),
+    0 0 25px rgba(255, 26, 117, 0.25),
+    inset 0 0 15px rgba(255, 77, 136, 0.12);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  animation:
+    introParagraph 1s ease forwards 3.3s;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* Glass highlight */
+
+#enterWebsite::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 1px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.25),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Hover */
+
+#enterWebsite:hover {
+
+  transform:
+    translateY(-3px)
+    scale(1.03);
+
+  color: white;
+
+  background:
+    rgba(255, 77, 136, 0.45);
+
+  box-shadow:
+    0 0 15px #ff4d88,
+    0 0 35px rgba(255, 26, 117, 0.55),
+    inset 0 0 20px rgba(255,255,255,0.12);
+}
+
+
+/* Click */
+
+#enterWebsite:active {
+
+  transform:
+    scale(0.97);
+
+  box-shadow:
+    0 0 10px #ff4d88;
+}
+
+
+/* ===============================
+   INTRO EXIT
+================================ */
+
+#memoryIntro.exit {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  backdrop-filter: blur(0px);
+
+  -webkit-backdrop-filter: blur(0px);
+}
+
+
+#memoryIntro.exit #introGlass {
+
+  opacity: 0;
+
+  transform:
+    scale(1.08)
+    translateY(-15px);
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+  #introGlass {
+
+    width: 88%;
+
+    padding:
+      40px 22px;
+
+    border-radius: 25px;
+  }
+
+
+  #introText {
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    letter-spacing: 0.6px;
+  }
+
+
+  #introText p {
+
+    margin-bottom: 21px;
+  }
+
+
+  #enterWebsite {
+
+    min-width: 125px;
+
+    padding:
+      12px 24px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+  }
 }
