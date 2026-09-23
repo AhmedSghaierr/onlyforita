@@ -40,6 +40,27 @@ if (isLogin) {
 const isHome = document.querySelector(".homePage");
 
 if (isHome) {
+
+  // ---------- MEMORY INTRO ----------
+
+  const memoryIntro = document.getElementById("memoryIntro");
+  const enterWebsite = document.getElementById("enterWebsite");
+
+  if (memoryIntro && enterWebsite) {
+
+    enterWebsite.addEventListener("click", () => {
+
+      memoryIntro.classList.add("exit");
+
+      // Remove the intro completely after the animation
+      setTimeout(() => {
+        memoryIntro.remove();
+      }, 1500);
+
+    });
+
+  }
+
   // ---------- GM / GN ----------
   const gmgn = document.getElementById("gmgn");
   function updateGMGN(){
